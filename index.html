@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dudhar · Dashboard 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--gold:#c9a84c;--gl:#f0d080;--violet:#9f7aea;--vl:#c4b5fd;--pink:#f472b6;--pd:#e879a0;--bg:#0c0b10;--sf:#141318;--sf2:#1e1c26;--bd:#282530;--tx:#e8e3f4;--mu:#6b6580;--gn:#4ade80;--sk:#38bdf8;--am:#fbbf24;--rd:#f87171;--teal:#2dd4bf}
+html{scroll-behavior:smooth}
+body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--tx);min-height:100vh;padding-bottom:60px}
+.nav{position:sticky;top:0;z-index:100;background:rgba(12,11,16,.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--bd);padding:0 16px}
+.nav-inner{max-width:820px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:52px;gap:8px}
+.nav-brand{font-family:'DM Serif Display',serif;font-size:15px;color:var(--tx);flex-shrink:0}
+.nav-brand em{color:var(--gold);font-style:normal}
+.nm{font-family:'DM Mono',monospace;font-size:9px;color:var(--sk);letter-spacing:.12em;text-transform:uppercase;background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.2);padding:3px 7px;border-radius:5px;margin-left:6px}
+.nav-tabs{display:flex;gap:2px}
+.tab-btn{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:5px 9px;border-radius:7px;border:none;cursor:pointer;background:transparent;color:var(--mu);white-space:nowrap;flex-shrink:0;transition:all .18s}
+.tab-btn.active{background:var(--sf2);color:var(--tx)}
+.tab-btn:hover:not(.active){color:var(--tx)}
+.wrap{max-width:820px;margin:0 auto;padding:20px 16px}
+.panel{display:none}.panel.active{display:block}
+.eyebrow{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--mu);margin-bottom:10px}
+.hero-row{display:flex;align-items:flex-end;gap:14px;margin-bottom:8px;flex-wrap:wrap}
+.big{font-family:'DM Serif Display',serif;line-height:1}
+.big.am{font-size:56px;color:var(--am)}.big.am sup{font-size:22px}
+.big.vl{font-size:44px;color:var(--vl)}
+.big.gn{font-size:56px;color:var(--gn)}.big.gn sup{font-size:22px}
+.hero-sub{padding-bottom:6px}
+.hero-label{font-size:11px;color:var(--mu);letter-spacing:.07em;text-transform:uppercase;font-family:'DM Mono',monospace}
+.badge{display:inline-flex;align-items:center;gap:5px;border-radius:99px;padding:4px 12px;font-size:11px;font-weight:500;margin-top:6px}
+.badge-warn{background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.25);color:var(--am)}
+.badge-ok{background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.22);color:var(--gn)}
+.badge-teal{background:rgba(45,212,191,.1);border:1px solid rgba(45,212,191,.25);color:var(--teal)}
+.badge-sk{background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.25);color:var(--sk)}
+.prog{height:5px;background:var(--bd);border-radius:99px;overflow:hidden;margin:14px 0}
+.pf{height:100%;border-radius:99px}
+.am-f{background:linear-gradient(90deg,var(--am),#fde68a)}
+.vl-f{background:linear-gradient(90deg,var(--violet),var(--vl))}
+.teal-f{background:linear-gradient(90deg,var(--teal),#67e8f9)}
+.gn-f{background:linear-gradient(90deg,var(--gn),#86efac)}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:12px}
+.card{background:var(--sf);border:1px solid var(--bd);border-radius:13px;padding:14px}
+.card.hl-teal{border-color:rgba(45,212,191,.25);background:rgba(45,212,191,.03)}
+.card.hl-gn{border-color:rgba(74,222,128,.2);background:rgba(74,222,128,.02)}
+.card.hl-am{border-color:rgba(251,191,36,.2);background:rgba(251,191,36,.02)}
+.card.hl-sk{border-color:rgba(56,189,248,.2);background:rgba(56,189,248,.02)}
+.cl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--mu);margin-bottom:4px}
+.cv{font-size:18px;font-weight:600;line-height:1}
+.cs{font-size:11px;color:var(--mu);margin-top:3px}
+.c-gold{color:var(--gl)}.c-gn{color:var(--gn)}.c-sk{color:var(--sk)}.c-am{color:var(--am)}.c-vl{color:var(--vl)}.c-teal{color:var(--teal)}
+.st{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--mu);margin:18px 0 8px}
+.wg{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:4px}
+.wc{background:var(--sf);border:1px solid var(--bd);border-radius:12px;padding:13px;cursor:pointer;transition:border-color .18s}
+.wc:hover,.wc.op{border-color:var(--gold);background:var(--sf2)}
+.wc.op-vl:hover,.wc.op-vl.op{border-color:var(--violet);background:var(--sf2)}
+.wc.empty{opacity:.3;cursor:default;pointer-events:none}
+.wc.live{border-color:rgba(251,191,36,.35);background:rgba(251,191,36,.015)}
+.wc.done{border-color:rgba(74,222,128,.25);background:rgba(74,222,128,.01)}
+.wh{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px}
+.wb{width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:10px;font-weight:500}
+.b1{background:rgba(74,222,128,.15);color:var(--gn)}
+.b2{background:rgba(251,191,36,.15);color:var(--am)}
+.b3,.b4,.b5{background:rgba(167,139,250,.1);color:#a78bfa;opacity:.5}
+.be{background:rgba(167,139,250,.06);color:#a78bfa;opacity:.35}
+.wn{font-size:10px;color:var(--mu)}.wbr{font-size:14px;font-weight:600}.wl{font-size:11px;color:var(--mu);margin-top:2px}
+.tags{display:flex;gap:3px;margin-top:7px;flex-wrap:wrap}
+.tg{font-size:9px;font-family:'DM Mono',monospace;padding:2px 5px;border-radius:4px;background:var(--bd);color:var(--mu)}
+.tg.am{background:rgba(251,191,36,.12);color:var(--am)}.tg.gn{background:rgba(74,222,128,.1);color:var(--gn)}
+.upill{font-family:'DM Mono',monospace;font-size:8px;padding:1px 5px;border-radius:3px;margin-left:4px;background:rgba(251,191,36,.15);color:var(--am);vertical-align:middle}
+.wd{background:var(--sf2);border:1px solid var(--gold);border-radius:12px;padding:13px;margin:4px 0 10px;display:none}
+.wd.vl{border-color:var(--violet)}.wd.op{display:block}
+.wdt{font-family:'DM Serif Display',serif;font-size:13px;color:var(--gold);margin-bottom:9px}
+.wdt.vl{color:var(--vl)}
+.dr{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--bd);font-size:12px;color:var(--mu)}
+.dr:last-child{border-bottom:none}.dr strong{color:var(--tx)}
+.dr.hi{background:rgba(251,191,36,.04);margin:0 -3px;padding:6px 3px;border-radius:4px}
+.pl{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.pi-c{background:var(--sf);border:1px solid var(--bd);border-radius:10px;padding:11px}
+.pt{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:5px}
+.pname{font-size:13px;font-weight:500}.pq{font-family:'DM Mono',monospace;font-size:9px;color:var(--mu)}
+.pbr{height:4px;background:var(--bd);border-radius:99px;overflow:hidden;margin-bottom:4px}
+.pb{height:100%;border-radius:99px}
+.pv{display:flex;gap:12px}
+.pvi{font-size:11px;color:var(--mu)}.pvi strong{font-size:12px;color:var(--tx);font-weight:500}
+.nc{background:var(--sf);border:1px solid var(--bd);border-radius:13px;padding:15px;margin-bottom:12px}
+.nh{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px}
+.nl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--mu)}
+.nv{font-family:'DM Serif Display',serif;font-size:26px;color:var(--vl)}
+.nv span{font-size:12px;color:var(--mu);font-family:'DM Sans',sans-serif;margin-left:3px}
+.npg{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.pb2{border-radius:9px;padding:11px;text-align:center}
+.pb2.m{background:rgba(159,122,234,.1);border:1px solid rgba(159,122,234,.25)}
+.pb2.t{background:rgba(244,114,182,.1);border:1px solid rgba(244,114,182,.25)}
+.pn2{font-family:'DM Serif Display',serif;font-size:26px;line-height:1}
+.pn2.m{color:var(--vl)}.pn2.t{color:var(--pink)}
+.plab{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--mu);margin-top:2px}
+.psub{font-size:11px;margin-top:3px}.psub.m{color:var(--violet)}.psub.t{color:var(--pink)}
+.sg{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:13px}
+.sb{background:var(--sf);border:1px solid var(--bd);border-radius:11px;padding:13px}
+.sbt{display:flex;align-items:center;gap:7px;margin-bottom:7px}
+.sbd{width:9px;height:9px;border-radius:50%}.sbd.m{background:var(--violet)}.sbd.t{background:var(--pink)}
+.sbn{font-size:12px;font-weight:500}.sbc{font-size:9px;font-family:'DM Mono',monospace;color:var(--mu);margin-left:auto}
+.sbv{font-size:16px;font-weight:600}.sbl{font-size:11px;color:var(--mu);margin-top:2px}
+.dtb{background:var(--sf);border:1px solid var(--bd);border-radius:11px;overflow:hidden;margin-bottom:13px}
+.dtr{display:flex;align-items:center;justify-content:space-between;padding:8px 13px;border-bottom:1px solid var(--bd);font-size:12px}
+.dtr:last-child{border-bottom:none}
+.dtr.head{background:var(--sf2);font-family:'DM Mono',monospace;font-size:9px;color:var(--mu);text-transform:uppercase;letter-spacing:.1em}
+.dtn{font-weight:500}.dtm{color:var(--mu)}.dtmo{font-family:'DM Mono',monospace;font-size:11px}
+.meta-stack{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.meta-row{background:var(--sf);border:1px solid var(--bd);border-radius:11px;padding:12px 14px}
+.meta-row.confirmed{border-color:rgba(74,222,128,.25);background:rgba(74,222,128,.02)}
+.meta-row.partial{border-color:rgba(251,191,36,.2);background:rgba(251,191,36,.01)}
+.meta-row.gap{border-color:rgba(248,113,113,.15);background:rgba(248,113,113,.02)}
+.mr-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+.mr-label{font-size:12px;font-weight:500}.mr-val{font-size:14px;font-weight:600;font-family:'DM Mono',monospace}
+.mr-bar{height:3px;border-radius:99px;background:var(--bd);overflow:hidden;margin-top:6px}
+.mr-fill{height:100%;border-radius:99px}
+.mr-sub{font-size:10px;color:var(--mu);margin-top:4px}
+.bc{display:flex;flex-direction:column;gap:5px;margin-bottom:13px}
+.bcr{background:var(--sf);border:1px solid var(--bd);border-radius:9px;padding:9px 11px}
+.bcl{display:flex;justify-content:space-between;font-size:11px;margin-bottom:4px}
+.bcn{color:var(--tx);font-weight:500}.bcv{font-family:'DM Mono',monospace;color:var(--mu)}
+.bct{height:4px;background:var(--bd);border-radius:99px;overflow:hidden}
+.bcf{height:100%;border-radius:99px}
+.note{border-radius:9px;padding:10px 13px;font-size:11px;margin-bottom:13px;line-height:1.5}
+.note.sk{background:rgba(56,189,248,.04);border:1px solid rgba(56,189,248,.15);color:var(--sk)}
+.note.am{background:rgba(251,191,36,.04);border:1px solid rgba(251,191,36,.15);color:var(--am)}
+.note.gn{background:rgba(74,222,128,.04);border:1px solid rgba(74,222,128,.15);color:var(--gn)}
+.note strong{display:block;margin-bottom:2px;font-size:12px}
+.pw{background:var(--sf);border:1px solid var(--bd);border-radius:10px;padding:12px 14px;display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.pw-left{display:flex;align-items:center;gap:11px}
+.pw-badge{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:10px;font-weight:600}
+.pw-info{font-size:12px;font-weight:500}.pw-sub{font-size:11px;color:var(--mu);margin-top:2px}
+.pw-val{font-size:15px;font-weight:600;font-family:'DM Mono',monospace;text-align:right}
+.pw-liq{font-size:9px;color:var(--mu);font-family:'DM Mono',monospace;text-align:right;margin-top:2px}
+.foot{font-family:'DM Mono',monospace;font-size:9px;color:var(--mu);text-align:center;margin-top:18px;opacity:.5;line-height:1.8}
+@media(max-width:500px){.big{font-size:36px!important}.cv{font-size:16px}.nav-tabs .tab-btn{font-size:8px;padding:4px 6px}}
+
+/* ─── Month tab bar ─── */
+.month-nav{position:sticky;top:0;z-index:200;background:rgba(12,11,16,.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--bd);padding:0 16px}
+.month-nav-inner{max-width:820px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:50px;gap:8px}
+.month-brand{font-family:'DM Serif Display',serif;font-size:15px;color:var(--tx);flex-shrink:0}
+.month-brand em{color:var(--gold);font-style:normal}
+.month-tabs{display:flex;gap:2px}
+.month-btn{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:5px 10px;border-radius:7px;border:none;cursor:pointer;background:transparent;color:var(--mu);white-space:nowrap;flex-shrink:0;transition:all .18s}
+.month-btn.active{background:var(--gold);color:#0c0b10;font-weight:600}
+.month-btn:hover:not(.active){color:var(--tx)}
+
+/* ─── Inner tab bar (per month) ─── */
+.inner-nav{background:rgba(20,19,24,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--bd);padding:0 16px;position:sticky;top:50px;z-index:150}
+.inner-nav-inner{max-width:820px;margin:0 auto;display:flex;align-items:center;height:42px;gap:2px}
+
+/* ─── Month sections ─── */
+.month-section{display:none}
+.month-section.active{display:block}
+
+@media(max-width:500px){
+  .month-btn{font-size:9px;padding:4px 7px}
+  .inner-nav .tab-btn{font-size:8px;padding:4px 6px}
+}
+</style>
+</head>
+<body>
+<nav class="month-nav">
+  <div class="month-nav-inner">
+    <div class="month-brand">Dudhar <em>·</em> 2026</div>
+    <div class="month-tabs">
+      <button class="month-btn" onclick="switchMonth('jun',this)">Jun 2026</button>
+      <button class="month-btn" onclick="switchMonth('jul',this)">Jul 2026</button>
+      <button class="month-btn" onclick="switchMonth('ago',this)">Ago 2026</button>
+      <button class="month-btn active" onclick="switchMonth('set',this)">Set 2026</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════ JUN 2026 ══════ -->
+<div class="month-section" id="month-jun">
+  <nav class="inner-nav">
+    <div class="inner-nav-inner">
+      <button class="tab-btn active" onclick="switchTab('jun','consultas',this)">Consultas</button>
+      <button class="tab-btn" onclick="switchTab('jun','fania',this)">Fânia Clube</button>
+    </div>
+  </nav>
+  <div class="wrap">
+
+
+<!-- ══════════════ CONSULTAS ══════════════ -->
+<div class="panel active" id="jun-panel-consultas">
+
+  <div style="margin-bottom:20px">
+    <div class="eyebrow">Meta de faturamento · consultas · junho 2026</div>
+    <div class="hero-meta">
+      <div class="big-pct">128,3<sup>%</sup></div>
+      <div class="hero-sub">
+        <div class="hero-label">da meta atingida</div>
+        <div class="badge-ok">✓ META BATIDA — +R$ 6.096,72</div>
+      </div>
+    </div>
+    <div class="prog"><div class="prog-fill prog-gold"></div></div>
+  </div>
+
+  <div class="g2">
+    <div class="card"><div class="cl">Bruto total</div><div class="cv c-gold">R$ 29.242,36</div><div class="cs">38 vendas no mês</div></div>
+    <div class="card"><div class="cl">Líquido total</div><div class="cv c-gn">R$ 27.663,72</div><div class="cs">Meta: R$ 21.567,00</div></div>
+    <div class="card"><div class="cl">Acima da meta</div><div class="cv c-am">R$ 6.096,72</div><div class="cs">+28,3% além do objetivo</div></div>
+    <div class="card"><div class="cl">Produto líder</div><div class="cv c-vl">Rev Solar</div><div class="cs">20 vendas · 52,6%</div></div>
+  </div>
+
+  <div class="st">Por semana — toque para detalhar</div>
+  <div class="wg">
+    <div class="wc" onclick="tw('jun','c',1)">
+      <div class="wh"><div class="wb b1">S1</div><div class="wn">9 vendas</div></div>
+      <div class="wbr">R$ 5.702,20</div><div class="wl">Líq. R$ 5.572,60</div>
+      <div class="tags"><span class="tg">WIX</span></div>
+    </div>
+    <div class="wc" onclick="tw('jun','c',2)">
+      <div class="wh"><div class="wb b2">S2</div><div class="wn">12 vendas</div></div>
+      <div class="wbr">R$ 10.629,40</div><div class="wl">Líq. R$ 10.071,21</div>
+      <div class="tags"><span class="tg">WIX</span><span class="tg">MP</span></div>
+    </div>
+    <div class="wc" onclick="tw('jun','c',3)">
+      <div class="wh"><div class="wb b3">S3</div><div class="wn">10 vendas</div></div>
+      <div class="wbr">R$ 7.454,30</div><div class="wl">Líq. R$ 6.985,85</div>
+      <div class="tags"><span class="tg">MP</span><span class="tg">Stripe</span></div>
+    </div>
+    <div class="wc" onclick="tw('jun','c',4)">
+      <div class="wh"><div class="wb b4">S4</div><div class="wn">6 vendas<span class="upill">+2</span></div></div>
+      <div class="wbr">R$ 4.757,46</div><div class="wl">Líq. R$ 4.408,18</div>
+      <div class="tags"><span class="tg">MP</span><span class="tg">Stripe</span><span class="tg">Pix</span><span class="tg n">2 ontem</span></div>
+    </div>
+  </div>
+  <div class="wc s5c" onclick="tw('jun','c',5)" style="margin-bottom:4px">
+    <div class="wh"><div class="wb b5">S5</div><div class="wn">1 venda<span class="upill" style="background:rgba(244,114,182,.15);color:#f472b6">hoje</span></div></div>
+    <div class="wbr">R$ 699,00</div><div class="wl">Líq. R$ 625,88</div>
+    <div class="tags"><span class="tg hoje">29/jun · 08:42</span></div>
+  </div>
+
+  <div class="wd" id="jun-c1"><div class="wdt">Semana 1 — 01 a 07/jun</div>
+    <div class="dr"><span>Revolução Solar ×4</span><strong>R$ 2.554,00 · Líq R$ 2.458,30</strong></div>
+    <div class="dr"><span>Follow Up ×4</span><strong>R$ 1.800,00 · Líq R$ 1.766,10</strong></div>
+    <div class="dr"><span>Combo ×1</span><strong>R$ 1.348,20 · Líq R$ 1.348,20</strong></div>
+    <div class="dr"><span>Plataforma</span><strong>WIX</strong></div>
+    <div class="dr"><span>Total</span><strong>R$ 5.702,20 bruto · R$ 5.572,60 líq</strong></div>
+  </div>
+  <div class="wd" id="jun-c2"><div class="wdt">Semana 2 — 08 a 14/jun</div>
+    <div class="dr"><span>Mapa Natal ×6</span><strong>R$ 4.656,00 · Líq R$ 4.467,78</strong></div>
+    <div class="dr"><span>Combo ×3</span><strong>R$ 3.876,40 · Líq R$ 3.570,62</strong></div>
+    <div class="dr"><span>Revolução Solar ×3</span><strong>R$ 2.097,00 · Líq R$ 2.032,81</strong></div>
+    <div class="dr"><span>Plataformas</span><strong>WIX + MP</strong></div>
+    <div class="dr"><span>Total</span><strong>R$ 10.629,40 bruto · R$ 10.071,21 líq</strong></div>
+  </div>
+  <div class="wd" id="jun-c3"><div class="wdt">Semana 3 — 15 a 21/jun</div>
+    <div class="dr"><span>Revolução Solar ×8</span><strong>R$ 5.382,00 · Líq R$ 5.006,61</strong></div>
+    <div class="dr"><span>Combo ×1</span><strong>R$ 1.273,30 · Líq R$ 1.216,12</strong></div>
+    <div class="dr"><span>Mapa Natal ×1</span><strong>R$ 799,00 · Líq R$ 763,12</strong></div>
+    <div class="dr"><span>Plataformas</span><strong>MP + Stripe</strong></div>
+    <div class="dr"><span>Total</span><strong>R$ 7.454,30 bruto · R$ 6.985,85 líq</strong></div>
+  </div>
+  <div class="wd" id="jun-c4"><div class="wdt">Semana 4 — 22 a 28/jun</div>
+    <div class="dr"><span>Combo ×1</span><strong>R$ 1.348,20 · Líq R$ 1.170,91</strong></div>
+    <div class="dr"><span>Mapa Natal ×1 (140€ intl.)</span><strong>R$ 823,26 · Líq R$ 773,55</strong></div>
+    <div class="dr"><span>Rev Solar ×1 (Pix, sem taxa)</span><strong>R$ 699,00 · Líq R$ 699,00</strong></div>
+    <div class="dr"><span>Rev Solar ×1 (MP)</span><strong>R$ 629,00 · Líq R$ 600,76</strong></div>
+    <div class="dr hl"><span>↑ Rev Solar ×1 ontem (desc.)</span><strong>R$ 629,00 · Líq R$ 600,76</strong></div>
+    <div class="dr hl"><span>↑ Rev Solar ×1 ontem (desc.)</span><strong>R$ 629,00 · Líq R$ 563,20</strong></div>
+    <div class="dr"><span>Total</span><strong>R$ 4.757,46 bruto · R$ 4.408,18 líq</strong></div>
+  </div>
+  <div class="wd" id="jun-c5"><div class="wdt">Semana 5 — 29 a 30/jun</div>
+    <div class="dr hl"><span>↑ Rev Solar hoje 08:42</span><strong>R$ 699,00 · Líq R$ 625,88</strong></div>
+    <div class="dr"><span>Total</span><strong>R$ 699,00 bruto · R$ 625,88 líq</strong></div>
+  </div>
+
+  <div class="st">Ranking de produtos</div>
+  <div class="pl">
+    <div class="pi">
+      <div class="pt"><div class="pname">Revolução Solar<span class="upill">+3</span></div><div class="pq">20 vendas · 52,6%</div></div>
+      <div class="pbr"><div class="pb" style="width:100%;background:linear-gradient(90deg,#a78bfa,#c084fc)"></div></div>
+      <div class="pv"><div class="pvi">Bruto <strong>R$ 13.318</strong></div><div class="pvi">Líq. <strong>R$ 12.587</strong></div></div>
+    </div>
+    <div class="pi">
+      <div class="pt"><div class="pname">Combo</div><div class="pq">6 vendas · 15,8%</div></div>
+      <div class="pbr"><div class="pb" style="width:59%;background:linear-gradient(90deg,#38bdf8,#0ea5e9)"></div></div>
+      <div class="pv"><div class="pvi">Bruto <strong>R$ 7.846</strong></div><div class="pvi">Líq. <strong>R$ 7.305</strong></div></div>
+    </div>
+    <div class="pi">
+      <div class="pt"><div class="pname">Mapa Natal</div><div class="pq">8 vendas · 21,1%</div></div>
+      <div class="pbr"><div class="pb" style="width:47%;background:linear-gradient(90deg,#4ade80,#22c55e)"></div></div>
+      <div class="pv"><div class="pvi">Bruto <strong>R$ 6.278</strong></div><div class="pvi">Líq. <strong>R$ 6.004</strong></div></div>
+    </div>
+    <div class="pi">
+      <div class="pt"><div class="pname">Follow Up</div><div class="pq">4 vendas · 10,5%</div></div>
+      <div class="pbr"><div class="pb" style="width:14%;background:linear-gradient(90deg,#fb923c,#f97316)"></div></div>
+      <div class="pv"><div class="pvi">Bruto <strong>R$ 1.800</strong></div><div class="pvi">Líq. <strong>R$ 1.766</strong></div></div>
+    </div>
+  </div>
+
+  <div class="foot">
+    Última atualização: 02/jul/2026 · +3 Rev Solar adicionadas manualmente (S4+S5) · 35 → 38 vendas · 120% → 128,3%<br>
+    Histórico de atualizações: +1 Pix S4 (sem taxa) → +2 RS desc. S4 + 1 RS S5 hoje 08:42
+  </div>
+</div>
+
+<!-- ══════════════ FÂNIA CLUBE ══════════════ -->
+<div class="panel" id="jun-panel-fania">
+
+  <div style="margin-bottom:20px">
+    <div class="eyebrow">Receita de assinaturas · fânia clube · junho 2026</div>
+    <div class="hero-meta">
+      <div class="big-num">R$ 8.455</div>
+      <div class="hero-sub">
+        <div class="hero-label">líquido total · 230 transações</div>
+      </div>
+    </div>
+    <div class="prog"><div class="prog-fill prog-vl"></div></div>
+  </div>
+
+  <div class="g2">
+    <div class="card"><div class="cl">Bruto total</div><div class="cv c-vl">R$ 8.947,78</div><div class="cs">230 transações</div></div>
+    <div class="card"><div class="cl">Líquido total</div><div class="cv c-gn">R$ 8.455,68</div><div class="cs">Taxa Stripe: R$ 492,10</div></div>
+    <div class="card"><div class="cl">Novos ativos reais</div><div class="cv c-vl">74</div><div class="cs">de 83 criados em junho</div></div>
+    <div class="card"><div class="cl">Renovações</div><div class="cv c-sk">156</div><div class="cs">S1–S5 acumulado</div></div>
+  </div>
+
+  <div class="st">Funil de novos assinantes — junho</div>
+  <div class="fn-card">
+    <div class="fnr"><div class="fnn" style="color:var(--tx)">83</div><div class="fni"><div class="fnl">Assinaturas criadas em junho</div><div class="fnd">01 a 28/jun · período de aquisição</div></div><div class="fnb bg-sk">total</div></div>
+    <div class="fnr"><div class="fnn" style="color:var(--vl)">−4</div><div class="fni"><div class="fnl">Testes internos</div><div class="fnd">ianaalbuquerque1 · dudhar@faniaclub · holdingclube + 1</div></div><div class="fnb bg-vl">excluir</div></div>
+    <div class="fnr"><div class="fnn" style="color:var(--am)">−3</div><div class="fni"><div class="fnl">Incomplete / expired</div><div class="fnd">tentaram mas pagamento não foi concluído</div></div><div class="fnb bg-am">nunca pagaram</div></div>
+    <div class="fnr"><div class="fnn" style="color:var(--rd)">−2</div><div class="fni"><div class="fnl">Cancelamentos reais</div><div class="fnd">Gabrielly re-assinou ✓ · MARIA E RODRIGUES</div></div><div class="fnb bg-rd">churn</div></div>
+    <div class="fnr"><div class="fnn" style="color:var(--gn)">74</div><div class="fni"><div class="fnl">Novos assinantes reais ativos</div><div class="fnd">confirmados e pagando</div></div><div class="fnb bg-gn">✓ confirmado</div></div>
+  </div>
+
+  <div class="nc">
+    <div class="nh"><div class="nl">Novos reais por plano</div><div class="nv">74 <span>ativos</span></div></div>
+    <div class="npg">
+      <div class="pb2 m"><div class="pn2 m">21</div><div class="plab">Mensal</div><div class="psub m">R$ 20,90 / mês</div></div>
+      <div class="pb2 t"><div class="pn2 t">53</div><div class="plab">Trimestral</div><div class="psub t">R$ 45,00 / 3 meses</div></div>
+    </div>
+  </div>
+
+  <div class="st">Receita por plano — todas as cobranças</div>
+  <div class="sg">
+    <div class="sb">
+      <div class="sbt"><div class="sbd m"></div><div class="sbn">Mensal</div><div class="sbc">S1–S5</div></div>
+      <div class="sbv c-vl">R$ 1.215,25</div><div class="sbl">Líq. R$ 1.121,44</div>
+      <div class="sbb m" style="width:14%"></div>
+    </div>
+    <div class="sb">
+      <div class="sbt"><div class="sbd t"></div><div class="sbn">Trimestral</div><div class="sbc">S1–S5</div></div>
+      <div class="sbv c-pink">R$ 7.732,53</div><div class="sbl">Líq. R$ 7.334,24</div>
+      <div class="sbb t" style="width:100%"></div>
+    </div>
+  </div>
+
+  <div class="st">Por semana — toque para detalhar</div>
+  <div class="wg">
+    <div class="wc op-vl" onclick="tw('jun','f',1)">
+      <div class="wh"><div class="wb b1">S1</div><div class="wn">44 trans</div></div>
+      <div class="wbr">R$ 1.729,69</div><div class="wl">Líq. R$ 1.639,94</div>
+      <div class="tags"><span class="tg novo">10 novos</span><span class="tg">34 ren</span></div>
+    </div>
+    <div class="wc op-vl" onclick="tw('jun','f',2)">
+      <div class="wh"><div class="wb b2">S2</div><div class="wn">48 trans</div></div>
+      <div class="wbr">R$ 1.837,56</div><div class="wl">Líq. R$ 1.728,80</div>
+      <div class="tags"><span class="tg novo">26 novos</span><span class="tg">22 ren</span></div>
+    </div>
+    <div class="wc op-vl" onclick="tw('jun','f',3)">
+      <div class="wh"><div class="wb b3">S3</div><div class="wn">62 trans</div></div>
+      <div class="wbr">R$ 2.360,99</div><div class="wl">Líq. R$ 2.223,68</div>
+      <div class="tags"><span class="tg novo">32 novos</span><span class="tg">30 ren</span></div>
+    </div>
+    <div class="wc op-vl" onclick="tw('jun','f',4)">
+      <div class="wh"><div class="wb b4">S4</div><div class="wn">20 trans</div></div>
+      <div class="wbr">R$ 711,77</div><div class="wl">Líq. R$ 671,42</div>
+      <div class="tags"><span class="tg novo">14 novos</span><span class="tg">6 ren</span></div>
+    </div>
+  </div>
+  <div class="wc s5c op-vl" onclick="tw('jun','f',5)" style="margin-bottom:4px">
+    <div class="wh"><div class="wb b5">S5</div><div class="wn">56 trans<span class="upill" style="background:rgba(74,222,128,.2);color:var(--gn)">novo</span></div></div>
+    <div class="wbr">R$ 2.307,77</div><div class="wl">Líq. R$ 2.191,84</div>
+    <div class="tags"><span class="tg novo">3 novos</span><span class="tg">53 ren</span><span class="tg" style="background:rgba(56,189,248,.1);color:var(--sk)">29/jun–01/jul</span></div>
+  </div>
+
+  <div class="wd vl" id="jun-f1"><div class="wdt vl">Semana 1 — 01 a 07/jun</div>
+    <div class="dr"><span>Transações</span><strong>44</strong></div>
+    <div class="dr"><span>Novos</span><strong>2 mensal + 8 trimestral</strong></div>
+    <div class="dr"><span>Renovações</span><strong>34</strong></div>
+    <div class="dr"><span>Bruto · Líquido</span><strong>R$ 1.729,69 · R$ 1.639,94</strong></div>
+  </div>
+  <div class="wd vl" id="jun-f2"><div class="wdt vl">Semana 2 — 08 a 14/jun</div>
+    <div class="dr"><span>Transações</span><strong>48</strong></div>
+    <div class="dr"><span>Novos</span><strong>6 mensal + 20 trimestral</strong></div>
+    <div class="dr"><span>Renovações</span><strong>22</strong></div>
+    <div class="dr"><span>Bruto · Líquido</span><strong>R$ 1.837,56 · R$ 1.728,80</strong></div>
+  </div>
+  <div class="wd vl" id="jun-f3"><div class="wdt vl">Semana 3 — 15 a 21/jun</div>
+    <div class="dr"><span>Transações</span><strong>62</strong></div>
+    <div class="dr"><span>Novos</span><strong>10 mensal + 22 trimestral</strong></div>
+    <div class="dr"><span>Renovações</span><strong>30</strong></div>
+    <div class="dr"><span>Bruto · Líquido</span><strong>R$ 2.360,99 · R$ 2.223,68</strong></div>
+  </div>
+  <div class="wd vl" id="jun-f4"><div class="wdt vl">Semana 4 — 22 a 28/jun</div>
+    <div class="dr"><span>Transações</span><strong>20</strong></div>
+    <div class="dr"><span>Novos</span><strong>4 mensal + 10 trimestral = 14</strong></div>
+    <div class="dr"><span>Renovações</span><strong>4 mensal + 2 trimestral = 6</strong></div>
+    <div class="dr"><span>Mensal bruto</span><strong>R$ 167,20</strong></div>
+    <div class="dr"><span>Trimestral bruto</span><strong>R$ 544,57</strong></div>
+    <div class="dr"><span>Bruto · Líquido</span><strong>R$ 711,77 · R$ 671,42</strong></div>
+  </div>
+  <div class="wd vl" id="jun-f5"><div class="wdt vl">Semana 5 — 29/jun a 01/jul</div>
+    <div class="dr hl-gn"><span>Novos trimestral</span><strong>3 trans · R$ 135,00</strong></div>
+    <div class="dr hl-gn"><span>Renovações trimestral</span><strong>51 trans · R$ 2.133,06 (incl. ana.abrantes EUR 7,20)</strong></div>
+    <div class="dr hl-gn"><span>Renovações mensal</span><strong>2 trans · R$ 39,71</strong></div>
+    <div class="dr"><span>Bruto · Líquido</span><strong>R$ 2.307,77 · R$ 2.191,84</strong></div>
+    <div class="dr"><span>Obs.</span><strong>50+ cobranças trimestral = vencimento 29–30/jun</strong></div>
+  </div>
+
+  <div class="st">Receita por semana</div>
+  <div class="bc">
+    <div class="bcr"><div class="bcl"><span class="bcn">Semana 3</span><span class="bcv">R$ 2.360,99 · 62 trans</span></div><div class="bct"><div class="bcf" style="width:100%;background:linear-gradient(90deg,#f472b6,#e879a0)"></div></div></div>
+    <div class="bcr"><div class="bcl"><span class="bcn">Semana 5 <span style="color:var(--gn);font-size:10px">↑ novo</span></span><span class="bcv">R$ 2.307,77 · 56 trans</span></div><div class="bct"><div class="bcf" style="width:98%;background:linear-gradient(90deg,#4ade80,#22c55e)"></div></div></div>
+    <div class="bcr"><div class="bcl"><span class="bcn">Semana 2</span><span class="bcv">R$ 1.837,56 · 48 trans</span></div><div class="bct"><div class="bcf" style="width:78%;background:linear-gradient(90deg,#38bdf8,#0ea5e9)"></div></div></div>
+    <div class="bcr"><div class="bcl"><span class="bcn">Semana 1</span><span class="bcv">R$ 1.729,69 · 44 trans</span></div><div class="bct"><div class="bcf" style="width:73%;background:linear-gradient(90deg,#c084fc,#9f7aea)"></div></div></div>
+    <div class="bcr"><div class="bcl"><span class="bcn">Semana 4</span><span class="bcv">R$ 711,77 · 20 trans</span></div><div class="bct"><div class="bcf" style="width:30%;background:linear-gradient(90deg,#fb923c,#f59e0b)"></div></div></div>
+  </div>
+
+  <div class="foot">
+    Planos: BRL 20,90/18,81/40,50/45,00 · EUR 4,00/7,20/8,00 · USD 5,00/10,00<br>
+    Excluídos: R$69,90/R$129/R$300 (Acompanhamento) · EUR 30,00 · USD 65,00 · 4 testes · 3 incompletos<br>
+    74 novos ativos reais: 21 mensal + 53 trimestral · S5 = 29/jun–01/jul · gerado 02/jul/2026
+  </div>
+</div><!-- /month-jun -->
+
+<!-- ══════ JUL 2026 ══════ -->
+<div class="month-section" id="month-jul">
+  <nav class="inner-nav">
+    <div class="inner-nav-inner">
+      <button class="tab-btn active" onclick="switchTab('jul','consultas',this)">Consultas</button>
+      <button class="tab-btn" onclick="switchTab('jul','fania',this)">Fânia Clube</button>
+      <button class="tab-btn" onclick="switchTab('jul','prev',this)">Previsibilidade</button>
+    </div>
+  </nav>
+  <div class="wrap">
+
+
+<!-- ══ CONSULTAS ══ -->
+<div class="panel active" id="jul-panel-consultas">
+  <div class="note sk"><strong>✅ S4 encerrada · 9 consultas · todas plataformas</strong>Pix: Mapa Natal 17/jul + Camila+Aline 22/jul + Julia 27/jul. Stripe: Filipa EUR 108 + Patricia Sinastria EUR 160 + Caroline Mapa Natal R$799. MP: 4 vendas.</div>
+  <div style="margin-bottom:18px">
+    <div class="eyebrow">meta de faturamento · consultas · julho 2026</div>
+    <div class="hero-row">
+      <div class="big gold">115,1<sup>%</sup></div>
+      <div class="hero-sub">
+        <div class="hero-label">da meta atingida · R$ 21.567,00 líq</div>
+        <div class="badge badge-fire">🔥 36 vendas · R$ 24.827,98 líq · S5 com 2 vendas MP</div>
+      </div>
+    </div>
+    <div class="prog"><div class="pf gold-f" style="width:100%"></div></div>
+  </div>
+  <div class="g2">
+    <div class="card hl-gold"><div class="cl">Bruto total</div><div class="cv c-gold">R$ 26.260,49</div><div class="cs">36 vendas · MP + Pix + Stripe</div></div>
+    <div class="card hl-gn"><div class="cl">Líquido total</div><div class="cv c-gn">R$ 24.827,98</div><div class="cs">meta: R$ 21.567,00 ✅</div></div>
+    <div class="card"><div class="cl">Falta (só consultas)</div><div class="cv c-teal">R$ 9.928,27</div><div class="cs">consultas sozinhas > meta 🏆</div></div>
+    <div class="card"><div class="cl">Produto líder</div><div class="cv c-vl">Rev Solar</div><div class="cs">20 vendas · 63,8% bruto</div></div>
+  </div>
+  <div class="st">Por semana — toque para detalhar</div>
+  <div class="wg">
+    <div class="wc done" onclick="tw('jul','c',1)">
+      <div class="wh"><div class="wb b1">S1</div><div class="wn">4 vendas ✓</div></div>
+      <div class="wbr">R$ 2.407,00</div><div class="wl">Líq. R$ 2.196,94</div>
+      <div class="tags"><span class="tg gn">encerrada</span><span class="tg">MP</span></div>
+    </div>
+    <div class="wc done" onclick="tw('jul','c',2)">
+      <div class="wh"><div class="wb b2">S2</div><div class="wn">4 vendas ✓</div></div>
+      <div class="wbr">R$ 2.656,00</div><div class="wl">Líq. R$ 2.617,29</div>
+      <div class="tags"><span class="tg gn">encerrada</span><span class="tg">MP</span></div>
+    </div>
+    <div class="wc done" onclick="tw('jul','c',3)">
+      <div class="wh"><div class="wb b3">S3</div><div class="wn">13 vendas 🔥</div></div>
+      <div class="wbr">R$ 9.545,05</div><div class="wl">Líq. R$ 8.982,94</div>
+      <div class="tags"><span class="tg gn">encerrada</span><span class="tg">MP</span><span class="tg pix">Pix</span><span class="tg eur">Stripe€</span></div>
+    </div>
+    <div class="wc done" onclick="tw('jul','c',4)"><div class="wh"><div class="wb b3">S4</div><div class="wn">13 vendas ✓</div></div><div class="wbr">R$ 10.154,44</div><div class="wl">Líq. R$ 9.647,78</div><div class="tags"><span class="tg gn">4× Pix</span><span class="tg eur">2× Stripe</span><span class="tg">4× MP</span><span class="tg am">22–28/jul</span></div></div>
+  </div>
+  <div class="wd" id="jul-c1">
+    <div class="wdt">Semana 1 — 01 a 07/jul ✓</div>
+    <div class="dr"><span>Rev Solar ×1 (4x CC) · 01/jul</span><strong>R$ 699 → R$ 667,61</strong></div>
+    <div class="dr"><span>Rev Solar desc. ×1 (3x CC) · 03/jul</span><strong>R$ 629 → R$ 563,20</strong></div>
+    <div class="dr"><span>Follow Up ×1 (3x CC) · 05/jul</span><strong>R$ 450 → R$ 402,93</strong></div>
+    <div class="dr"><span>Rev Solar desc. ×1 (3x CC) · 06/jul</span><strong>R$ 629 → R$ 563,20</strong></div>
+    <div class="dr"><span>Total S1</span><strong>R$ 2.407 bruto · R$ 2.196,94 líq</strong></div>
+  </div>
+  <div class="wd" id="jul-c2">
+    <div class="wdt">Semana 2 — 08 a 14/jul ✓</div>
+    <div class="dr"><span>Rev Solar ×1 (ticket) · 10/jul</span><strong>R$ 699 → R$ 695,51</strong></div>
+    <div class="dr"><span>Rev Solar desc. ×1 (4x CC) · 13/jul</span><strong>R$ 629 → R$ 600,76</strong></div>
+    <div class="dr"><span>Rev Solar ×1 (ticket) · 14/jul</span><strong>R$ 699 → R$ 695,51</strong></div>
+    <div class="dr"><span>Rev Solar desc. ×1 (ticket) · 14/jul</span><strong>R$ 629 → R$ 625,51</strong></div>
+    <div class="dr"><span>Total S2</span><strong>R$ 2.656 bruto · R$ 2.617,29 líq</strong></div>
+  </div>
+  <div class="wd" id="jul-c3">
+    <div class="wdt">Semana 3 — 15 a 21/jul ✓ · Semana monstro 🔥</div>
+    <div class="dr hi"><span>Rev Solar desc. ×1 (11x CC) · 15/jul</span><strong>R$ 629 → R$ 600,76</strong></div>
+    <div class="dr hi"><span>Rev Solar desc. ×1 (3x CC) · 15/jul</span><strong>R$ 629 → R$ 563,20</strong></div>
+    <div class="dr hi"><span>Rev Solar desc. ×1 (3x CC) · 15/jul</span><strong>R$ 629 → R$ 563,20</strong></div>
+    <div class="dr hi"><span>Rev Solar ×1 (ticket) · 17/jul</span><strong>R$ 699 → R$ 695,51</strong></div>
+    <div class="dr hi"><span>Rev Solar desc. ×1 (ticket) · 17/jul</span><strong>R$ 629 → R$ 625,51</strong></div>
+    <div class="dr hi"><span>Rev Solar desc. ×1 (4x CC) · 17/jul</span><strong>R$ 629 → R$ 600,76</strong></div>
+    <div class="dr hi-pix"><span>🟢 Amanda Moraes · Mapa Natal (Pix sem taxa) · 19/jul</span><strong>R$ 799 → R$ 799,00</strong></div>
+    <div class="dr hi"><span>Mapa Natal ×1 (3x CC) · 19/jul</span><strong>R$ 799 → R$ 715,42</strong></div>
+    <div class="dr hi"><span>Rev Solar desc. ×1 (11x CC) · 19/jul</span><strong>R$ 629 → R$ 600,76</strong></div>
+    <div class="dr hi"><span>Combo ×1 (9x CC) · 20/jul</span><strong>R$ 1.348 → R$ 1.287,67</strong></div>
+    <div class="dr hi"><span>Mapa Natal ×1 (3x CC) · 20/jul</span><strong>R$ 799 → R$ 715,42</strong></div>
+    <div class="dr hi"><span>Rev Solar ×1 (3x CC) · 20/jul</span><strong>R$ 699 → R$ 625,88</strong></div>
+    <div class="dr hi-eur"><span>🌍 Filipa · Rev Solar desc. ×1 (Stripe EUR) · 20/jul</span><strong>€108 → R$ 627,85 / líq R$ 589,85</strong></div>
+    <div class="dr"><span>Total S3 — 13 vendas</span><strong>R$ 9.545,05 bruto · R$ 8.982,94 líq</strong></div>
+  </div>
+  <div class="wd" id="jul-c4">
+    <div class="wdt">Semana 4 — 22 a 28/jul · em andamento</div>
+    <div class="dr hi-pix"><span>🟢 Camila · Follow Up (Pix sem taxa) · 22/jul</span><strong>R$ 450 → R$ 450,00</strong></div>
+    <div class="dr hi-pix"><span>🟢 Aline Lucena · Rev Solar (Pix sem taxa) · 22/jul</span><strong>R$ 699 → R$ 699,00</strong></div>
+    <div class="dr hi-eur"><span>🌍 Sinastria ×1 (Stripe) · 22/jul</span><strong>R$ 924,44 → R$ 868,67</strong></div>
+    <div class="dr hi"><span>Rev Solar desc. ×1 (1x CC) · 23/jul</span><strong>R$ 629 → R$ 600,76</strong></div>
+    <div class="dr hi"><span>Follow Up ×1 (3x CC) · 27/jul</span><strong>R$ 450 → R$ 402,93</strong></div>
+    <div class="dr hi-pix"><span>🟢 Julia · Rev Solar desc. (Pix sem taxa) · 27/jul</span><strong>R$ 629 → R$ 629,00</strong></div>
+    <div class="dr hi"><span>Rev Solar desc. ×1 (3x CC) · 27/jul</span><strong>R$ 629 → R$ 563,20</strong></div>
+    <div class="dr hi"><span>Combo ×1 (5x CC) · 28/jul</span><strong>R$ 1.348 → R$ 1.170,91</strong></div>
+    <div class="dr hi-eur"><span>🌍 Caroline Kuhn · Mapa Natal (Stripe) · 28/jul</span><strong>R$ 799 → R$ 766,73</strong></div>
+    <div class="dr hi-pix"><span>🟢 Acompanhamento Astrológico (Pix sem taxa) · 28/jul</span><strong>R$ 1.200 → R$ 1.200,00</strong></div>
+    <div class="dr hi"><span>Mapa Natal ×1 · 28/jul</span><strong>R$ 799 → R$ 763,12</strong></div>
+    <div class="dr hi-eur"><span>🌍 Mapa Astrocartográfico ×1 (Stripe) · 28/jul</span><strong>R$ 799 → R$ 766,73</strong></div>
+    <div class="dr hi-eur"><span>🌍 Mapa Natal ×1 (Stripe) · 28/jul</span><strong>R$ 799 → R$ 766,73</strong></div>
+    <div class="dr"><span>Total S4 — 13 vendas</span><strong>R$ 10.154,44 bruto · R$ 9.647,78 líq</strong></div>
+  </div>
+  <div class="st">Ranking de produtos</div>
+  <div class="pl">
+    <div class="pi-c">
+      <div class="pt"><div class="pname">Revolução Solar <span style="font-size:10px;color:var(--mu);font-family:'DM Mono',monospace">full ×7 + desc. ×14</span></div><div class="pq">21 vendas · 64,1% bruto</div></div>
+      <div class="pbr"><div class="pb" style="width:100%;background:linear-gradient(90deg,#a78bfa,#c084fc)"></div></div>
+      <div class="pv"><div class="pvi">Bruto <strong>R$ 13.697,85</strong></div><div class="pvi">Líq. <strong>R$ 13.036,30</strong></div></div>
+    </div>
+    <div class="pi-c">
+      <div class="pt"><div class="pname">Mapa Natal</div><div class="pq">7 vendas · 18,2% bruto</div></div>
+      <div class="pbr"><div class="pb" style="width:23%;background:linear-gradient(90deg,#4ade80,#22c55e)"></div></div>
+      <div class="pv"><div class="pvi">Bruto <strong>R$ 5.593,00</strong></div><div class="pvi">Líq. <strong>R$ 5.241,84</strong></div></div>
+    </div>
+    <div class="pi-c">
+      <div class="pt"><div class="pname">Combo</div><div class="pq">2 vendas · 13,2% bruto</div></div>
+      <div class="pbr"><div class="pb" style="width:13%;background:linear-gradient(90deg,#38bdf8,#0ea5e9)"></div></div>
+      <div class="pv"><div class="pvi">Bruto <strong>R$ 2.696,20</strong></div><div class="pvi">Líq. <strong>R$ 2.458,58</strong></div></div>
+    </div>
+    <div class="pi-c">
+      <div class="pt"><div class="pname">Sinastria</div><div class="pq">1 venda · 5,5% bruto</div></div>
+      <div class="pbr"><div class="pb" style="width:8%;background:linear-gradient(90deg,#f472b6,#e879a0)"></div></div>
+      <div class="pv"><div class="pvi">Bruto <strong>R$ 924,44</strong></div><div class="pvi">Líq. <strong>R$ 868,67</strong></div></div>
+    </div>
+    <div class="pi-c">
+      <div class="pt"><div class="pname">Mapa Astrocartográfico</div><div class="pq">1 venda · 3,3% bruto</div></div>
+      <div class="pbr"><div class="pb" style="width:7%;background:linear-gradient(90deg,#2dd4bf,#0891b2)"></div></div>
+      <div class="pv"><div class="pvi">Bruto <strong>R$ 799,00</strong></div><div class="pvi">Líq. <strong>R$ 766,73</strong></div></div>
+    </div>
+    <div class="pi-c">
+      <div class="pt"><div class="pname">Acompanhamento Astrol.</div><div class="pq">1 venda · 5,4% bruto</div></div>
+      <div class="pbr"><div class="pb" style="width:9%;background:linear-gradient(90deg,#2dd4bf,#06b6d4)"></div></div>
+      <div class="pv"><div class="pvi">Bruto <strong>R$ 1.200,00</strong></div><div class="pvi">Líq. <strong>R$ 1.200,00</strong></div></div>
+    </div>
+    <div class="pi-c">
+      <div class="pt"><div class="pname">Follow Up</div><div class="pq">3 vendas · 7,6% bruto</div></div>
+      <div class="pbr"><div class="pb" style="width:4%;background:linear-gradient(90deg,#fb923c,#f97316)"></div></div>
+      <div class="pv"><div class="pvi">Bruto <strong>R$ 1.350,00</strong></div><div class="pvi">Líq. <strong>R$ 1.255,86</strong></div></div>
+    </div>
+  </div>
+  <div class="bc">
+    <div class="bcr"><div class="bcl"><span class="bcn">S3 🔥 encerrada</span><span class="bcv">R$ 9.545 · 13 vendas · 7 dias</span></div><div class="bct"><div class="bcf" style="width:100%;background:linear-gradient(90deg,#c9a84c,#f0d080)"></div></div></div>
+    <div class="bcr"><div class="bcl"><span class="bcn">S4 ✓ 🔥</span><span class="bcv">R$ 10.154 · 13 vendas · melhor semana do mês</span></div><div class="bct"><div class="bcf" style="width:100%;background:linear-gradient(90deg,#4ade80,#22c55e)"></div></div></div>
+    <div class="bcr"><div class="bcl"><span class="bcn">S5 ✓</span><span class="bcv">R$ 1.498 · 2 vendas · MP</span></div><div class="bct"><div class="bcf" style="width:15%;background:linear-gradient(90deg,#f472b6,#e879a0)"></div></div></div>
+    <div class="bcr"><div class="bcl"><span class="bcn">S2 ✓</span><span class="bcv">R$ 2.656 · 4 vendas</span></div><div class="bct"><div class="bcf" style="width:28%;background:linear-gradient(90deg,#4ade80,#22c55e)"></div></div></div>
+    <div class="bcr"><div class="bcl"><span class="bcn">S1 ✓</span><span class="bcv">R$ 2.407 · 4 vendas</span></div><div class="bct"><div class="bcf" style="width:25%;background:linear-gradient(90deg,#4ade80,#22c55e)"></div></div></div>
+  </div>
+  <div class="foot">Meta jul: R$21.567 líq · 32 vendas · MP+Pix+Stripe · Pix: Mapa Natal 17/jul + Camila+Aline 22/jul + Julia 27/jul + Acomp. 28/jul · Stripe: Filipa+Patricia+Caroline · +Mapa Natal 28/jul · 28/jul/2026</div>
+</div>
+
+<!-- ══ FÂNIA ══ -->
+<div class="panel" id="jul-panel-fania">
+  <div class="note am"><strong>⚠ EUR 8,10 excluído — verificar</strong>m.fernandes@jfa-ae.pro · Subscription update · 20/jul · R$47,09. Difere R$0,10 do padrão EUR 8,00 trimestral. É Fânia Clube? Se sim, some +R$43,88 líq.</div>
+  <div style="margin-bottom:18px">
+    <div class="eyebrow">receita de assinaturas · fânia clube · julho 2026</div>
+    <div class="hero-row">
+      <div class="big vl">R$ 9.065</div>
+      <div class="hero-sub">
+        <div class="hero-label">líquido · 253 transações · 01–31/jul</div>
+        <div class="badge badge-teal">✓ julho encerrado · 31/jul</div>
+      </div>
+    </div>
+    <div class="prog"><div class="pf vl-f" style="width:100%"></div></div>
+  </div>
+  <div class="g2">
+    <div class="card"><div class="cl">Bruto total</div><div class="cv c-vl">R$ 9.608,23</div><div class="cs">253 transações</div></div>
+    <div class="card"><div class="cl">Líquido total</div><div class="cv c-gn">R$ 9.065,42</div><div class="cs">Taxa Stripe: R$ 542,81</div></div>
+    <div class="card"><div class="cl">Novos assinantes</div><div class="cv c-vl">96</div><div class="cs">27 mensal · 69 trimestral</div></div>
+    <div class="card"><div class="cl">Renovações</div><div class="cv c-sk">157</div><div class="cs">S1–S5 · julho encerrado</div></div>
+  </div>
+  <div class="nc">
+    <div class="nh"><div class="nl">Novos por plano</div><div class="nv">96<span>novos</span></div></div>
+    <div class="npg">
+      <div class="pb2 m"><div class="pn2 m">27</div><div class="plab">Mensal</div><div class="psub m">R$ 20,90 / mês</div></div>
+      <div class="pb2 t"><div class="pn2 t">69</div><div class="plab">Trimestral</div><div class="psub t">R$ 45,00 / 3 meses</div></div>
+    </div>
+  </div>
+  <div class="st">Receita por plano</div>
+  <div class="sg">
+    <div class="sb">
+      <div class="sbt"><div class="sbd m"></div><div class="sbn">Mensal</div><div class="sbc">69 trans</div></div>
+      <div class="sbv c-vl">R$ 1.454,96</div><div class="sbl">Líq. R$ 1.338,41</div>
+      <div class="sbb m" style="width:14%"></div>
+    </div>
+    <div class="sb">
+      <div class="sbt"><div class="sbd t"></div><div class="sbn">Trimestral</div><div class="sbc">183 trans</div></div>
+      <div class="sbv c-pink">R$ 8.153,27</div><div class="sbl">Líq. R$ 7.727,01</div>
+      <div class="sbb t" style="width:100%"></div>
+    </div>
+  </div>
+  <div class="st">Detalhamento plano × status</div>
+  <div class="dtb">
+    <div class="dtr head"><span>Plano</span><span>Status</span><span>Trans.</span><span>Bruto</span><span>Líquido</span></div>
+    <div class="dtr"><span class="dtn">Trimestral</span><span class="dtm">Renovação</span><span class="dtmo">115</span><span class="dtmo">R$ 5.053,90</span><span class="dtmo c-gn">R$ 4.792,99</span></div>
+    <div class="dtr"><span class="dtn">Trimestral</span><span class="dtm c-gn">Novo</span><span class="dtmo">69</span><span class="dtmo">R$ 3.099,37</span><span class="dtmo c-gn">R$ 2.934,02</span></div>
+    <div class="dtr"><span class="dtn">Mensal</span><span class="dtm">Renovação</span><span class="dtmo">42</span><span class="dtmo">R$ 883,00</span><span class="dtmo c-gn">R$ 821,18</span></div>
+    <div class="dtr"><span class="dtn">Mensal</span><span class="dtm c-gn">Novo</span><span class="dtmo">27</span><span class="dtmo">R$ 571,96</span><span class="dtmo c-gn">R$ 517,23</span></div>
+  </div>
+  <div class="st">Por semana — toque para detalhar</div>
+  <div class="wg">
+    <div class="wc done" onclick="tw('jul','f',1)">
+      <div class="wh"><div class="wb b1">S1</div><div class="wn">52 trans ✓</div></div>
+      <div class="wbr">R$ 1.981,45</div><div class="wl">Líq. R$ 1.867,02</div>
+      <div class="tags"><span class="tg gn">16 novos</span><span class="tg">36 ren</span></div>
+    </div>
+    <div class="wc done" onclick="tw('jul','f',2)">
+      <div class="wh"><div class="wb b2">S2</div><div class="wn">70 trans ✓</div></div>
+      <div class="wbr">R$ 2.719,67</div><div class="wl">Líq. R$ 2.568,69</div>
+      <div class="tags"><span class="tg gn">20 novos</span><span class="tg">50 ren</span></div>
+    </div>
+    <div class="wc done" onclick="tw('jul','f',3)">
+      <div class="wh"><div class="wb b3">S3</div><div class="wn">57 trans ✓</div></div>
+      <div class="wbr">R$ 2.183,16</div><div class="wl">Líq. R$ 2.061,93</div>
+      <div class="tags"><span class="tg gn">20 novos</span><span class="tg">37 ren</span></div>
+    </div>
+    <div class="wc done" onclick="tw('jul','f',4)"><div class="wh"><div class="wb b3">S4</div><div class="wn">13 vendas ✓</div></div><div class="wbr">R$ 10.154,44</div><div class="wl">Líq. R$ 9.647,78</div><div class="tags"><span class="tg gn">4× Pix</span><span class="tg eur">2× Stripe</span><span class="tg">4× MP</span><span class="tg am">22–28/jul</span></div></div>
+  </div>
+  <div class="wd vl" id="jul-f1">
+    <div class="wdt vl">Semana 1 — 01 a 07/jul ✓</div>
+    <div class="dr"><span>Trans · Novos · Renov.</span><strong>52 · 16 (4M+12T) · 36</strong></div>
+    <div class="dr"><span>Mensal · Trimestral bruto</span><strong>R$ 248,71 · R$ 1.732,74</strong></div>
+    <div class="dr"><span>Bruto · Líquido</span><strong>R$ 1.981,45 · R$ 1.867,02</strong></div>
+  </div>
+  <div class="wd vl" id="jul-f2">
+    <div class="wdt vl">Semana 2 — 08 a 14/jul ✓</div>
+    <div class="dr"><span>Trans · Novos · Renov.</span><strong>70 · 20 (5M+15T) · 50</strong></div>
+    <div class="dr"><span>Mensal · Trimestral bruto</span><strong>R$ 362,42 · R$ 2.357,25</strong></div>
+    <div class="dr"><span>Bruto · Líquido</span><strong>R$ 2.719,67 · R$ 2.568,69</strong></div>
+  </div>
+  <div class="wd vl" id="jul-f3">
+    <div class="wdt vl">Semana 3 — 15 a 21/jul ✓</div>
+    <div class="dr"><span>Trans · Novos · Renov.</span><strong>57 · 20 (5M+15T) · 37</strong></div>
+    <div class="dr"><span>Mensal · Trimestral bruto</span><strong>R$ 336,66 · R$ 1.846,50</strong></div>
+    <div class="dr"><span>Bruto · Líquido</span><strong>R$ 2.183,16 · R$ 2.061,93</strong></div>
+  </div>
+  <div class="wd vl" id="jul-f4">
+    <div class="wdt vl">Semana 4 — 22 a 28/jul ✓</div>
+    <div class="dr"><span>Trans · Novos · Renov.</span><strong>53 · 28 (8M+20T) · 25</strong></div>
+    <div class="dr"><span>Mensal · Trimestral bruto</span><strong>R$ 376,20 · R$ 1.579,38</strong></div>
+    <div class="dr"><span>Bruto · Líquido</span><strong>R$ 1.955,58 · R$ 1.845,72</strong></div>
+  </div>
+  <div class="bc">
+    <div class="bcr"><div class="bcl"><span class="bcn">S2 ✓</span><span class="bcv">R$ 2.719,67 · 70 trans · 20 novos</span></div><div class="bct"><div class="bcf" style="width:100%;background:linear-gradient(90deg,#38bdf8,#0ea5e9)"></div></div></div>
+    <div class="bcr"><div class="bcl"><span class="bcn">S3 ✓</span><span class="bcv">R$ 2.183,16 · 57 trans · 20 novos</span></div><div class="bct"><div class="bcf" style="width:80%;background:linear-gradient(90deg,#c9a84c,#f0d080)"></div></div></div>
+    <div class="bcr"><div class="bcl"><span class="bcn">S4 ✓</span><span class="bcv">R$ 1.955,58 · 53 trans · 28 novos</span></div><div class="bct"><div class="bcf" style="width:72%;background:linear-gradient(90deg,#4ade80,#22c55e)"></div></div></div>
+    <div class="bcr"><div class="bcl"><span class="bcn">S5 ✓</span><span class="bcv">R$ 723,37 · 20 trans · 11 novos</span></div><div class="bct"><div class="bcf" style="width:27%;background:linear-gradient(90deg,#f472b6,#e879a0)"></div></div></div>
+    <div class="bcr"><div class="bcl"><span class="bcn">S1 ✓</span><span class="bcv">R$ 1.981,45 · 52 trans · 16 novos</span></div><div class="bct"><div class="bcf" style="width:73%;background:linear-gradient(90deg,#c084fc,#9f7aea)"></div></div></div>
+  </div>
+  <div class="foot">Fânia jul/2026 · BRL 20,90/45,00+var. · EUR 4,00/7,20/8,00 · USD 5,00/10,00 · Filipa+Patricia+Caroline+fabianag48 excluídas (consultas) · EUR 30+USD 65 excluídos (Acomp.) · 31/jul/2026</div>
+</div>
+
+<!-- ══ PREVISIBILIDADE ══ -->
+<div class="panel" id="jul-panel-prev">
+  <div style="margin-bottom:18px">
+    <div class="eyebrow">previsibilidade de receita · julho 2026 · 599 assinaturas ativas</div>
+    <div class="hero-row">
+      <div class="big gn">157.2<sup>%</sup></div>
+      <div class="hero-sub">
+        <div class="hero-label">meta batida no caixa · 127% · S4 encerrada</div>
+        <div class="badge badge-fire">🏆 R$ 31.708 no caixa · 147.0% · S5 é puro bônus</div>
+      </div>
+    </div>
+    <div class="prog"><div class="pf gn-f" style="width:100%"></div></div>
+  </div>
+  <div class="note gn">
+    <strong>🏆 A meta de julho está matematicamente garantida</strong>
+    R$31.708 no caixa — R$10.141 acima da meta. 34 consultas em julho, S4 com 13 vendas. S5 é puro bônus.
+  </div>
+  <div class="subs-grid">
+    <div class="sub-card"><div class="sub-num" style="color:var(--vl)">599</div><div class="sub-label">Base ativa</div><div class="sub-sub">+94 novos em jul</div></div>
+    <div class="sub-card"><div class="sub-num" style="color:var(--violet)">54</div><div class="sub-label">Mensal</div><div class="sub-sub">R$ 20,90 / mês</div></div>
+    <div class="sub-card"><div class="sub-num" style="color:var(--pink)">545</div><div class="sub-label">Trimestral</div><div class="sub-sub">R$ 45,00 / 3 meses</div></div>
+  </div>
+  <div class="st">Composição da receita de julho</div>
+  <div class="meta-stack">
+    <div class="meta-row confirmed">
+      <div class="mr-top"><div class="mr-label" style="color:var(--gn)">✓ Fânia recebido (01–21/jul · S3 encerrada)</div><div class="mr-val" style="color:var(--gn)">R$ 6.678,56</div></div>
+      <div class="mr-bar"><div class="mr-fill" style="width:31%;background:var(--gn)"></div></div>
+      <div class="mr-sub">185 trans · 59 novos em julho · S1–S3 completas + S4 em andamento</div>
+    </div>
+    <div class="meta-row scheduled">
+      <div class="mr-top"><div class="mr-label" style="color:var(--gn)">✓ Fânia S5 recebido (29–30/jul)</div><div class="mr-val" style="color:var(--gn)">R$ 657,61</div></div>
+      <div class="mr-bar"><div class="mr-fill" style="width:3%;background:var(--gn)"></div></div>
+      <div class="mr-sub">19 trans · 10 novos · 31/jul pode ter mais cobranças</div>
+    </div>
+    <div class="meta-row confirmed">
+      <div class="mr-top"><div class="mr-label" style="color:var(--gn)">✓ Consultas recebidas (MP + Pix + Filipa)</div><div class="mr-val" style="color:var(--gn)">R$ 24.827,98</div></div>
+      <div class="mr-bar"><div class="mr-fill" style="width:100%;background:var(--gold)"></div></div>
+      <div class="mr-sub">36 vendas · 21 Rev Solar + 7 Mapa Natal + 1 Astrocart. + 1 Sinastria + 2 Combo + 3 Follow Up + 1 Acomp.</div>
+    </div>
+    <div class="meta-row batida">
+      <div class="mr-top"><div class="mr-label" style="color:var(--gold)">🏆 Total projetado vs meta</div><div class="mr-val" style="color:var(--gold)">R$ 33.893 no caixa / R$ 21.567 meta</div></div>
+      <div class="mr-bar"><div class="mr-fill" style="width:100%;background:linear-gradient(90deg,var(--gold),var(--gl))"></div></div>
+      <div class="mr-sub">+R$ 10.141 acima da meta NO CAIXA · S5 leva para ≈ R$ 32.105 (148.9%)</div>
+    </div>
+  </div>
+  <div class="g2">
+    <div class="card hl-gn"><div class="cl">Total no caixa hoje</div><div class="cv c-gn">R$ 31,708.27</div><div class="cs">147.0% · META BATIDA ✅</div></div>
+    <div class="card hl-gold"><div class="cl">Total projetado mínimo</div><div class="cv c-gold">≈ R$ 32.105</div><div class="cs">148.9% projetado com S5</div></div>
+    <div class="card hl-teal"><div class="cl">Consultas adicionais</div><div class="cv c-gn">+ R$ 12.326</div><div class="cs">acima da meta · fechamento</div></div>
+    <div class="card hl-gn"><div class="cl">% meta garantida</div><div class="cv c-gn">157.2%</div><div class="cs">fechamento de julho</div></div>
+  </div>
+  <div class="st">Cobranças Fânia por semana</div>
+  <div class="prev-weeks">
+    <div class="pw done">
+      <div class="pw-left"><div class="pw-badge b1">S1</div><div><div class="pw-info" style="color:var(--gn)">01–07/jul ✓</div><div class="pw-sub">52 trans · 16 novos</div></div></div>
+      <div class="pw-right"><div class="pw-val" style="color:var(--gn)">R$ 1.867,02</div><div class="pw-liq">líquido real</div></div>
+    </div>
+    <div class="pw done">
+      <div class="pw-left"><div class="pw-badge b2">S2</div><div><div class="pw-info" style="color:var(--gn)">08–14/jul ✓</div><div class="pw-sub">70 trans · 20 novos</div></div></div>
+      <div class="pw-right"><div class="pw-val" style="color:var(--gn)">R$ 2.568,69</div><div class="pw-liq">líquido real</div></div>
+    </div>
+    <div class="pw done">
+      <div class="pw-left"><div class="pw-badge b3">S3</div><div><div class="pw-info" style="color:var(--gn)">15–21/jul ✓</div><div class="pw-sub">52 trans · 18 novos</div></div></div>
+      <div class="pw-right"><div class="pw-val" style="color:var(--gn)">R$ 1.889,53</div><div class="pw-liq">líquido real</div></div>
+    </div>
+    <div class="pw done">
+      <div class="pw-left"><div class="pw-badge b3">S4</div><div><div class="pw-info" style="color:var(--gn)">22–28/jul ✓</div><div class="pw-sub">51 trans · 27 novos</div></div></div>
+      <div class="pw-right"><div class="pw-val" style="color:var(--gn)">R$ 1.765,68</div><div class="pw-liq">líquido real</div></div>
+    </div>
+    <div class="pw done">
+      <div class="pw-left"><div class="pw-badge b5">S5</div><div><div class="pw-info" style="color:var(--gn)">29–31/jul ✓ encerrada</div><div class="pw-sub">20 trans · 11 novos</div></div></div>
+      <div class="pw-right"><div class="pw-val" style="color:var(--gn)">R$ 679,25</div><div class="pw-liq">líquido real</div></div>
+    </div>
+  </div>
+  <div class="foot">
+    Base: 599 assinaturas ativas · 54 mensal + 545 trimestral · 54 novos em julho<br>
+    40 cobranças agendadas 22–31/jul · est. líq R$1.448 · Meta R$21.567 batida ✅<br>
+    Caixa atual R$31.708,27 (147,0%) · META BATIDA ✅ · Projetado ≈ R$32.105 (148,9%) com S5 · 28/jul/2026
+  </div>
+</div><!-- /month-jul -->
+
+<!-- ══════ AGO 2026 ══════ -->
+<div class="month-section" id="month-ago">
+  <nav class="inner-nav">
+    <div class="inner-nav-inner">
+      <button class="tab-btn active" onclick="switchTab('ago','consultas',this)">Consultas</button>
+      <button class="tab-btn" onclick="switchTab('ago','fania',this)">Fânia Clube</button>
+      <button class="tab-btn" onclick="switchTab('ago','prev',this)">Previsibilidade</button>
+    </div>
+  </nav>
+  <div class="wrap">
+
+
+<!-- ══ CONSULTAS ══ -->
+<div class="panel active" id="ago-panel-consultas">
+  <div class="note sk"><strong>✅ AGOSTO ENCERRADO DEFINITIVO · 37 entradas</strong>+2 Pix retroativos: Rafaela B. R$615 (12/ago) + Luciane Ribeiro R$629 (25/ago).</div>
+  <div style="margin-bottom:18px">
+    <div class="eyebrow">meta de faturamento · consultas · agosto 2026</div>
+    <div class="hero-row">
+      <div class="big gn">110,7<sup>%</sup></div>
+      <div class="hero-sub">
+        <div class="hero-label">da meta · R$ 21.567,00 líq</div>
+        <div class="badge badge-ok">🏆 37 entradas · R$ 23.877,23 líq · AGOSTO FECHADO</div>
+      </div>
+    </div>
+    <div class="prog"><div class="pf gn-f" style="width:100%"></div></div>
+  </div>
+  <div class="g2">
+    <div class="card"><div class="cl">Bruto total</div><div class="cv c-gold">R$ 25.926,64</div><div class="cs">37 entradas · MP + Pix + Stripe</div></div>
+    <div class="card"><div class="cl">Líquido total</div><div class="cv c-gn">R$ 23.877,23</div><div class="cs">meta: R$ 21.567,00 ✅</div></div>
+    <div class="card"><div class="cl">Falta (consultas)</div><div class="cv c-teal">R$ 2.310,23</div><div class="cs">acima da meta só em consultas!</div></div>
+    <div class="card"><div class="cl">Produto líder</div><div class="cv c-vl">Rev Solar</div><div class="cs">25 vendas · 68% bruto</div></div>
+  </div>
+  <div class="st">Por semana — toque para detalhar</div>
+  <div class="wg">
+    <div class="wc done" onclick="tw('ago','c',1)">
+      <div class="wh"><div class="wb b1">S1</div><div class="wn">11 vendas ✓</div></div>
+      <div class="wbr">R$ 8.008,40</div><div class="wl">Líq. R$ 7.335,84</div>
+      <div class="tags"><span class="tg gn">01–07/ago</span><span class="tg">MP</span></div>
+    </div>
+    <div class="wc done" onclick="tw('ago','c',2)">
+      <div class="wh"><div class="wb b2">S2</div><div class="wn">8 entradas ✓</div></div>
+      <div class="wbr">R$ 5.080,00</div><div class="wl">Líq. R$ 4.828,87</div>
+      <div class="tags"><span class="tg gn">2× Pix</span><span class="tg">6× MP</span><span class="tg">08–14/ago</span></div>
+    </div>
+    <div class="wc done" onclick="tw('ago','c',3)">
+      <div class="wh"><div class="wb b3">S3</div><div class="wn">10 vendas ✓</div></div>
+      <div class="wbr">R$ 6.658,20</div><div class="wl">Líq. R$ 6.061,01</div>
+      <div class="tags"><span class="tg gn">15–21/ago</span><span class="tg">MP</span></div>
+    </div>
+    <div class="wc done" onclick="tw('ago','c',4)">
+      <div class="wh"><div class="wb b4">S4</div><div class="wn">5 vendas ✓</div></div>
+      <div class="wbr">R$ 4.104,20</div><div class="wl">Líq. R$ 3.638,61</div>
+      <div class="tags"><span class="tg gn">22–28/ago</span><span class="tg">MP</span></div>
+    </div>
+  </div>
+  <div class="wd" id="ago-c1">
+    <div class="wdt">Semana 1 — 01 a 07/ago ✓</div>
+    <div class="dr"><span>Rev Solar ×1 (3x CC) · 01/ago</span><strong>R$ 699 → R$ 625,88</strong></div>
+    <div class="dr"><span>Rev Solar ×1 (ticket 1x) · 02/ago</span><strong>R$ 699 → R$ 695,51</strong></div>
+    <div class="dr"><span>Rev Solar ×1 (3x CC) · 03/ago</span><strong>R$ 699 → R$ 625,88</strong></div>
+    <div class="dr"><span>Combo ×1 (4x CC) · 03/ago</span><strong>R$ 1.348 → R$ 1.188,84</strong></div>
+    <div class="dr"><span>Rev Solar ×1 (3x CC) · 03/ago</span><strong>R$ 699 → R$ 625,88</strong></div>
+    <div class="dr"><span>Rev Solar ×1 (3x CC) · 04/ago</span><strong>R$ 699 → R$ 625,88</strong></div>
+    <div class="dr"><span>Rev Solar desc. ×1 (12x CC) · 04/ago</span><strong>R$ 629 → R$ 600,76</strong></div>
+    <div class="dr"><span>Rev Solar desc. ×1 (3x CC) · 05/ago</span><strong>R$ 629 → R$ 563,20</strong></div>
+    <div class="dr"><span>Rev Solar desc. ×1 (1x CC) · 05/ago</span><strong>R$ 649 → R$ 620,05</strong></div>
+    <div class="dr"><span>Rev Solar desc. ×1 (3x CC) · 06/ago</span><strong>R$ 629 → R$ 563,20</strong></div>
+    <div class="dr"><span>Rev Solar desc. ×1 (6x CC) · 07/ago</span><strong>R$ 629 → R$ 600,76</strong></div>
+    <div class="dr"><span>Total S1 — 11 vendas</span><strong>R$ 8.008,40 bruto · R$ 7.335,84 líq</strong></div>
+  <div class="wc done" onclick="tw('ago','c',5)">
+      <div class="wh"><div class="wb b5">S5</div><div class="wn">1 venda ✓</div></div>
+      <div class="wbr">R$ 818,31</div><div class="wl">Líq. R$ 768,90</div>
+      <div class="tags"><span class="tg eur">Stripe EUR</span><span class="tg gn">29/ago</span></div>
+    </div>
+  </div>
+  <div class="wd" id="ago-c5">
+    <div class="wdt">Semana 5 — 29 a 31/ago ✓</div>
+    <div class="dr hi-eur"><span>🌍 naisat@icloud.com · Consulta (Stripe EUR 136) · 29/ago</span><strong>R$ 818,31 → R$ 768,90</strong></div>
+    <div class="dr"><span>Total S5 — 1 venda ✓</span><strong>R$ 818,31 bruto · R$ 768,90 líq</strong></div>
+  </div>
+  <div class="wd" id="ago-c4">
+    <div class="wdt">Semana 4 — 22 a 28/ago ✓</div>
+    <div class="dr hi"><span>Combo ×1 (5x CC) · 23/ago</span><strong>R$ 1.348 → R$ 1.170,91</strong></div>
+    <div class="dr hi"><span>Rev Solar desc. ×1 (3x CC) · 24/ago</span><strong>R$ 629 → R$ 563,20</strong></div>
+    <div class="dr hi"><span>Rev Solar desc. ×1 (3x CC) · 25/ago</span><strong>R$ 629 → R$ 563,20</strong></div>
+    <div class="dr hi"><span>Rev Solar ×1 (3x CC) · 27/ago</span><strong>R$ 699 → R$ 625,88</strong></div>
+    <div class="dr hi"><span>Mapa Natal ×1 (3x CC) · 27/ago</span><strong>R$ 799 → R$ 715,42</strong></div>
+    <div class="dr hi-pix"><span>🟢 Luciane Ribeiro · Rev Solar desc. (Pix sem taxa) · 25/ago</span><strong>R$ 629 → R$ 629,00</strong></div>
+    <div class="dr"><span>Total S4 — 6 entradas ✓</span><strong>R$ 4.733,20 bruto · R$ 4.267,61 líq</strong></div>
+  </div>
+  <div class="wd" id="ago-c3">
+    <div class="wdt">Semana 3 — 15 a 21/ago · em andamento</div>
+    <div class="dr"><span>Mapa Natal ×1 (3x CC) · 17/ago</span><strong>R$ 799 → R$ 715,42</strong></div>
+    <div class="dr"><span>Rev Solar desc. ×1 (3x CC) · 17/ago</span><strong>R$ 615 → R$ 550,67</strong></div>
+    <div class="dr"><span>Rev Solar desc. ×1 (3x CC) · 17/ago</span><strong>R$ 615 → R$ 550,67</strong></div>
+    <div class="dr"><span>Follow Up ×1 (3x CC) · 17/ago</span><strong>R$ 450 → R$ 402,93</strong></div>
+    <div class="dr"><span>Rev Solar desc. ×1 (3x CC) · 17/ago</span><strong>R$ 629 → R$ 563,20</strong></div>
+    <div class="dr"><span>Rev Solar desc. ×1 (3x CC) · 17/ago</span><strong>R$ 629 → R$ 563,20</strong></div>
+    <div class="dr hi"><span>Combo ×1 (11x CC) · 20/ago</span><strong>R$ 1.213 → R$ 1.158,73</strong></div>
+    <div class="dr hi"><span>Rev Solar desc. ×1 (3x CC) · 20/ago</span><strong>R$ 629 → R$ 563,20</strong></div>
+    <div class="dr hi"><span>Rev Solar desc. ×1 (3x CC) · 20/ago</span><strong>R$ 629 → R$ 563,20</strong></div>
+    <div class="dr hi"><span>Follow Up ×1 (1x CC) · 20/ago</span><strong>R$ 450 → R$ 429,79</strong></div>
+    <div class="dr"><span>Total S3 — 10 vendas ✓</span><strong>R$ 6.658,20 bruto · R$ 6.061,01 líq</strong></div>
+  </div>
+  <div class="wd" id="ago-c2">
+    <div class="wdt">Semana 2 — 08 a 14/ago · em andamento</div>
+    <div class="dr"><span>Follow Up ×1 (1x CC) · 10/ago</span><strong>R$ 450 → R$ 429,79</strong></div>
+    <div class="dr hi-pix"><span>🟢 Marina Rangel · Mapa Natal (Pix sem taxa) · 11/ago</span><strong>R$ 730 → R$ 730,00</strong></div>
+    <div class="dr"><span>Rev Solar desc. ×1 (3x CC) · 11/ago</span><strong>R$ 629 → R$ 563,20</strong></div>
+    <div class="dr"><span>Rev Solar desc. ×1 (ticket 1x) · 12/ago</span><strong>R$ 615 → R$ 611,51</strong></div>
+    <div class="dr hi-pix"><span>🟢 Julia Ribeiro · Rev Solar desc. (Pix sem taxa) · ⚠️ data 19/06</span><strong>R$ 629 → R$ 629,00</strong></div>
+    <div class="dr hi-pix"><span>🟢 Rafaela B. · Rev Solar desc. (Pix sem taxa) · 12/ago</span><strong>R$ 615 → R$ 615,00</strong></div>
+    <div class="dr hi"><span>Rev Solar ×1 (3x CC) · 14/ago</span><strong>R$ 699 → R$ 625,88</strong></div>
+    <div class="dr hi"><span>Rev Solar ×1 (1x CC) · 14/ago</span><strong>R$ 699 → R$ 667,61</strong></div>
+    <div class="dr"><span>Total S2 — 9 entradas ✓</span><strong>R$ 5.695,00 bruto · R$ 5.443,87 líq</strong></div>
+  </div>
+  <div class="st">Ranking de produtos</div>
+  <div class="pl">
+    <div class="pi-c">
+      <div class="pt"><div class="pname">Revolução Solar <span style="font-size:10px;color:var(--mu);font-family:'DM Mono',monospace">full ×8 + desc. ×19</span></div><div class="pq">27 vendas · 72% bruto</div></div>
+      <div class="pbr"><div class="pb" style="width:100%;background:linear-gradient(90deg,#a78bfa,#c084fc)"></div></div>
+      <div class="pv"><div class="pvi">Bruto <strong>R$ 18.543,20</strong></div><div class="pvi">Líq. <strong>R$ 17.166,50</strong></div></div>
+    </div>
+    <div class="pi-c">
+      <div class="pt"><div class="pname">Combo</div><div class="pq">3 vendas · 17,5% bruto</div></div>
+      <div class="pbr"><div class="pb" style="width:19%;background:linear-gradient(90deg,#38bdf8,#0ea5e9)"></div></div>
+      <div class="pv"><div class="pvi">Bruto <strong>R$ 3.909,60</strong></div><div class="pvi">Líq. <strong>R$ 3.518,48</strong></div></div>
+    </div>
+    <div class="pi-c">
+      <div class="pt"><div class="pname">Mapa Natal</div><div class="pq">3 vendas · 9,8% bruto</div></div>
+      <div class="pbr"><div class="pb" style="width:8%;background:linear-gradient(90deg,#2dd4bf,#0891b2)"></div></div>
+      <div class="pv"><div class="pvi">Bruto <strong>R$ 2.328,00</strong></div><div class="pvi">Líq. <strong>R$ 2.160,84</strong></div></div>
+    </div>
+    <div class="pi-c">
+      <div class="pt"><div class="pname">Sinastria</div><div class="pq">1 venda · 3,3% bruto</div></div>
+      <div class="pbr"><div class="pb" style="width:4%;background:linear-gradient(90deg,#f472b6,#e879a0)"></div></div>
+      <div class="pv"><div class="pvi">Bruto <strong>R$ 818,31</strong></div><div class="pvi">Líq. <strong>R$ 768,90</strong></div></div>
+    </div>
+    <div class="pi-c">
+      <div class="pt"><div class="pname">Follow Up</div><div class="pq">3 vendas · 6,8% bruto</div></div>
+      <div class="pbr"><div class="pb" style="width:6%;background:linear-gradient(90deg,#4ade80,#22c55e)"></div></div>
+      <div class="pv"><div class="pvi">Bruto <strong>R$ 1.350,00</strong></div><div class="pvi">Líq. <strong>R$ 1.262,51</strong></div></div>
+    </div>
+  </div>
+  <div class="st">Ritmo por semana</div>
+  <div class="bc">
+    <div class="bcr"><div class="bcl"><span class="bcn">S1 ✓</span><span class="bcv">R$ 8.008 · 11 vendas · Rev Solar domina</span></div><div class="bct"><div class="bcf" style="width:100%;background:linear-gradient(90deg,#4ade80,#22c55e)"></div></div></div>
+    <div class="bcr"><div class="bcl"><span class="bcn">S2 ✓</span><span class="bcv">R$ 5.080 · 8 entradas · 2 Pix + 6 MP</span></div><div class="bct"><div class="bcf" style="width:63%;background:linear-gradient(90deg,#4ade80,#22c55e)"></div></div></div>
+    <div class="bcr"><div class="bcl"><span class="bcn">S3 ✓</span><span class="bcv">R$ 6.658 · 10 vendas · 17+20/ago</span></div><div class="bct"><div class="bcf" style="width:83%;background:linear-gradient(90deg,#4ade80,#22c55e)"></div></div></div>
+    <div class="bcr"><div class="bcl"><span class="bcn">S4 ✓</span><span class="bcv">R$ 4.104 · 5 vendas · 23–27/ago</span></div><div class="bct"><div class="bcf" style="width:51%;background:linear-gradient(90deg,#4ade80,#22c55e)"></div></div></div>
+    <div class="bcr"><div class="bcl"><span class="bcn">S5 ✓</span><span class="bcv">R$ 818 · 1 venda · naisat Stripe EUR</span></div><div class="bct"><div class="bcf" style="width:10%;background:linear-gradient(90deg,#4ade80,#22c55e)"></div></div></div>
+  </div>
+  <div class="foot">FECHAMENTO DEFINITIVO AGO 2026 · 37 entradas · 32 MP + 1 Stripe + 4 Pix (Marina + Julia + Rafaela + Luciane) · 08/set/2026</div>
+</div>
+
+<!-- ══ FÂNIA CLUBE ══ -->
+<div class="panel" id="ago-panel-fania">
+  <div style="margin-bottom:18px">
+    <div class="eyebrow">receita de assinaturas · fânia clube · agosto 2026</div>
+    <div class="hero-row">
+      <div class="big vl">R$ 11.114</div>
+      <div class="hero-sub">
+        <div class="hero-label">líquido · 295 transações · agosto 2026 ✅</div>
+        <div class="badge badge-teal">✓ S1 completa · S2 em andamento</div>
+      </div>
+    </div>
+    <div class="prog"><div class="pf vl-f" style="width:100%"></div></div>
+  </div>
+  <div class="g2">
+    <div class="card"><div class="cl">Bruto total</div><div class="cv c-vl">R$ 11.757,23</div><div class="cs">295 transações</div></div>
+    <div class="card"><div class="cl">Líquido total</div><div class="cv c-gn">R$ 11.114,18</div><div class="cs">Taxa Stripe: R$ 643,05</div></div>
+    <div class="card"><div class="cl">Novos assinantes</div><div class="cv c-vl">93</div><div class="cs">20 mensal · 73 trimestral</div></div>
+    <div class="card"><div class="cl">Renovações</div><div class="cv c-sk">202</div><div class="cs">S1+S2+S3+S4+S5</div></div>
+  </div>
+  <div class="nc">
+    <div class="nh"><div class="nl">Novos por plano</div><div class="nv">93<span>novos</span></div></div>
+    <div class="npg">
+      <div class="pb2 m"><div class="pn2 m">20</div><div class="plab">Mensal</div><div class="psub m">R$ 20,90 / mês</div></div>
+      <div class="pb2 t"><div class="pn2 t">73</div><div class="plab">Trimestral</div><div class="psub t">R$ 45,00 / 3 meses</div></div>
+    </div>
+  </div>
+  <div class="st">Receita por plano</div>
+  <div class="sg">
+    <div class="sb">
+      <div class="sbt"><div class="sbd m"></div><div class="sbn">Mensal</div><div class="sbc">65 trans</div></div>
+      <div class="sbv c-vl">R$ 1.371,94</div><div class="sbl">Líq. R$ 1.271,81</div>
+      <div class="sbb m"></div>
+    </div>
+    <div class="sb">
+      <div class="sbt"><div class="sbd t"></div><div class="sbn">Trimestral</div><div class="sbc">230 trans</div></div>
+      <div class="sbv c-pink">R$ 10.385,29</div><div class="sbl">Líq. R$ 9.842,37</div>
+      <div class="sbb t"></div>
+    </div>
+  </div>
+  <div class="st">Detalhamento plano × status</div>
+  <div class="dtb">
+    <div class="dtr head"><span>Plano</span><span>Status</span><span>Trans.</span><span>Bruto</span><span>Líquido</span></div>
+    <div class="dtr"><span class="dtn">Trimestral</span><span class="dtm">Renovação</span><span class="dtmo">157</span><span class="dtmo">R$ 7.094,93</span><span class="dtmo c-gn">R$ 6.729,20</span></div>
+    <div class="dtr"><span class="dtn">Trimestral</span><span class="dtm c-gn">Novo</span><span class="dtmo">73</span><span class="dtmo">R$ 3.290,36</span><span class="dtmo c-gn">R$ 3.113,17</span></div>
+    <div class="dtr"><span class="dtn">Mensal</span><span class="dtm">Renovação</span><span class="dtmo">45</span><span class="dtmo">R$ 953,94</span><span class="dtmo c-gn">R$ 891,59</span></div>
+    <div class="dtr"><span class="dtn">Mensal</span><span class="dtm c-gn">Novo</span><span class="dtmo">20</span><span class="dtmo">R$ 418,00</span><span class="dtmo c-gn">R$ 380,22</span></div>
+  </div>
+  <div class="st">Por semana — toque para detalhar</div>
+  <div class="wg">
+    <div class="wc done op-vl" onclick="tw('ago','f',1)">
+      <div class="wh"><div class="wb b1">S1</div><div class="wn">39 trans ✓</div></div>
+      <div class="wbr">R$ 1.348,99</div><div class="wl">Líq. R$ 1.208,99</div>
+      <div class="tags"><span class="tg gn">13 novos</span><span class="tg">26 ren</span><span class="tg">01–07/ago</span></div>
+    </div>
+    <div class="wc done op-vl" onclick="tw('ago','f',2)">
+      <div class="wh"><div class="wb b2">S2</div><div class="wn">121 trans ✓</div></div>
+      <div class="wbr">R$ 5.085,11</div><div class="wl">Líq. R$ 4.806,77</div>
+      <div class="tags"><span class="tg gn">44 novos</span><span class="tg">77 ren</span><span class="tg">08–14/ago</span></div>
+    </div>
+    <div class="wc done" onclick="tw('ago','f',3)">
+      <div class="wh"><div class="wb b3">S3</div><div class="wn">10 vendas ✓</div></div>
+      <div class="wbr">R$ 6.658,20</div><div class="wl">Líq. R$ 6.061,01</div>
+      <div class="tags"><span class="tg gn">15–21/ago</span><span class="tg">MP</span></div>
+    </div>
+    <div class="wc done" onclick="tw('ago','f',4)">
+      <div class="wh"><div class="wb b4">S4</div><div class="wn">5 vendas ✓</div></div>
+      <div class="wbr">R$ 4.104,20</div><div class="wl">Líq. R$ 3.638,61</div>
+      <div class="tags"><span class="tg gn">22–28/ago</span><span class="tg">MP</span></div>
+    </div>
+  </div>
+  <div class="wd vl" id="ago-f1">
+    <div class="wdt vl">Semana 1 — 01 a 07/ago ✓</div>
+    <div class="dr"><span>Trans · Novos · Renov.</span><strong>39 · 13 (9M+4T) · 26</strong></div>
+    <div class="dr"><span>Mensal · Trimestral bruto</span><strong>R$ 353,21 · R$ 995,78</strong></div>
+    <div class="dr"><span>Bruto · Líquido</span><strong>R$ 1.348,99 · R$ 1.208,99</strong></div>
+  </div>
+  <div class="wd vl" id="ago-f5">
+    <div class="wdt vl">Semana 5 — 29 a 31/ago ✓</div>
+    <div class="dr"><span>Trans · Novos · Renov.</span><strong>8 · 2 (1M+1T) · 6</strong></div>
+    <div class="dr"><span>Mensal · Trimestral bruto</span><strong>R$ 87,86 · R$ 183,13</strong></div>
+    <div class="dr"><span>Bruto · Líquido</span><strong>R$ 270,99 · R$ 255,13</strong></div>
+  </div>
+  <div class="wd vl" id="ago-f4">
+    <div class="wdt vl">Semana 4 — 22 a 28/ago ✓</div>
+    <div class="dr"><span>Trans · Novos · Renov.</span><strong>61 · 23 (3M+20T) · 38</strong></div>
+    <div class="dr"><span>Mensal · Trimestral bruto</span><strong>R$ 271,70 · R$ 2.172,88</strong></div>
+    <div class="dr"><span>Bruto · Líquido</span><strong>R$ 2.444,58 · R$ 2.317,55</strong></div>
+  </div>
+  <div class="wd vl" id="ago-f3">
+    <div class="wdt vl">Semana 3 — 15 a 21/ago ✓</div>
+    <div class="dr"><span>Trans · Novos · Renov.</span><strong>66 · 11 (4M+7T) · 55</strong></div>
+    <div class="dr"><span>Mensal · Trimestral bruto</span><strong>R$ 316,77 · R$ 2.290,79</strong></div>
+    <div class="dr"><span>Bruto · Líquido</span><strong>R$ 2.607,56 · R$ 2.470,74</strong></div>
+  </div>
+  <div class="wd vl" id="ago-f2">
+    <div class="wdt vl">Semana 2 — 08 a 14/ago ✓</div>
+    <div class="dr"><span>Trans · Novos · Renov.</span><strong>121 · 44 (3M+41T) · 77</strong></div>
+    <div class="dr"><span>Mensal · Trimestral bruto</span><strong>R$ 342,40 · R$ 4.742,71</strong></div>
+    <div class="dr"><span>Bruto · Líquido</span><strong>R$ 5.085,11 · R$ 4.806,77</strong></div>
+  </div>
+  <div class="foot">Fânia ago/2026 · 295 trans · 93 novos · R$11.114,18 líq · EUR 136 naisat aguardando confirmação · FECHAMENTO ✅</div>
+</div>
+
+<!-- ══ PREVISIBILIDADE ══ -->
+<div class="panel" id="ago-panel-prev">
+  <div style="margin-bottom:18px">
+    <div class="eyebrow">fechamento de receita · agosto 2026</div>
+    <div class="hero-row">
+      <div class="big gn">162,2<sup>%</sup></div>
+      <div class="hero-sub">
+        <div class="hero-label">fechamento agosto · R$ 32.978 no caixa</div>
+        <div class="badge badge-ok">🏆 +R$ 13.424 acima da meta · FECHAMENTO DEFINITIVO</div>
+      </div>
+    </div>
+    <div class="prog"><div class="pf gn-f" style="width:100%"></div></div>
+  </div>
+  <div class="g2">
+    <div class="card hl-gn"><div class="cl">Total agosto</div><div class="cv c-gn">R$ 34.991,41</div><div class="cs">162,2% · META BATIDA ✅</div></div>
+    <div class="card hl-teal"><div class="cl">Acima da meta</div><div class="cv c-teal">+ R$ 13.424,41</div><div class="cs">meta era R$ 21.567,00</div></div>
+    <div class="card hl-sk"><div class="cl">Consultas líq.</div><div class="cv c-sk">R$ 23.877,23</div><div class="cs">37 entradas · 110,7%</div></div>
+    <div class="card hl-teal"><div class="cl">Fânia líq.</div><div class="cv c-teal">R$ 11.114,18</div><div class="cs">295 trans · 51,5%</div></div>
+  </div>
+  <div class="st">Composição final do mês</div>
+  <div class="meta-stack">
+    <div class="meta-row confirmed">
+      <div class="mr-top"><div class="mr-label" style="color:var(--gn)">✓ Consultas agosto completo</div><div class="mr-val" style="color:var(--gn)">R$ 23.877,23</div></div>
+      <div class="mr-bar"><div class="mr-fill" style="width:100%;background:var(--gold)"></div></div>
+      <div class="mr-sub">32 MP + 1 Stripe + 4 Pix · 27 Rev Solar + 1 Sinastria + 3 Mapa Natal + 3 Combo + 3 Follow Up</div>
+    </div>
+    <div class="meta-row confirmed">
+      <div class="mr-top"><div class="mr-label" style="color:var(--gn)">✓ Fânia agosto completo</div><div class="mr-val" style="color:var(--gn)">R$ 11.114,18</div></div>
+      <div class="mr-bar"><div class="mr-fill" style="width:51.5%;background:var(--gn)"></div></div>
+      <div class="mr-sub">295 trans · 93 novos · 202 renovações · S1 a S5</div>
+    </div>
+  </div>
+  <div class="st">Fechamento por semana</div>
+  <div style="margin-bottom:14px">
+    <div class="pw done">
+      <div class="pw-left"><div class="pw-badge b1">S1</div><div><div class="pw-info" style="color:var(--gn)">01–07/ago ✓</div><div class="pw-sub">11 consultas · 39 trans Fânia</div></div></div>
+      <div class="pw-right"><div class="pw-val" style="color:var(--gn)">R$ 8.599,83</div><div class="pw-liq">líquido real</div></div>
+    </div>
+    <div class="pw done" style="margin-top:6px">
+      <div class="pw-left"><div class="pw-badge b2">S2</div><div><div class="pw-info" style="color:var(--gn)">08–14/ago ✓</div><div class="pw-sub">8 entradas · 121 trans Fânia</div></div></div>
+      <div class="pw-right"><div class="pw-val" style="color:var(--gn)">R$ 9.635,64</div><div class="pw-liq">líquido real</div></div>
+    </div>
+    <div class="pw done" style="margin-top:6px">
+      <div class="pw-left"><div class="pw-badge b3">S3</div><div><div class="pw-info" style="color:var(--gn)">15–21/ago ✓</div><div class="pw-sub">10 consultas · 66 trans Fânia</div></div></div>
+      <div class="pw-right"><div class="pw-val" style="color:var(--gn)">R$ 8.531,75</div><div class="pw-liq">líquido real</div></div>
+    </div>
+    <div class="pw done" style="margin-top:6px">
+      <div class="pw-left"><div class="pw-badge b4">S4</div><div><div class="pw-info" style="color:var(--gn)">22–28/ago ✓</div><div class="pw-sub">5 consultas · 61 trans Fânia</div></div></div>
+      <div class="pw-right"><div class="pw-val" style="color:var(--gn)">R$ 5.956,16</div><div class="pw-liq">líquido real</div></div>
+    </div>
+    <div class="pw done" style="margin-top:6px">
+      <div class="pw-left"><div class="pw-badge b5">S5</div><div><div class="pw-info" style="color:var(--gn)">29–31/ago ✓</div><div class="pw-sub">1 consulta Stripe · 8 trans Fânia</div></div></div>
+      <div class="pw-right"><div class="pw-val" style="color:var(--gn)">R$ 1.024,03</div><div class="pw-liq">líquido real</div></div>
+    </div>
+  </div>
+  <div class="st">Próximos meses — base ativa</div>
+  <div style="margin-bottom:14px">
+    <div class="pw">
+      <div class="pw-left"><div class="pw-badge" style="background:rgba(45,212,191,.15);color:var(--teal);font-family:'DM Mono',monospace;font-size:10px;width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center">Set</div><div><div class="pw-info">Setembro 2026</div><div class="pw-sub">252 cobranças Fânia projetadas</div></div></div>
+      <div class="pw-right"><div class="pw-val" style="color:var(--teal)">R$ 9.123,50</div><div class="pw-liq">bruto projetado</div></div>
+    </div>
+    <div class="pw" style="margin-top:6px">
+      <div class="pw-left"><div class="pw-badge" style="background:rgba(167,139,250,.15);color:var(--vl);font-family:'DM Mono',monospace;font-size:10px;width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center">Out</div><div><div class="pw-info">Outubro 2026</div><div class="pw-sub">248 cobranças Fânia projetadas</div></div></div>
+      <div class="pw-right"><div class="pw-val" style="color:var(--vl)">R$ 8.913,50</div><div class="pw-liq">bruto projetado</div></div>
+    </div>
+    <div class="pw" style="margin-top:6px">
+      <div class="pw-left"><div class="pw-badge" style="background:rgba(244,114,182,.15);color:var(--pink);font-family:'DM Mono',monospace;font-size:10px;width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center">Nov</div><div><div class="pw-info">Novembro 2026</div><div class="pw-sub">296 cobranças · volta forte (= agosto)</div></div></div>
+      <div class="pw-right"><div class="pw-val" style="color:var(--pink)">R$ 10.735,50</div><div class="pw-liq">bruto projetado</div></div>
+    </div>
+  </div>
+  <div class="note am"><strong>⚠️ Julia Ribeiro · Pix R$ 629 · data 19/06</strong>Pendente de confirmação da data — incluído no fechamento de agosto por ora.</div>
+  <div class="note gn"><strong>📊 Agosto fechamento DEFINITIVO · 162,2% · +R$ 13.424</strong>110,7% só em consultas · 93 novos Fânia · 295 trans · R$11.114 líq. +2 Pix retroativos: Rafaela B. + Luciane Ribeiro.</div>
+  <div class="foot">FECHAMENTO DEFINITIVO AGO 2026 · R$ 34.991,41 (162,2%) · META BATIDA ✅ · +R$ 13.424,41 acima · 08/set/2026
+  </div>
+</div><!-- /month-ago -->
+
+<!-- ══════ SET 2026 ══════ -->
+<div class="month-section active" id="month-set">
+  <nav class="inner-nav">
+    <div class="inner-nav-inner">
+      <button class="tab-btn active" onclick="switchTab('set','consultas',this)">Consultas</button>
+      <button class="tab-btn" onclick="switchTab('set','fania',this)">Fânia Clube</button>
+      <button class="tab-btn" onclick="switchTab('set','prev',this)">Previsibilidade</button>
+    </div>
+  </nav>
+  <div class="wrap">
+
+
+<!-- ══ CONSULTAS ══ -->
+<div class="panel active" id="set-panel-consultas">
+  <div class="note gn"><strong>✅ 25/set · S4 em andamento · 7 consultas · META 99,2% só consultas</strong>S4 inclui Pix: Marina R$629 + Isabela R$630 + Joanna R$315 (meia, outra metade CC). Combinado: 125,3% · R$ 27.034,73.</div>
+  <div style="margin-bottom:18px">
+    <div class="eyebrow">meta de faturamento · consultas · setembro 2026</div>
+    <div class="hero-row">
+      <div class="big am">99,2<sup>%</sup></div>
+      <div class="hero-sub">
+        <div class="hero-label">da meta · só consultas · R$ 21.386,99 de R$ 21.567,00</div>
+        <div class="badge badge-warn">⚡ 30 consultas · R$ 21.386,99 líq · faltam R$ 180,01 p/ meta</div>
+      </div>
+    </div>
+    <div class="prog"><div class="pf am-f" style="width:99%"></div></div>
+  </div>
+  <div class="g2">
+    <div class="card"><div class="cl">Bruto total</div><div class="cv c-gold">R$ 23.129,85</div><div class="cs">30 entradas · MP + Pix + Stripe</div></div>
+    <div class="card"><div class="cl">Líquido total</div><div class="cv c-gn">R$ 21.386,99</div><div class="cs">faltam R$ 180,01 p/ meta consultas</div></div>
+    <div class="card"><div class="cl">Total combinado</div><div class="cv c-teal">R$ 27.034,73</div><div class="cs">125,3% · +R$ 5.467,73 acima</div></div>
+    <div class="card"><div class="cl">Produto líder</div><div class="cv c-vl">Rev Solar</div><div class="cs">18 vendas · 50,5% bruto</div></div>
+  </div>
+  <div class="st">Por semana — toque para detalhar</div>
+  <div class="wg">
+    <div class="wc done" onclick="tw('set','c',1)">
+      <div class="wh"><div class="wb b1">S1</div><div class="wn">4 entradas ✓</div></div>
+      <div class="wbr">R$ 3.148,65</div><div class="wl">Líq. R$ 2.920,51</div>
+      <div class="tags"><span class="tg gn">01–07/set</span><span class="tg">MP</span><span class="tg eur">Stripe</span></div>
+    </div>
+    <div class="wc done" onclick="tw('set','c',2)">
+      <div class="wh"><div class="wb b2">S2</div><div class="wn">6 vendas ✓</div></div>
+      <div class="wbr">R$ 4.555,20</div><div class="wl">Líq. R$ 4.228,83</div>
+      <div class="tags"><span class="tg gn">08–14/set</span><span class="tg">MP</span></div>
+    </div>
+    <div class="wc done" onclick="tw('set','c',3)">
+      <div class="wh"><div class="wb b3">S3</div><div class="wn">13 entradas ✓</div></div>
+      <div class="wbr">R$ 11.158,00</div><div class="wl">Líq. R$ 10.232,64</div>
+      <div class="tags"><span class="tg gn">15–21/set ✓</span><span class="tg">MP</span><span class="tg">Pix</span><span class="tg eur">Stripe</span></div>
+    </div>
+    <div class="wc live" onclick="tw('set','c',4)">
+      <div class="wh"><div class="wb b4">S4</div><div class="wn">7 vendas · em andamento</div></div>
+      <div class="wbr">R$ 4.268,00</div><div class="wl">Líq. R$ 4.005,01</div>
+      <div class="tags"><span class="tg am">22–28/set · em andamento</span><span class="tg">MP</span><span class="tg">Pix</span></div>
+    </div>
+  </div>
+  <div class="wd" id="set-c1">
+    <div class="wdt">Semana 1 — 01 a 07/set ✓</div>
+    <div class="dr hi"><span>Rev Solar desc. ×1 (3x CC) · 01/set</span><strong>R$ 629 → R$ 563,20</strong></div>
+    <div class="dr hi"><span>Rev Solar ×1 (3x CC) · 03/set</span><strong>R$ 699 → R$ 625,88</strong></div>
+    <div class="dr hi"><span>Combo ×1 (1x CC) · 03/set</span><strong>R$ 1.348 → R$ 1.287,67</strong></div>
+    <div class="dr hi-eur"><span>🌍 passarinho.sandra · Follow Up (Stripe EUR 80) · 02/set</span><strong>R$ 472,45 → R$ 443,76</strong></div>
+    <div class="dr"><span>Total S1 — 4 entradas ✓</span><strong>R$ 3.148,65 bruto · R$ 2.920,51 líq</strong></div>
+  </div>
+  <div class="wd" id="set-c3">
+    <div class="wdt">Semana 3 — 15 a 21/set ✓</div>
+    <div class="dr hi"><span>Rev Solar desc. ×1 (3x CC) · 15/set</span><strong>R$ 629 → R$ 563,20</strong></div>
+    <div class="dr hi"><span>Follow Up ×1 (ticket 1x) · 15/set</span><strong>R$ 450 → R$ 446,51</strong></div>
+    <div class="dr hi"><span>Combo ×1 (5x CC) · 15/set</span><strong>R$ 1.348 → R$ 1.170,91</strong></div>
+    <div class="dr hi"><span>Rev Solar desc. ×1 (4x CC) · 16/set</span><strong>R$ 629 → R$ 600,76</strong></div>
+    <div class="dr hi"><span>Rev Solar desc. ×1 (12x CC) · 17/set</span><strong>R$ 629 → R$ 600,76</strong></div>
+    <div class="dr hi"><span>Rev Solar desc. ×1 (3x CC) · 17/set</span><strong>R$ 615 → R$ 550,67</strong></div>
+    <div class="dr hi"><span>Mapa Natal ×1 (ticket 1x) · 17/set</span><strong>R$ 799 → R$ 795,51</strong></div>
+    <div class="dr hi-pix"><span>🟢 Desirée · Rev Solar desc. (Pix) · 17/set</span><strong>R$ 615 → R$ 615,00</strong></div>
+    <div class="dr hi"><span>Rev Solar ×1 (3x CC) · 18/set</span><strong>R$ 699 → R$ 625,88</strong></div>
+    <div class="dr hi"><span>Combo ×1 (5x CC) · 18/set</span><strong>R$ 1.348 → R$ 1.170,91</strong></div>
+    <div class="dr hi"><span>Combo ×1 (5x CC) · 20/set</span><strong>R$ 1.348 → R$ 1.170,91</strong></div>
+    <div class="dr hi-eur"><span>🌍 mcoelhofe@gmail.com · Combo (Stripe BRL) · 18/set</span><strong>R$ 1.350 → R$ 1.295,74</strong></div>
+    <div class="dr hi"><span>belamstalden@hotmail.com · Rev Solar (3x CC) · 21/set</span><strong>R$ 699 → R$ 625,88</strong></div>
+    <div class="dr"><span>Total S3 — 13 entradas ✓</span><strong>R$ 11.158,00 bruto · R$ 10.232,64 líq</strong></div>
+  </div>
+  <div class="wd" id="set-c4">
+    <div class="wdt">Semana 4 — 22 a 28/set · em andamento</div>
+    <div class="dr hi"><span>thamyres.rhein@gmail.com · Rev Solar desc. (3x CC) · 22/set</span><strong>R$ 615 → R$ 550,67</strong></div>
+    <div class="dr hi-pix"><span>🟢 Marina · Rev Solar desc. (Pix) · 22/set</span><strong>R$ 629 → R$ 629,00</strong></div>
+    <div class="dr hi-pix"><span>🟢 Isabela Resende · Rev Solar (Pix) · 22/set</span><strong>R$ 630 → R$ 630,00</strong></div>
+    <div class="dr hi"><span>manuellasantini@hotmail.com · Rev Solar desc. (3x CC) · 23/set</span><strong>R$ 615 → R$ 550,67</strong></div>
+    <div class="dr hi"><span>lucila.longo@gmail.com · Rev Solar (3x CC) · 24/set</span><strong>R$ 699 → R$ 625,88</strong></div>
+    <div class="dr hi"><span>henriqueaugusto086@gmail.com · Follow Up (3x CC) · 24/set</span><strong>R$ 450 → R$ 402,93</strong></div>
+    <div class="dr hi-pix"><span>🟢 joannamariadss7 · Rev Solar split (Pix R$315 + CC R$315) · 24/set</span><strong>R$ 630 → R$ 615,86</strong></div>
+    <div class="dr"><span>Total S4 — 7 entradas · em andamento</span><strong>R$ 4.268,00 bruto · R$ 4.005,01 líq</strong></div>
+  </div>
+  <div class="wd" id="set-c2">
+    <div class="wdt">Semana 2 — 08 a 14/set · em andamento</div>
+    <div class="dr hi"><span>Rev Solar desc. ×1 (3x CC) · 08/set</span><strong>R$ 629 → R$ 563,20</strong></div>
+    <div class="dr hi"><span>Rev Solar ×1 (ticket 1x) · 08/set</span><strong>R$ 699 → R$ 695,51</strong></div>
+    <div class="dr hi"><span>Rev Solar ×1 (3x CC) · 12/set</span><strong>R$ 699 → R$ 625,88</strong></div>
+    <div class="dr hi"><span>Combo ×1 (1x CC) · 14/set</span><strong>R$ 1.348 → R$ 1.287,67</strong></div>
+    <div class="dr hi"><span>Mapa Natal ×1 (3x CC) · 14/set</span><strong>R$ 730 → R$ 653,64</strong></div>
+    <div class="dr hi"><span>Follow Up ×1 (3x CC) · 14/set</span><strong>R$ 450 → R$ 402,93</strong></div>
+    <div class="dr"><span>Total S2 — 6 vendas ✓</span><strong>R$ 4.555,20 bruto · R$ 4.228,83 líq</strong></div>
+  </div>
+  <div class="st">Ranking de produtos</div>
+  <div class="pl">
+    <div class="pi-c">
+      <div class="pt"><div class="pname">Revolução Solar <span style="font-size:10px;color:var(--mu);font-family:'DM Mono',monospace">full ×8 + desc. ×10</span></div><div class="pq">18 vendas · 50,5% bruto</div></div>
+      <div class="pbr"><div class="pb" style="width:100%;background:linear-gradient(90deg,#a78bfa,#c084fc)"></div></div>
+      <div class="pv"><div class="pvi">Bruto <strong>R$ 11.688,00</strong></div><div class="pvi">Líq. <strong>R$ 10.858,90</strong></div></div>
+    </div>
+    <div class="pi-c">
+      <div class="pt"><div class="pname">Mapa Natal</div><div class="pq">2 vendas · 6,6% bruto</div></div>
+      <div class="pbr"><div class="pb" style="width:9%;background:linear-gradient(90deg,#2dd4bf,#0891b2)"></div></div>
+      <div class="pv"><div class="pvi">Bruto <strong>R$ 1.529,00</strong></div><div class="pvi">Líq. <strong>R$ 1.449,15</strong></div></div>
+    </div>
+    <div class="pi-c">
+      <div class="pt"><div class="pname">Follow Up</div><div class="pq">4 vendas · 7,9% bruto</div></div>
+      <div class="pbr"><div class="pb" style="width:15%;background:linear-gradient(90deg,#4ade80,#22c55e)"></div></div>
+      <div class="pv"><div class="pvi">Bruto <strong>R$ 1.822,45</strong></div><div class="pvi">Líq. <strong>R$ 1.696,13</strong></div></div>
+    </div>
+    <div class="pi-c">
+      <div class="pt"><div class="pname">Combo</div><div class="pq">6 vendas · 35,0% bruto</div></div>
+      <div class="pbr"><div class="pb" style="width:100%;background:linear-gradient(90deg,#38bdf8,#0ea5e9)"></div></div>
+      <div class="pv"><div class="pvi">Bruto <strong>R$ 8.091,00</strong></div><div class="pvi">Líq. <strong>R$ 7.383,81</strong></div></div>
+    </div>
+  </div>
+  <div class="st">Ritmo</div>
+  <div class="bc">
+    <div class="bcr"><div class="bcl"><span class="bcn">S1 ✓</span><span class="bcv">R$ 3.148 · 4 entradas · MP + Stripe</span></div><div class="bct"><div class="bcf" style="width:39%;background:linear-gradient(90deg,#4ade80,#22c55e)"></div></div></div>
+    <div class="bcr"><div class="bcl"><span class="bcn">S2 ✓</span><span class="bcv">R$ 4.555 · 6 vendas · 08–14/set</span></div><div class="bct"><div class="bcf" style="width:100%;background:linear-gradient(90deg,#4ade80,#22c55e)"></div></div></div>
+    <div class="bcr"><div class="bcl"><span class="bcn">S3 ✓</span><span class="bcv">R$ 11.158 · 13 entradas · 15–21/set</span></div><div class="bct"><div class="bcf" style="width:100%;background:linear-gradient(90deg,#4ade80,#22c55e)"></div></div></div>
+    <div class="bcr"><div class="bcl"><span class="bcn">S4 <span style="color:var(--am)">em andamento</span></span><span class="bcv">R$ 4.268 · 7 entradas · 22–28/set</span></div><div class="bct"><div class="bcf" style="width:53%;background:linear-gradient(90deg,#fbbf24,#f59e0b)"></div></div></div>
+  </div>
+  <div class="note gn"><strong>📊 Agosto referência</strong>Agosto fechou em 162,2% · R$34.991 · 37 consultas · 295 trans Fânia. Setembro já 125,3% com S4 em andamento.</div>
+  <div class="foot">Meta set: R$ 21.567,00 líq · 30 consultas · R$ 23.129,85 bruto · R$ 21.386,99 líq · combinado R$ 27.034,73 (125,3%) · 25/set/2026</div>
+</div>
+
+<!-- ══ FÂNIA CLUBE ══ -->
+<div class="panel" id="set-panel-fania">
+  <div style="margin-bottom:18px">
+    <div class="eyebrow">receita de assinaturas · fânia clube · setembro 2026</div>
+    <div class="hero-row">
+      <div class="big vl">R$ 5.647</div>
+      <div class="hero-sub">
+        <div class="hero-label">líquido · 158 transações · 01–25/set</div>
+        <div class="badge badge-teal">✓ S1+S2+S3 encerradas · S4 em andamento</div>
+      </div>
+    </div>
+    <div class="prog"><div class="pf vl-f" style="width:100%"></div></div>
+  </div>
+  <div class="g2">
+    <div class="card"><div class="cl">Bruto total</div><div class="cv c-vl">R$ 5.975,09</div><div class="cs">158 transações</div></div>
+    <div class="card"><div class="cl">Líquido total</div><div class="cv c-gn">R$ 5.647,74</div><div class="cs">Taxa Stripe: R$ 327,35</div></div>
+    <div class="card"><div class="cl">Novos assinantes</div><div class="cv c-vl">39</div><div class="cs">12 mensal · 27 trimestral</div></div>
+    <div class="card"><div class="cl">Renovações</div><div class="cv c-sk">119</div><div class="cs">S1 + S2 + S3 + S4</div></div>
+  </div>
+  <div class="nc">
+    <div class="nh"><div class="nl">Novos por plano</div><div class="nv">39<span>novos</span></div></div>
+    <div class="npg">
+      <div class="pb2 m"><div class="pn2 m">12</div><div class="plab">Mensal</div><div class="psub m">R$ 20,90 / mês</div></div>
+      <div class="pb2 t"><div class="pn2 t">27</div><div class="plab">Trimestral</div><div class="psub t">R$ 45,00 / 3 meses</div></div>
+    </div>
+  </div>
+  <div class="st">Receita por plano</div>
+  <div class="sg">
+    <div class="sb">
+      <div class="sbt"><div class="sbd m"></div><div class="sbn">Mensal</div><div class="sbc">48 trans</div></div>
+      <div class="sbv c-vl">R$ 1.008,66</div><div class="sbl">Líq. R$ 936,65</div>
+    </div>
+    <div class="sb">
+      <div class="sbt"><div class="sbd t"></div><div class="sbn">Trimestral</div><div class="sbc">110 trans</div></div>
+      <div class="sbv c-pink">R$ 4.966,43</div><div class="sbl">Líq. R$ 4.711,09</div>
+    </div>
+  </div>
+  <div class="st">Detalhamento plano × status</div>
+  <div class="dtb">
+    <div class="dtr head"><span>Plano</span><span>Status</span><span>Trans.</span><span>Bruto</span><span>Líquido</span></div>
+    <div class="dtr"><span class="dtn">Trimestral</span><span class="dtm">Renovação</span><span class="dtmo">83</span><span class="dtmo">R$ 3.746,68</span><span class="dtmo c-gn">R$ 3.554,41</span></div>
+    <div class="dtr"><span class="dtn">Trimestral</span><span class="dtm c-gn">Novo</span><span class="dtmo">27</span><span class="dtmo">R$ 1.219,75</span><span class="dtmo c-gn">R$ 1.156,72</span></div>
+    <div class="dtr"><span class="dtn">Mensal</span><span class="dtm">Renovação</span><span class="dtmo">36</span><span class="dtmo">R$ 757,86</span><span class="dtmo c-gn">R$ 703,71</span></div>
+    <div class="dtr"><span class="dtn">Mensal</span><span class="dtm c-gn">Novo</span><span class="dtmo">12</span><span class="dtmo">R$ 250,80</span><span class="dtmo c-gn">R$ 232,90</span></div>
+  </div>
+  <div class="st">Por semana — toque para detalhar</div>
+  <div class="wg">
+    <div class="wc done op-vl" onclick="tw('set','f',1)">
+      <div class="wh"><div class="wb b1">S1</div><div class="wn">41 trans ✓</div></div>
+      <div class="wbr">R$ 1.431,33</div><div class="wl">Líq. R$ 1.355,01</div>
+      <div class="tags"><span class="tg gn">5 novos</span><span class="tg">36 ren</span><span class="tg">01–07/set</span></div>
+    </div>
+    <div class="wc done op-vl" onclick="tw('set','f',2)">
+      <div class="wh"><div class="wb b2">S2</div><div class="wn">46 trans ✓</div></div>
+      <div class="wbr">R$ 1.798,95</div><div class="wl">Líq. R$ 1.699,03</div>
+      <div class="tags"><span class="tg gn">15 novos</span><span class="tg">31 ren</span><span class="tg">08–14/set</span></div>
+    </div>
+    <div class="wc done op-vl" onclick="tw('set','f',3)">
+      <div class="wh"><div class="wb b3">S3</div><div class="wn">61 trans ✓</div></div>
+      <div class="wbr">R$ 2.367,11</div><div class="wl">Líq. R$ 2.236,25</div>
+      <div class="tags"><span class="tg gn">17 novos</span><span class="tg">44 ren</span><span class="tg">15–21/set</span></div>
+    </div>
+    <div class="wc live op-vl" onclick="tw('set','f',4)">
+      <div class="wh"><div class="wb b4">S4</div><div class="wn">10 trans · em andamento</div></div>
+      <div class="wbr">R$ 377,70</div><div class="wl">Líq. R$ 357,45</div>
+      <div class="tags"><span class="tg am">2 novos</span><span class="tg">8 ren</span><span class="tg">22–28/set</span></div>
+    </div>
+  </div>
+  <div class="wd vl" id="set-f1">
+    <div class="wdt vl">Semana 1 — 01 a 07/set ✓</div>
+    <div class="dr"><span>Trans · Novos · Renov.</span><strong>41 · 5 (4M+1T) · 36</strong></div>
+    <div class="dr"><span>Mensal · Trimestral bruto</span><strong>R$ 333,81 · R$ 1.097,52</strong></div>
+    <div class="dr"><span>Bruto · Líquido</span><strong>R$ 1.431,33 · R$ 1.355,01</strong></div>
+  </div>
+  <div class="wd vl" id="set-f3">
+    <div class="wdt vl">Semana 3 — 15 a 21/set ✓</div>
+    <div class="dr"><span>Trans · Novos · Renov.</span><strong>61 · 17 (6M+11T) · 44</strong></div>
+    <div class="dr"><span>Mensal · Trimestral bruto</span><strong>R$ 337,25 · R$ 2.029,86</strong></div>
+    <div class="dr"><span>Bruto · Líquido</span><strong>R$ 2.367,11 · R$ 2.236,25</strong></div>
+  </div>
+  <div class="wd vl" id="set-f4">
+    <div class="wdt vl">Semana 4 — 22 a 28/set · em andamento</div>
+    <div class="dr"><span>Trans · Novos · Renov.</span><strong>10 · 2 (0M+2T) · 8</strong></div>
+    <div class="dr"><span>Mensal · Trimestral bruto</span><strong>R$ 62,70 · R$ 315,00</strong></div>
+    <div class="dr"><span>Bruto · Líquido</span><strong>R$ 377,70 · R$ 357,45</strong></div>
+  </div>
+  <div class="wd vl" id="set-f2">
+    <div class="wdt vl">Semana 2 — 08 a 14/set ✓</div>
+    <div class="dr"><span>Trans · Novos · Renov.</span><strong>46 · 15 (2M+13T) · 31</strong></div>
+    <div class="dr"><span>Mensal · Trimestral bruto</span><strong>R$ 255,50 · R$ 1.543,45</strong></div>
+    <div class="dr"><span>Bruto · Líquido</span><strong>R$ 1.798,95 · R$ 1.699,03</strong></div>
+  </div>
+  <div class="foot">Fânia set/2026 · BRL 20,90/45,00+var. · EUR 4,00/7,20/8,00/9,00 · USD 5,00/10,00 · 158 trans · 39 novos · R$ 5.975,09 bruto · R$ 5.647,74 líq · 25/set/2026</div>
+</div>
+
+<!-- ══ PREVISIBILIDADE ══ -->
+<div class="panel" id="set-panel-prev">
+  <div style="margin-bottom:18px">
+    <div class="eyebrow">previsibilidade de receita · setembro 2026</div>
+    <div class="hero-row">
+      <div class="big gn">125,3<sup>%</sup></div>
+      <div class="hero-sub">
+        <div class="hero-label">meta batida · R$ 27.034 no caixa · S4 em andamento</div>
+        <div class="badge badge-ok">🏆 +R$ 5.468 acima da meta · S4+S5 ainda chegam</div>
+      </div>
+    </div>
+    <div class="prog"><div class="pf gn-f" style="width:100%"></div></div>
+  </div>
+  <div class="g2">
+    <div class="card hl-gn"><div class="cl">Total no caixa</div><div class="cv c-gn">R$ 27.034,73</div><div class="cs">125,3% · META BATIDA ✅</div></div>
+    <div class="card hl-teal"><div class="cl">Acima da meta</div><div class="cv c-teal">+ R$ 5.467,73</div><div class="cs">S4+S5 são bônus</div></div>
+    <div class="card hl-sk"><div class="cl">Consultas líq.</div><div class="cv c-sk">R$ 21.386,99</div><div class="cs">30 entradas · 79,1%</div></div>
+    <div class="card hl-teal"><div class="cl">Fânia líq.</div><div class="cv c-teal">R$ 5.647,74</div><div class="cs">158 trans · 20,9%</div></div>
+  </div>
+  <div class="st">Composição do caixa</div>
+  <div class="meta-stack">
+    <div class="meta-row confirmed">
+      <div class="mr-top"><div class="mr-label" style="color:var(--gn)">✓ Consultas (01–25/set)</div><div class="mr-val" style="color:var(--gn)">R$ 21.386,99</div></div>
+      <div class="mr-bar"><div class="mr-fill" style="width:99.2%;background:var(--gold)"></div></div>
+      <div class="mr-sub">24 MP + 4 Pix + 2 Stripe · RS×18 + Combo×6 + FU×4 + Mapa×2 · S4 em andamento</div>
+    </div>
+    <div class="meta-row confirmed">
+      <div class="mr-top"><div class="mr-label" style="color:var(--gn)">✓ Fânia recebido (01–25/set)</div><div class="mr-val" style="color:var(--gn)">R$ 5.647,74</div></div>
+      <div class="mr-bar"><div class="mr-fill" style="width:26.2%;background:var(--gn)"></div></div>
+      <div class="mr-sub">158 trans · 39 novos · S1+S2+S3 encerradas · S4 em andamento</div>
+    </div>
+    <div class="meta-row partial">
+      <div class="mr-top"><div class="mr-label" style="color:var(--am)">⏳ Restante (26–30/set)</div><div class="mr-val" style="color:var(--am)">bônus sobre a meta</div></div>
+      <div class="mr-bar"><div class="mr-fill" style="width:5%;background:var(--am);opacity:.7"></div></div>
+      <div class="mr-sub">S4 finalizando · S5 (29–30) · 125,3% já garantido</div>
+    </div>
+  </div>
+  <div class="st">Ritmo por semana</div>
+  <div style="margin-bottom:14px">
+    <div class="pw done">
+      <div class="pw-left"><div class="pw-badge b1">S1</div><div><div class="pw-info" style="color:var(--gn)">01–07/set ✓</div><div class="pw-sub">4 entradas · 41 trans Fânia</div></div></div>
+      <div class="pw-right"><div class="pw-val" style="color:var(--gn)">R$ 4.276,77</div><div class="pw-liq">líquido real</div></div>
+    </div>
+    <div class="pw done" style="margin-top:6px">
+      <div class="pw-left"><div class="pw-badge b2">S2</div><div><div class="pw-info" style="color:var(--gn)">08–14/set ✓</div><div class="pw-sub">6 vendas · 46 trans Fânia</div></div></div>
+      <div class="pw-right"><div class="pw-val" style="color:var(--gn)">R$ 5.927,86</div><div class="pw-liq">líquido real</div></div>
+    </div>
+    <div class="pw done" style="margin-top:6px">
+      <div class="pw-left"><div class="pw-badge b3">S3</div><div><div class="pw-info" style="color:var(--gn)">15–21/set ✓</div><div class="pw-sub">13 entradas · 61 trans Fânia</div></div></div>
+      <div class="pw-right"><div class="pw-val" style="color:var(--gn)">R$ 12.468,89</div><div class="pw-liq">melhor semana do mês</div></div>
+    </div>
+    <div class="pw done" style="margin-top:6px">
+      <div class="pw-left"><div class="pw-badge b4">S4</div><div><div class="pw-info" style="color:var(--am)">22–28/set · em andamento</div><div class="pw-sub">7 consultas · 10 trans Fânia</div></div></div>
+      <div class="pw-right"><div class="pw-val" style="color:var(--am)">R$ 4.362,46</div><div class="pw-liq">em andamento</div></div>
+    </div>
+  </div>
+  <div class="st">Próximos meses — base ativa</div>
+  <div style="margin-bottom:14px">
+    <div class="pw">
+      <div class="pw-left"><div class="pw-badge" style="background:rgba(167,139,250,.15);color:var(--vl);font-family:'DM Mono',monospace;font-size:10px;width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center">Out</div><div><div class="pw-info">Outubro 2026</div><div class="pw-sub">248 cobranças Fânia projetadas</div></div></div>
+      <div class="pw-right"><div class="pw-val" style="color:var(--vl)">R$ 8.913,50</div><div class="pw-liq">bruto projetado</div></div>
+    </div>
+    <div class="pw" style="margin-top:6px">
+      <div class="pw-left"><div class="pw-badge" style="background:rgba(244,114,182,.15);color:var(--pink);font-family:'DM Mono',monospace;font-size:10px;width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center">Nov</div><div><div class="pw-info">Novembro 2026</div><div class="pw-sub">296 cobranças · volta forte (= ago)</div></div></div>
+      <div class="pw-right"><div class="pw-val" style="color:var(--pink)">R$ 10.735,50</div><div class="pw-liq">bruto projetado</div></div>
+    </div>
+  </div>
+  <div class="note gn"><strong>📊 125,3% — meta muito batida · S4 em andamento</strong>S3 fechou com 13 entradas + 61 trans Fânia (R$ 12.468,89). S4 já soma R$ 4.362,46. S5 (29–30/set) ainda chega como bônus. Joanna pagou meia via Pix + meia no crédito hoje.</div>
+  <div class="foot">META BATIDA · set/2026 · R$ 27.034,73 (125,3%) · +R$ 5.467,73 acima · 30 consultas + 158 trans Fânia · 25/set/2026
+  </div>
+</div><!-- /month-set -->
+
+<script>
+function switchMonth(m, btn) {
+  document.querySelectorAll('.month-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.month-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('month-' + m).classList.add('active');
+  btn.classList.add('active');
+  document.querySelectorAll('.wd').forEach(d => { d.classList.remove('op'); d.style.display = 'none'; });
+}
+function switchTab(m, t, b) {
+  const section = document.getElementById('month-' + m);
+  section.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  section.querySelectorAll('.inner-nav .tab-btn').forEach(x => x.classList.remove('active'));
+  const panel = document.getElementById(m + '-panel-' + t);
+  if (panel) panel.classList.add('active');
+  b.classList.add('active');
+  section.querySelectorAll('.wd').forEach(d => { d.classList.remove('op'); d.style.display = 'none'; });
+}
+function tw(m, p, n) {
+  const id = m + '-' + p + n;
+  const d = document.getElementById(id);
+  if (!d) return;
+  const section = document.getElementById('month-' + m);
+  const ds = section.querySelectorAll('.wd');
+  const o = d.classList.contains('op');
+  ds.forEach(x => { x.classList.remove('op'); x.style.display = 'none'; });
+  if (!o) { d.classList.add('op'); d.style.display = 'block'; }
+}
+// Show Set 2026 by default
+window.addEventListener('DOMContentLoaded', () => {
+  // Set is already active by default (class active set in HTML)
+});
+</script>
+</body>
+</html>
