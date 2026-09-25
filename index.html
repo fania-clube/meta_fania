@@ -6,7 +6,465 @@
 <title>Dudhar · Dashboard 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
+/* ── CSS Jun 2026 ── */
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --gold:#c9a84c;--gl:#f0d080;
+  --violet:#9f7aea;--vl:#c4b5fd;--pink:#f472b6;--pd:#e879a0;
+  --bg:#0c0b10;--sf:#141318;--sf2:#1e1c26;--bd:#282530;
+  --tx:#e8e3f4;--mu:#6b6580;
+  --gn:#4ade80;--sk:#38bdf8;--am:#fbbf24;--rd:#f87171;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--tx);min-height:100vh;padding-bottom:60px}
 
+.nav{position:sticky;top:0;z-index:100;background:rgba(12,11,16,.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--bd);padding:0 20px}
+.nav-inner{max-width:780px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:52px}
+.nav-brand{font-family:'DM Serif Display',serif;font-size:16px;color:var(--tx)}
+.nav-brand em{color:var(--gold);font-style:normal}
+.nav-tabs{display:flex;gap:4px}
+.tab-btn{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:6px 14px;border-radius:8px;border:none;cursor:pointer;transition:all .2s;background:transparent;color:var(--mu)}
+.tab-btn.active{background:var(--sf2);color:var(--tx)}
+.tab-btn:hover:not(.active){color:var(--tx)}
+
+.wrap{max-width:780px;margin:0 auto;padding:24px 20px}
+.panel{display:none}
+.panel.active{display:block}
+
+/* HERO */
+.eyebrow{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--mu);margin-bottom:10px}
+.big-pct{font-family:'DM Serif Display',serif;font-size:64px;line-height:1;color:var(--gold)}
+.big-pct sup{font-size:26px;color:var(--gl)}
+.big-num{font-family:'DM Serif Display',serif;font-size:52px;line-height:1;color:var(--vl)}
+.hero-meta{display:flex;align-items:flex-end;gap:16px;margin-bottom:8px}
+.hero-sub{padding-bottom:8px}
+.hero-label{font-size:12px;color:var(--mu);letter-spacing:.08em;text-transform:uppercase;font-family:'DM Mono',monospace}
+.badge-ok{display:inline-flex;align-items:center;gap:6px;background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.22);color:var(--gn);border-radius:99px;padding:5px 14px;font-size:12px;font-weight:500;margin-top:6px}
+.prog{height:5px;background:var(--bd);border-radius:99px;overflow:hidden;margin:16px 0}
+.prog-fill{height:100%;border-radius:99px;width:100%}
+.prog-gold{background:linear-gradient(90deg,var(--gold),var(--gl))}
+.prog-vl{background:linear-gradient(90deg,var(--violet),var(--vl))}
+
+/* CARDS */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.card{background:var(--sf);border:1px solid var(--bd);border-radius:14px;padding:16px;position:relative;overflow:hidden}
+.card::after{content:'';position:absolute;top:-20px;right:-20px;width:80px;height:80px;background:radial-gradient(circle,rgba(255,255,255,.025) 0%,transparent 70%)}
+.cl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--mu);margin-bottom:5px}
+.cv{font-size:20px;font-weight:600;line-height:1}
+.cs{font-size:11px;color:var(--mu);margin-top:3px}
+.cd{font-size:10px;font-family:'DM Mono',monospace;color:var(--gn);margin-top:3px}
+.c-gold{color:var(--gl)} .c-gn{color:var(--gn)} .c-sk{color:var(--sk)}
+.c-am{color:var(--am)} .c-vl{color:var(--vl)} .c-pink{color:var(--pink)}
+
+/* SECTION TITLE */
+.st{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--mu);margin:20px 0 8px}
+
+/* WEEKS */
+.wg{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:4px}
+.wc{background:var(--sf);border:1px solid var(--bd);border-radius:12px;padding:14px;cursor:pointer;transition:border-color .18s,background .18s}
+.wc:hover,.wc.op{border-color:var(--gold);background:var(--sf2)}
+.wc.op-vl{border-color:var(--violet)!important}
+.wc.s5c{border-color:rgba(74,222,128,.35)}
+.wc.s5c:hover{border-color:var(--gn)}
+.wh{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.wb{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:11px;font-weight:500}
+.b1{background:rgba(167,139,250,.15);color:#a78bfa}
+.b2{background:rgba(56,189,248,.15);color:#38bdf8}
+.b3{background:rgba(74,222,128,.15);color:#4ade80}
+.b4{background:rgba(251,146,60,.15);color:#fb923c}
+.b5{background:rgba(74,222,128,.2);color:#4ade80}
+.wn{font-size:10px;color:var(--mu)}
+.wbr{font-size:15px;font-weight:600}
+.wl{font-size:11px;color:var(--mu);margin-top:2px}
+.tags{display:flex;gap:4px;margin-top:8px;flex-wrap:wrap}
+.tg{font-size:9px;font-family:'DM Mono',monospace;padding:2px 6px;border-radius:4px;background:var(--bd);color:var(--mu)}
+.tg.n{background:rgba(251,146,60,.15);color:#fb923c}
+.tg.hoje{background:rgba(244,114,182,.15);color:#f472b6}
+.tg.novo{background:rgba(74,222,128,.15);color:var(--gn)}
+.upill{background:rgba(251,146,60,.15);color:#fb923c;font-family:'DM Mono',monospace;font-size:9px;padding:1px 6px;border-radius:4px;margin-left:5px;vertical-align:middle}
+
+.wd{background:var(--sf2);border:1px solid var(--gold);border-radius:12px;padding:14px;margin:4px 0 10px;display:none}
+.wd.vl{border-color:var(--violet)}
+.wd.op{display:block}
+.wdt{font-family:'DM Serif Display',serif;font-size:14px;color:var(--gold);margin-bottom:10px}
+.wdt.vl{color:var(--vl)}
+.dr{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--bd);font-size:12px;color:var(--mu)}
+.dr:last-child{border-bottom:none}
+.dr strong{color:var(--tx)}
+.dr.hl{background:rgba(251,146,60,.04);margin:0 -4px;padding:7px 4px;border-radius:4px}
+.dr.hl-gn{background:rgba(74,222,128,.04);margin:0 -4px;padding:7px 4px;border-radius:4px}
+
+/* PRODUTOS */
+.pl{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.pi{background:var(--sf);border:1px solid var(--bd);border-radius:10px;padding:12px}
+.pt{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px}
+.pname{font-size:13px;font-weight:500}
+.pq{font-family:'DM Mono',monospace;font-size:10px;color:var(--mu)}
+.pbr{height:4px;background:var(--bd);border-radius:99px;overflow:hidden;margin-bottom:5px}
+.pb{height:100%;border-radius:99px}
+.pv{display:flex;gap:14px}
+.pvi{font-size:11px;color:var(--mu)}
+.pvi strong{font-size:12px;color:var(--tx);font-weight:500}
+
+/* NOVOS */
+.nc{background:var(--sf);border:1px solid var(--bd);border-radius:14px;padding:16px;margin-bottom:12px}
+.nh{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.nl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--mu)}
+.nv{font-family:'DM Serif Display',serif;font-size:30px;color:var(--vl)}
+.nv span{font-size:13px;color:var(--mu);font-family:'DM Sans',sans-serif;margin-left:4px}
+.npg{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pb2{border-radius:10px;padding:12px;text-align:center}
+.pb2.m{background:rgba(159,122,234,.1);border:1px solid rgba(159,122,234,.25)}
+.pb2.t{background:rgba(244,114,182,.1);border:1px solid rgba(244,114,182,.25)}
+.pn2{font-family:'DM Serif Display',serif;font-size:30px;line-height:1}
+.pn2.m{color:var(--vl)} .pn2.t{color:var(--pink)}
+.plab{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--mu);margin-top:2px}
+.psub{font-size:11px;margin-top:3px}
+.psub.m{color:var(--violet)} .psub.t{color:var(--pink)}
+
+/* SPLIT */
+.sg{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.sb{background:var(--sf);border:1px solid var(--bd);border-radius:12px;padding:14px}
+.sbt{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.sbd{width:10px;height:10px;border-radius:50%}
+.sbd.m{background:var(--violet)} .sbd.t{background:var(--pink)}
+.sbn{font-size:12px;font-weight:500}
+.sbc{font-size:10px;font-family:'DM Mono',monospace;color:var(--mu);margin-left:auto}
+.sbv{font-size:17px;font-weight:600}
+.sbl{font-size:11px;color:var(--mu);margin-top:2px}
+.sbb{height:3px;border-radius:99px;margin-top:8px}
+.sbb.m{background:linear-gradient(90deg,var(--violet),var(--vl))}
+.sbb.t{background:linear-gradient(90deg,var(--pd),var(--pink))}
+
+/* TABLE */
+.dtb{background:var(--sf);border:1px solid var(--bd);border-radius:12px;overflow:hidden;margin-bottom:14px}
+.dtr{display:flex;align-items:center;justify-content:space-between;padding:9px 14px;border-bottom:1px solid var(--bd);font-size:12px}
+.dtr:last-child{border-bottom:none}
+.dtr.head{background:var(--sf2);font-family:'DM Mono',monospace;font-size:9px;color:var(--mu);text-transform:uppercase;letter-spacing:.1em}
+.dtn{font-weight:500} .dtm{color:var(--mu)} .dtmo{font-family:'DM Mono',monospace;font-size:11px}
+
+/* FUNIL */
+.fn-card{background:var(--sf);border:1px solid var(--bd);border-radius:14px;padding:16px;margin-bottom:12px}
+.fnr{display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--bd)}
+.fnr:last-child{border-bottom:none}
+.fnn{font-family:'DM Mono',monospace;font-size:20px;font-weight:500;min-width:36px;text-align:right;line-height:1}
+.fni{flex:1}
+.fnl{font-size:13px;font-weight:500}
+.fnd{font-size:11px;color:var(--mu);margin-top:1px}
+.fnb{font-family:'DM Mono',monospace;font-size:9px;padding:3px 8px;border-radius:6px;white-space:nowrap}
+.bg-gn{background:rgba(74,222,128,.1);color:var(--gn)}
+.bg-rd{background:rgba(248,113,113,.1);color:var(--rd)}
+.bg-am{background:rgba(251,191,36,.1);color:var(--am)}
+.bg-vl{background:rgba(192,132,252,.1);color:var(--vl)}
+.bg-sk{background:rgba(56,189,248,.1);color:var(--sk)}
+
+/* BARS */
+.bc{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.bcr{background:var(--sf);border:1px solid var(--bd);border-radius:10px;padding:10px 12px}
+.bcl{display:flex;justify-content:space-between;font-size:11px;margin-bottom:5px}
+.bcn{color:var(--tx);font-weight:500} .bcv{font-family:'DM Mono',monospace;color:var(--mu)}
+.bct{height:5px;background:var(--bd);border-radius:99px;overflow:hidden}
+.bcf{height:100%;border-radius:99px}
+
+.foot{font-family:'DM Mono',monospace;font-size:9px;color:var(--mu);text-align:center;margin-top:20px;opacity:.5;line-height:1.8}
+
+@media(max-width:480px){
+  .big-pct{font-size:48px} .big-num{font-size:38px}
+  .cv{font-size:17px} .hero-meta{flex-direction:column;gap:8px;align-items:flex-start}
+}
+/* ── CSS Jul 2026 ── */
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--gold:#c9a84c;--gl:#f0d080;--violet:#9f7aea;--vl:#c4b5fd;--pink:#f472b6;--pd:#e879a0;--bg:#0c0b10;--sf:#141318;--sf2:#1e1c26;--bd:#282530;--tx:#e8e3f4;--mu:#6b6580;--gn:#4ade80;--sk:#38bdf8;--am:#fbbf24;--rd:#f87171;--teal:#2dd4bf}
+html{scroll-behavior:smooth}
+body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--tx);min-height:100vh;padding-bottom:60px}
+.nav{position:sticky;top:0;z-index:100;background:rgba(12,11,16,.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--bd);padding:0 16px}
+.nav-inner{max-width:820px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:52px;gap:8px}
+.nav-brand{font-family:'DM Serif Display',serif;font-size:15px;color:var(--tx);flex-shrink:0}
+.nav-brand em{color:var(--gold);font-style:normal}
+.nm{font-family:'DM Mono',monospace;font-size:9px;color:var(--am);letter-spacing:.12em;text-transform:uppercase;background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.2);padding:3px 7px;border-radius:5px;margin-left:6px}
+.nav-tabs{display:flex;gap:2px}
+.tab-btn{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:5px 9px;border-radius:7px;border:none;cursor:pointer;background:transparent;color:var(--mu);white-space:nowrap;flex-shrink:0;transition:all .18s}
+.tab-btn.active{background:var(--sf2);color:var(--tx)}
+.tab-btn:hover:not(.active){color:var(--tx)}
+.wrap{max-width:820px;margin:0 auto;padding:20px 16px}
+.panel{display:none}.panel.active{display:block}
+.eyebrow{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--mu);margin-bottom:10px}
+.hero-row{display:flex;align-items:flex-end;gap:14px;margin-bottom:8px;flex-wrap:wrap}
+.big{font-family:'DM Serif Display',serif;line-height:1}
+.big.gold{font-size:56px;color:var(--gold)}.big.gold sup{font-size:22px;color:var(--gl)}
+.big.gn{font-size:56px;color:var(--gn)}.big.gn sup{font-size:22px}
+.big.vl{font-size:44px;color:var(--vl)}
+.big.teal{font-size:44px;color:var(--teal)}.big.teal sup{font-size:18px}
+.hero-sub{padding-bottom:6px}
+.hero-label{font-size:11px;color:var(--mu);letter-spacing:.07em;text-transform:uppercase;font-family:'DM Mono',monospace}
+.badge{display:inline-flex;align-items:center;gap:5px;border-radius:99px;padding:4px 12px;font-size:11px;font-weight:500;margin-top:6px}
+.badge-warn{background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.25);color:var(--am)}
+.badge-ok{background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.22);color:var(--gn)}
+.badge-teal{background:rgba(45,212,191,.1);border:1px solid rgba(45,212,191,.25);color:var(--teal)}
+.badge-fire{background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.35);color:var(--gold);font-size:12px;padding:6px 16px}
+.prog{height:5px;background:var(--bd);border-radius:99px;overflow:hidden;margin:14px 0}
+.pf{height:100%;border-radius:99px}
+.gold-f{background:linear-gradient(90deg,var(--gold),var(--gl))}
+.vl-f{background:linear-gradient(90deg,var(--violet),var(--vl))}
+.teal-f{background:linear-gradient(90deg,var(--teal),#67e8f9)}
+.gn-f{background:linear-gradient(90deg,#16a34a,var(--gn))}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:12px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px}
+.card{background:var(--sf);border:1px solid var(--bd);border-radius:13px;padding:14px;position:relative;overflow:hidden}
+.card::after{content:'';position:absolute;top:-18px;right:-18px;width:70px;height:70px;background:radial-gradient(circle,rgba(255,255,255,.02) 0%,transparent 70%)}
+.card.hl-teal{border-color:rgba(45,212,191,.25);background:rgba(45,212,191,.03)}
+.card.hl-gn{border-color:rgba(74,222,128,.2);background:rgba(74,222,128,.02)}
+.card.hl-am{border-color:rgba(251,191,36,.2);background:rgba(251,191,36,.02)}
+.card.hl-gold{border-color:rgba(201,168,76,.3);background:rgba(201,168,76,.02)}
+.cl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--mu);margin-bottom:4px}
+.cv{font-size:18px;font-weight:600;line-height:1}
+.cs{font-size:11px;color:var(--mu);margin-top:3px}
+.c-gold{color:var(--gl)}.c-gn{color:var(--gn)}.c-sk{color:var(--sk)}.c-am{color:var(--am)}.c-vl{color:var(--vl)}.c-pink{color:var(--pink)}.c-teal{color:var(--teal)}.c-mu{color:var(--mu)}.c-rd{color:var(--rd)}
+.st{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--mu);margin:18px 0 8px}
+.wg{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:4px}
+.wc{background:var(--sf);border:1px solid var(--bd);border-radius:12px;padding:13px;cursor:pointer;transition:border-color .18s,background .18s}
+.wc:hover,.wc.op{border-color:var(--gold);background:var(--sf2)}
+.wc.op-vl.op{border-color:var(--violet);background:var(--sf2)}
+.wc.empty{opacity:.3;cursor:default;pointer-events:none}
+.wc.done{border-color:rgba(74,222,128,.25)}.wc.done:hover{border-color:var(--gn)}
+.wc.live{border-color:rgba(251,191,36,.35);background:rgba(251,191,36,.015)}
+.wh{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px}
+.wb{width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:10px;font-weight:500}
+.b1{background:rgba(74,222,128,.12);color:var(--gn)}.b2{background:rgba(74,222,128,.12);color:var(--gn)}
+.b3{background:rgba(201,168,76,.15);color:var(--gold)}.b4{background:rgba(45,212,191,.1);color:var(--teal)}
+.b5{background:rgba(244,114,182,.1);color:var(--pink)}.be{background:rgba(167,139,250,.06);color:#a78bfa;opacity:.4}
+.wn{font-size:10px;color:var(--mu)}.wbr{font-size:14px;font-weight:600}.wl{font-size:11px;color:var(--mu);margin-top:2px}
+.tags{display:flex;gap:3px;margin-top:7px;flex-wrap:wrap}
+.tg{font-size:9px;font-family:'DM Mono',monospace;padding:2px 5px;border-radius:4px;background:var(--bd);color:var(--mu)}
+.tg.gn{background:rgba(74,222,128,.1);color:var(--gn)}.tg.am{background:rgba(251,191,36,.12);color:var(--am)}
+.tg.pix{background:rgba(74,222,128,.18);color:var(--gn);font-weight:600}
+.tg.eur{background:rgba(56,189,248,.12);color:var(--sk);font-weight:600}
+.upill{font-family:'DM Mono',monospace;font-size:8px;padding:1px 5px;border-radius:3px;margin-left:4px;background:rgba(201,168,76,.2);color:var(--gold);vertical-align:middle}
+.wd{background:var(--sf2);border:1px solid var(--gold);border-radius:12px;padding:13px;margin:4px 0 10px;display:none}
+.wd.vl{border-color:var(--violet)}.wd.op{display:block}
+.wdt{font-family:'DM Serif Display',serif;font-size:13px;color:var(--gold);margin-bottom:9px}
+.wdt.vl{color:var(--vl)}
+.dr{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--bd);font-size:12px;color:var(--mu)}
+.dr:last-child{border-bottom:none}.dr strong{color:var(--tx)}
+.dr.hi{background:rgba(201,168,76,.04);margin:0 -3px;padding:6px 3px;border-radius:4px}
+.dr.hi-pix{background:rgba(74,222,128,.08);margin:0 -3px;padding:6px 3px;border-radius:4px;border-left:2px solid var(--gn)}
+.dr.hi-eur{background:rgba(56,189,248,.06);margin:0 -3px;padding:6px 3px;border-radius:4px;border-left:2px solid var(--sk)}
+.pl{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.pi-c{background:var(--sf);border:1px solid var(--bd);border-radius:10px;padding:11px}
+.pt{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:5px}
+.pname{font-size:13px;font-weight:500}.pq{font-family:'DM Mono',monospace;font-size:9px;color:var(--mu)}
+.pbr{height:4px;background:var(--bd);border-radius:99px;overflow:hidden;margin-bottom:4px}
+.pb{height:100%;border-radius:99px}
+.pv{display:flex;gap:12px}
+.pvi{font-size:11px;color:var(--mu)}.pvi strong{font-size:12px;color:var(--tx);font-weight:500}
+.nc{background:var(--sf);border:1px solid var(--bd);border-radius:13px;padding:15px;margin-bottom:12px}
+.nh{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px}
+.nl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--mu)}
+.nv{font-family:'DM Serif Display',serif;font-size:26px;color:var(--vl)}
+.nv span{font-size:12px;color:var(--mu);font-family:'DM Sans',sans-serif;margin-left:3px}
+.npg{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.pb2{border-radius:9px;padding:11px;text-align:center}
+.pb2.m{background:rgba(159,122,234,.1);border:1px solid rgba(159,122,234,.25)}
+.pb2.t{background:rgba(244,114,182,.1);border:1px solid rgba(244,114,182,.25)}
+.pn2{font-family:'DM Serif Display',serif;font-size:26px;line-height:1}
+.pn2.m{color:var(--vl)}.pn2.t{color:var(--pink)}
+.plab{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--mu);margin-top:2px}
+.psub{font-size:11px;margin-top:3px}.psub.m{color:var(--violet)}.psub.t{color:var(--pink)}
+.sg{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:13px}
+.sb{background:var(--sf);border:1px solid var(--bd);border-radius:11px;padding:13px}
+.sbt{display:flex;align-items:center;gap:7px;margin-bottom:7px}
+.sbd{width:9px;height:9px;border-radius:50%}.sbd.m{background:var(--violet)}.sbd.t{background:var(--pink)}
+.sbn{font-size:12px;font-weight:500}.sbc{font-size:9px;font-family:'DM Mono',monospace;color:var(--mu);margin-left:auto}
+.sbv{font-size:16px;font-weight:600}.sbl{font-size:11px;color:var(--mu);margin-top:2px}
+.sbb{height:3px;border-radius:99px;margin-top:7px}
+.sbb.m{background:linear-gradient(90deg,var(--violet),var(--vl))}.sbb.t{background:linear-gradient(90deg,var(--pd),var(--pink))}
+.dtb{background:var(--sf);border:1px solid var(--bd);border-radius:11px;overflow:hidden;margin-bottom:13px}
+.dtr{display:flex;align-items:center;justify-content:space-between;padding:8px 13px;border-bottom:1px solid var(--bd);font-size:12px}
+.dtr:last-child{border-bottom:none}
+.dtr.head{background:var(--sf2);font-family:'DM Mono',monospace;font-size:9px;color:var(--mu);text-transform:uppercase;letter-spacing:.1em}
+.dtn{font-weight:500}.dtm{color:var(--mu)}.dtmo{font-family:'DM Mono',monospace;font-size:11px}
+/* PREV */
+.meta-stack{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.meta-row{background:var(--sf);border:1px solid var(--bd);border-radius:11px;padding:12px 14px}
+.meta-row.confirmed{border-color:rgba(74,222,128,.25);background:rgba(74,222,128,.02)}
+.meta-row.scheduled{border-color:rgba(45,212,191,.2);background:rgba(45,212,191,.02)}
+.meta-row.batida{border-color:rgba(201,168,76,.35);background:rgba(201,168,76,.03)}
+.mr-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+.mr-label{font-size:12px;font-weight:500}.mr-val{font-size:14px;font-weight:600;font-family:'DM Mono',monospace}
+.mr-bar{height:3px;border-radius:99px;background:var(--bd);overflow:hidden;margin-top:6px}
+.mr-fill{height:100%;border-radius:99px}
+.mr-sub{font-size:10px;color:var(--mu);margin-top:4px}
+.subs-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:14px}
+.sub-card{background:var(--sf);border:1px solid var(--bd);border-radius:11px;padding:12px;text-align:center}
+.sub-num{font-family:'DM Serif Display',serif;font-size:28px;line-height:1}
+.sub-label{font-family:'DM Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--mu);margin-top:3px}
+.sub-sub{font-size:10px;color:var(--mu);margin-top:3px}
+.prev-weeks{display:flex;flex-direction:column;gap:5px;margin-bottom:14px}
+.pw{background:var(--sf);border:1px solid var(--bd);border-radius:10px;padding:10px 13px;display:flex;justify-content:space-between;align-items:center}
+.pw.done{opacity:.6;border-color:rgba(74,222,128,.2)}.pw.live{border-color:rgba(201,168,76,.35);background:rgba(201,168,76,.015)}.pw.upcoming{border-color:rgba(45,212,191,.15)}
+.pw-left{display:flex;align-items:center;gap:10px}
+.pw-badge{width:24px;height:24px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:9px;font-weight:500;flex-shrink:0}
+.pw-info{font-size:12px}.pw-sub{font-size:10px;color:var(--mu);margin-top:1px}
+.pw-right{text-align:right}.pw-val{font-size:13px;font-weight:600;font-family:'DM Mono',monospace}.pw-liq{font-size:10px;color:var(--mu)}
+.note{border-radius:9px;padding:10px 13px;font-size:11px;margin-bottom:13px;line-height:1.5}
+.note.sk{background:rgba(56,189,248,.04);border:1px solid rgba(56,189,248,.15);color:var(--sk)}
+.note.am{background:rgba(251,191,36,.04);border:1px solid rgba(251,191,36,.15);color:var(--am)}
+.note.gn{background:rgba(74,222,128,.04);border:1px solid rgba(74,222,128,.15);color:var(--gn)}
+.note strong{display:block;margin-bottom:2px;font-size:12px}
+.bc{display:flex;flex-direction:column;gap:5px;margin-bottom:13px}
+.bcr{background:var(--sf);border:1px solid var(--bd);border-radius:9px;padding:9px 11px}
+.bcl{display:flex;justify-content:space-between;font-size:11px;margin-bottom:4px}
+.bcn{color:var(--tx);font-weight:500}.bcv{font-family:'DM Mono',monospace;color:var(--mu)}
+.bct{height:4px;background:var(--bd);border-radius:99px;overflow:hidden}
+.bcf{height:100%;border-radius:99px}
+.foot{font-family:'DM Mono',monospace;font-size:9px;color:var(--mu);text-align:center;margin-top:18px;opacity:.5;line-height:1.8}
+@media(max-width:500px){.big{font-size:36px!important}.cv{font-size:16px}.g3,.subs-grid{grid-template-columns:1fr 1fr}.nav-tabs .tab-btn{font-size:8px;padding:4px 6px}}
+/* ── CSS Ago 2026 ── */
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--gold:#c9a84c;--gl:#f0d080;--violet:#9f7aea;--vl:#c4b5fd;--pink:#f472b6;--pd:#e879a0;--bg:#0c0b10;--sf:#141318;--sf2:#1e1c26;--bd:#282530;--tx:#e8e3f4;--mu:#6b6580;--gn:#4ade80;--sk:#38bdf8;--am:#fbbf24;--rd:#f87171;--teal:#2dd4bf}
+html{scroll-behavior:smooth}
+body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--tx);min-height:100vh;padding-bottom:60px}
+.nav{position:sticky;top:0;z-index:100;background:rgba(12,11,16,.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--bd);padding:0 16px}
+.nav-inner{max-width:820px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:52px;gap:8px}
+.nav-brand{font-family:'DM Serif Display',serif;font-size:15px;color:var(--tx);flex-shrink:0}
+.nav-brand em{color:var(--gold);font-style:normal}
+.nm{font-family:'DM Mono',monospace;font-size:9px;color:var(--sk);letter-spacing:.12em;text-transform:uppercase;background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.2);padding:3px 7px;border-radius:5px;margin-left:6px}
+.nav-tabs{display:flex;gap:2px}
+.tab-btn{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:5px 9px;border-radius:7px;border:none;cursor:pointer;background:transparent;color:var(--mu);white-space:nowrap;flex-shrink:0;transition:all .18s}
+.tab-btn.active{background:var(--sf2);color:var(--tx)}
+.tab-btn:hover:not(.active){color:var(--tx)}
+.wrap{max-width:820px;margin:0 auto;padding:20px 16px}
+.panel{display:none}.panel.active{display:block}
+.eyebrow{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--mu);margin-bottom:10px}
+.hero-row{display:flex;align-items:flex-end;gap:14px;margin-bottom:8px;flex-wrap:wrap}
+.big{font-family:'DM Serif Display',serif;line-height:1}
+.big.gold{font-size:56px;color:var(--gold)}.big.gold sup{font-size:22px;color:var(--gl)}
+.big.am{font-size:56px;color:var(--am)}.big.am sup{font-size:22px}
+.big.vl{font-size:44px;color:var(--vl)}
+.big.teal{font-size:44px;color:var(--teal)}.big.teal sup{font-size:18px}
+.big.gn{font-size:56px;color:var(--gn)}.big.gn sup{font-size:22px}
+.hero-sub{padding-bottom:6px}
+.hero-label{font-size:11px;color:var(--mu);letter-spacing:.07em;text-transform:uppercase;font-family:'DM Mono',monospace}
+.badge{display:inline-flex;align-items:center;gap:5px;border-radius:99px;padding:4px 12px;font-size:11px;font-weight:500;margin-top:6px}
+.badge-fire{background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.3);color:var(--gl)}
+.badge-warn{background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.25);color:var(--am)}
+.badge-ok{background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.22);color:var(--gn)}
+.badge-teal{background:rgba(45,212,191,.1);border:1px solid rgba(45,212,191,.25);color:var(--teal)}
+.badge-sk{background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.25);color:var(--sk)}
+.prog{height:5px;background:var(--bd);border-radius:99px;overflow:hidden;margin:14px 0}
+.pf{height:100%;border-radius:99px}
+.gold-f{background:linear-gradient(90deg,var(--gold),var(--gl))}
+.vl-f{background:linear-gradient(90deg,var(--violet),var(--vl))}
+.teal-f{background:linear-gradient(90deg,var(--teal),#67e8f9)}
+.am-f{background:linear-gradient(90deg,var(--am),#fde68a)}
+.gn-f{background:linear-gradient(90deg,var(--gn),#86efac)}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:12px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px}
+.card{background:var(--sf);border:1px solid var(--bd);border-radius:13px;padding:14px;position:relative;overflow:hidden}
+.card.hl-teal{border-color:rgba(45,212,191,.25);background:rgba(45,212,191,.03)}
+.card.hl-gn{border-color:rgba(74,222,128,.2);background:rgba(74,222,128,.02)}
+.card.hl-am{border-color:rgba(251,191,36,.2);background:rgba(251,191,36,.02)}
+.card.hl-sk{border-color:rgba(56,189,248,.2);background:rgba(56,189,248,.02)}
+.cl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--mu);margin-bottom:4px}
+.cv{font-size:18px;font-weight:600;line-height:1}
+.cs{font-size:11px;color:var(--mu);margin-top:3px}
+.c-gold{color:var(--gl)}.c-gn{color:var(--gn)}.c-sk{color:var(--sk)}.c-am{color:var(--am)}.c-vl{color:var(--vl)}.c-pink{color:var(--pink)}.c-teal{color:var(--teal)}.c-mu{color:var(--mu)}
+.st{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--mu);margin:18px 0 8px}
+.wg{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:4px}
+.wc{background:var(--sf);border:1px solid var(--bd);border-radius:12px;padding:13px;cursor:pointer;transition:border-color .18s,background .18s}
+.wc:hover,.wc.op{border-color:var(--gold);background:var(--sf2)}
+.wc.op-vl:hover,.wc.op-vl.op{border-color:var(--violet);background:var(--sf2)}
+.wc.empty{opacity:.3;cursor:default;pointer-events:none}
+.wc.live{border-color:rgba(251,191,36,.35);background:rgba(251,191,36,.015)}
+.wc.done{border-color:rgba(74,222,128,.25);background:rgba(74,222,128,.01)}
+.wh{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px}
+.wb{width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:10px;font-weight:500}
+.b1{background:rgba(74,222,128,.15);color:var(--gn)}
+.b2{background:rgba(251,191,36,.15);color:var(--am)}
+.b3,.b4,.b5{background:rgba(167,139,250,.1);color:#a78bfa;opacity:.5}
+.be{background:rgba(167,139,250,.06);color:#a78bfa;opacity:.35}
+.wn{font-size:10px;color:var(--mu)}.wbr{font-size:14px;font-weight:600}.wl{font-size:11px;color:var(--mu);margin-top:2px}
+.tags{display:flex;gap:3px;margin-top:7px;flex-wrap:wrap}
+.tg{font-size:9px;font-family:'DM Mono',monospace;padding:2px 5px;border-radius:4px;background:var(--bd);color:var(--mu)}
+.tg.am{background:rgba(251,191,36,.12);color:var(--am)}.tg.gn{background:rgba(74,222,128,.1);color:var(--gn)}
+.upill{font-family:'DM Mono',monospace;font-size:8px;padding:1px 5px;border-radius:3px;margin-left:4px;background:rgba(251,191,36,.15);color:var(--am);vertical-align:middle}
+.wd{background:var(--sf2);border:1px solid var(--gold);border-radius:12px;padding:13px;margin:4px 0 10px;display:none}
+.wd.vl{border-color:var(--violet)}.wd.op{display:block}
+.wdt{font-family:'DM Serif Display',serif;font-size:13px;color:var(--gold);margin-bottom:9px}
+.wdt.vl{color:var(--vl)}
+.dr{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--bd);font-size:12px;color:var(--mu)}
+.dr:last-child{border-bottom:none}.dr strong{color:var(--tx)}
+.dr.hi{background:rgba(251,191,36,.04);margin:0 -3px;padding:6px 3px;border-radius:4px}
+.dr.hi-pix{background:rgba(74,222,128,.08);margin:0 -3px;padding:6px 3px;border-radius:4px;border-left:2px solid var(--gn)}
+.dr.hi-eur{background:rgba(56,189,248,.06);margin:0 -3px;padding:6px 3px;border-radius:4px}
+.pl{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.pi-c{background:var(--sf);border:1px solid var(--bd);border-radius:10px;padding:11px}
+.pt{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:5px}
+.pname{font-size:13px;font-weight:500}.pq{font-family:'DM Mono',monospace;font-size:9px;color:var(--mu)}
+.pbr{height:4px;background:var(--bd);border-radius:99px;overflow:hidden;margin-bottom:4px}
+.pb{height:100%;border-radius:99px}
+.pv{display:flex;gap:12px}
+.pvi{font-size:11px;color:var(--mu)}.pvi strong{font-size:12px;color:var(--tx);font-weight:500}
+.nc{background:var(--sf);border:1px solid var(--bd);border-radius:13px;padding:15px;margin-bottom:12px}
+.nh{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px}
+.nl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--mu)}
+.nv{font-family:'DM Serif Display',serif;font-size:26px;color:var(--vl)}
+.nv span{font-size:12px;color:var(--mu);font-family:'DM Sans',sans-serif;margin-left:3px}
+.npg{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.pb2{border-radius:9px;padding:11px;text-align:center}
+.pb2.m{background:rgba(159,122,234,.1);border:1px solid rgba(159,122,234,.25)}
+.pb2.t{background:rgba(244,114,182,.1);border:1px solid rgba(244,114,182,.25)}
+.pn2{font-family:'DM Serif Display',serif;font-size:26px;line-height:1}
+.pn2.m{color:var(--vl)}.pn2.t{color:var(--pink)}
+.plab{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--mu);margin-top:2px}
+.psub{font-size:11px;margin-top:3px}.psub.m{color:var(--violet)}.psub.t{color:var(--pink)}
+.sg{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:13px}
+.sb{background:var(--sf);border:1px solid var(--bd);border-radius:11px;padding:13px}
+.sbt{display:flex;align-items:center;gap:7px;margin-bottom:7px}
+.sbd{width:9px;height:9px;border-radius:50%}.sbd.m{background:var(--violet)}.sbd.t{background:var(--pink)}
+.sbn{font-size:12px;font-weight:500}.sbc{font-size:9px;font-family:'DM Mono',monospace;color:var(--mu);margin-left:auto}
+.sbv{font-size:16px;font-weight:600}.sbl{font-size:11px;color:var(--mu);margin-top:2px}
+.sbb{height:3px;border-radius:99px;margin-top:7px}
+.sbb.m{background:linear-gradient(90deg,var(--violet),var(--vl))}.sbb.t{background:linear-gradient(90deg,var(--pd),var(--pink))}
+.dtb{background:var(--sf);border:1px solid var(--bd);border-radius:11px;overflow:hidden;margin-bottom:13px}
+.dtr{display:flex;align-items:center;justify-content:space-between;padding:8px 13px;border-bottom:1px solid var(--bd);font-size:12px}
+.dtr:last-child{border-bottom:none}
+.dtr.head{background:var(--sf2);font-family:'DM Mono',monospace;font-size:9px;color:var(--mu);text-transform:uppercase;letter-spacing:.1em}
+.dtn{font-weight:500}.dtm{color:var(--mu)}.dtmo{font-family:'DM Mono',monospace;font-size:11px}
+.meta-stack{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.meta-row{background:var(--sf);border:1px solid var(--bd);border-radius:11px;padding:12px 14px}
+.meta-row.confirmed{border-color:rgba(74,222,128,.25);background:rgba(74,222,128,.02)}
+.meta-row.partial{border-color:rgba(251,191,36,.2);background:rgba(251,191,36,.01)}
+.meta-row.gap{border-color:rgba(248,113,113,.15);background:rgba(248,113,113,.02)}
+.mr-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+.mr-label{font-size:12px;font-weight:500}.mr-val{font-size:14px;font-weight:600;font-family:'DM Mono',monospace}
+.mr-bar{height:3px;border-radius:99px;background:var(--bd);overflow:hidden;margin-top:6px}
+.mr-fill{height:100%;border-radius:99px}
+.mr-sub{font-size:10px;color:var(--mu);margin-top:4px}
+.bc{display:flex;flex-direction:column;gap:5px;margin-bottom:13px}
+.bcr{background:var(--sf);border:1px solid var(--bd);border-radius:9px;padding:9px 11px}
+.bcl{display:flex;justify-content:space-between;font-size:11px;margin-bottom:4px}
+.bcn{color:var(--tx);font-weight:500}.bcv{font-family:'DM Mono',monospace;color:var(--mu)}
+.bct{height:4px;background:var(--bd);border-radius:99px;overflow:hidden}
+.bcf{height:100%;border-radius:99px}
+.note{border-radius:9px;padding:10px 13px;font-size:11px;margin-bottom:13px;line-height:1.5}
+.note.sk{background:rgba(56,189,248,.04);border:1px solid rgba(56,189,248,.15);color:var(--sk)}
+.note.am{background:rgba(251,191,36,.04);border:1px solid rgba(251,191,36,.15);color:var(--am)}
+.note.gn{background:rgba(74,222,128,.04);border:1px solid rgba(74,222,128,.15);color:var(--gn)}
+.note strong{display:block;margin-bottom:2px;font-size:12px}
+.pw{background:var(--sf);border:1px solid var(--bd);border-radius:10px;padding:12px 14px;display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.pw.done{border-color:rgba(74,222,128,.2)}
+.pw.live{border-color:rgba(251,191,36,.3)}
+.pw-left{display:flex;align-items:center;gap:11px}
+.pw-badge{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:10px;font-weight:600}
+.pw-badge.b1{background:rgba(74,222,128,.12);color:var(--gn)}
+.pw-badge.b2{background:rgba(251,191,36,.12);color:var(--am)}
+.pw-info{font-size:12px;font-weight:500}.pw-sub{font-size:11px;color:var(--mu);margin-top:2px}
+.pw-val{font-size:15px;font-weight:600;font-family:'DM Mono',monospace;text-align:right}
+.pw-liq{font-size:9px;color:var(--mu);font-family:'DM Mono',monospace;text-align:right;margin-top:2px}
+.foot{font-family:'DM Mono',monospace;font-size:9px;color:var(--mu);text-align:center;margin-top:18px;opacity:.5;line-height:1.8}
+@media(max-width:500px){.big{font-size:36px!important}.cv{font-size:16px}.g3{grid-template-columns:1fr 1fr}.nav-tabs .tab-btn{font-size:8px;padding:4px 6px}}
+/* ── CSS Set 2026 ── */
 *{box-sizing:border-box;margin:0;padding:0}
 :root{--gold:#c9a84c;--gl:#f0d080;--violet:#9f7aea;--vl:#c4b5fd;--pink:#f472b6;--pd:#e879a0;--bg:#0c0b10;--sf:#141318;--sf2:#1e1c26;--bd:#282530;--tx:#e8e3f4;--mu:#6b6580;--gn:#4ade80;--sk:#38bdf8;--am:#fbbf24;--rd:#f87171;--teal:#2dd4bf}
 html{scroll-behavior:smooth}
@@ -138,56 +596,58 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--tx);min-h
 .pw-liq{font-size:9px;color:var(--mu);font-family:'DM Mono',monospace;text-align:right;margin-top:2px}
 .foot{font-family:'DM Mono',monospace;font-size:9px;color:var(--mu);text-align:center;margin-top:18px;opacity:.5;line-height:1.8}
 @media(max-width:500px){.big{font-size:36px!important}.cv{font-size:16px}.nav-tabs .tab-btn{font-size:8px;padding:4px 6px}}
+/* ── month nav ── */
+.mnav{position:sticky;top:0;z-index:200;background:rgba(12,11,16,.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--bd);padding:0 16px}
+.mnav-inner{max-width:820px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:50px;gap:8px}
+.mnav-brand{font-family:'DM Serif Display',serif;font-size:15px;color:var(--tx);flex-shrink:0}
+.mnav-brand em{color:var(--gold);font-style:normal}
+.mbtns{display:flex;gap:2px}
+.mbtn{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:5px 11px;border-radius:7px;border:none;cursor:pointer;background:transparent;color:var(--mu);white-space:nowrap;transition:all .18s}
+.mbtn.active{background:var(--gold);color:#0c0b10;font-weight:600}
+.mbtn:hover:not(.active){color:var(--tx)}
 
-/* ─── Month tab bar ─── */
-.month-nav{position:sticky;top:0;z-index:200;background:rgba(12,11,16,.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--bd);padding:0 16px}
-.month-nav-inner{max-width:820px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:50px;gap:8px}
-.month-brand{font-family:'DM Serif Display',serif;font-size:15px;color:var(--tx);flex-shrink:0}
-.month-brand em{color:var(--gold);font-style:normal}
-.month-tabs{display:flex;gap:2px}
-.month-btn{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:5px 10px;border-radius:7px;border:none;cursor:pointer;background:transparent;color:var(--mu);white-space:nowrap;flex-shrink:0;transition:all .18s}
-.month-btn.active{background:var(--gold);color:#0c0b10;font-weight:600}
-.month-btn:hover:not(.active){color:var(--tx)}
+/* ── inner nav (tab de abas dentro do mês) ── */
+.inav{background:rgba(20,19,24,.88);backdrop-filter:blur(8px);border-bottom:1px solid var(--bd);padding:0 16px;position:sticky;top:50px;z-index:150}
+.inav-inner{max-width:820px;margin:0 auto;display:flex;align-items:center;height:42px;gap:2px}
 
-/* ─── Inner tab bar (per month) ─── */
-.inner-nav{background:rgba(20,19,24,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--bd);padding:0 16px;position:sticky;top:50px;z-index:150}
-.inner-nav-inner{max-width:820px;margin:0 auto;display:flex;align-items:center;height:42px;gap:2px}
+/* ── month sections ── */
+.msec{display:none}
+.msec.active{display:block}
 
-/* ─── Month sections ─── */
-.month-section{display:none}
-.month-section.active{display:block}
+/* sobreescreve nav original (que não usamos mais) */
+.nav{display:none!important}
 
 @media(max-width:500px){
-  .month-btn{font-size:9px;padding:4px 7px}
-  .inner-nav .tab-btn{font-size:8px;padding:4px 6px}
+  .mbtn{font-size:9px;padding:4px 7px}
+  .inav .tab-btn{font-size:8px;padding:4px 6px}
 }
 </style>
 </head>
 <body>
-<nav class="month-nav">
-  <div class="month-nav-inner">
-    <div class="month-brand">Dudhar <em>·</em> 2026</div>
-    <div class="month-tabs">
-      <button class="month-btn" onclick="switchMonth('jun',this)">Jun 2026</button>
-      <button class="month-btn" onclick="switchMonth('jul',this)">Jul 2026</button>
-      <button class="month-btn" onclick="switchMonth('ago',this)">Ago 2026</button>
-      <button class="month-btn active" onclick="switchMonth('set',this)">Set 2026</button>
+
+<nav class="mnav">
+  <div class="mnav-inner">
+    <div class="mnav-brand">Dudhar <em>·</em> 2026</div>
+    <div class="mbtns">
+      <button class="mbtn" onclick="switchMonth('jun',this)">Jun 2026</button>
+      <button class="mbtn" onclick="switchMonth('jul',this)">Jul 2026</button>
+      <button class="mbtn" onclick="switchMonth('ago',this)">Ago 2026</button>
+      <button class="mbtn active" onclick="switchMonth('set',this)">Set 2026</button>
     </div>
   </div>
 </nav>
 
-<!-- ══════ JUN 2026 ══════ -->
-<div class="month-section" id="month-jun">
-  <nav class="inner-nav">
-    <div class="inner-nav-inner">
+<!-- ════ JUN 2026 ════ -->
+<div class="msec" id="msec-jun">
+
+  <nav class="inav">
+    <div class="inav-inner">
       <button class="tab-btn active" onclick="switchTab('jun','consultas',this)">Consultas</button>
       <button class="tab-btn" onclick="switchTab('jun','fania',this)">Fânia Clube</button>
     </div>
   </nav>
+
   <div class="wrap">
-
-
-<!-- ══════════════ CONSULTAS ══════════════ -->
 <div class="panel active" id="jun-panel-consultas">
 
   <div style="margin-bottom:20px">
@@ -302,8 +762,6 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--tx);min-h
     Histórico de atualizações: +1 Pix S4 (sem taxa) → +2 RS desc. S4 + 1 RS S5 hoje 08:42
   </div>
 </div>
-
-<!-- ══════════════ FÂNIA CLUBE ══════════════ -->
 <div class="panel" id="jun-panel-fania">
 
   <div style="margin-bottom:20px">
@@ -432,21 +890,23 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--tx);min-h
     Excluídos: R$69,90/R$129/R$300 (Acompanhamento) · EUR 30,00 · USD 65,00 · 4 testes · 3 incompletos<br>
     74 novos ativos reais: 21 mensal + 53 trimestral · S5 = 29/jun–01/jul · gerado 02/jul/2026
   </div>
-</div><!-- /month-jun -->
+</div>
+  </div><!-- /wrap -->
 
-<!-- ══════ JUL 2026 ══════ -->
-<div class="month-section" id="month-jul">
-  <nav class="inner-nav">
-    <div class="inner-nav-inner">
+</div><!-- /msec-jun -->
+
+<!-- ════ JUL 2026 ════ -->
+<div class="msec" id="msec-jul">
+
+  <nav class="inav">
+    <div class="inav-inner">
       <button class="tab-btn active" onclick="switchTab('jul','consultas',this)">Consultas</button>
       <button class="tab-btn" onclick="switchTab('jul','fania',this)">Fânia Clube</button>
       <button class="tab-btn" onclick="switchTab('jul','prev',this)">Previsibilidade</button>
     </div>
   </nav>
+
   <div class="wrap">
-
-
-<!-- ══ CONSULTAS ══ -->
 <div class="panel active" id="jul-panel-consultas">
   <div class="note sk"><strong>✅ S4 encerrada · 9 consultas · todas plataformas</strong>Pix: Mapa Natal 17/jul + Camila+Aline 22/jul + Julia 27/jul. Stripe: Filipa EUR 108 + Patricia Sinastria EUR 160 + Caroline Mapa Natal R$799. MP: 4 vendas.</div>
   <div style="margin-bottom:18px">
@@ -582,8 +1042,6 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--tx);min-h
   </div>
   <div class="foot">Meta jul: R$21.567 líq · 32 vendas · MP+Pix+Stripe · Pix: Mapa Natal 17/jul + Camila+Aline 22/jul + Julia 27/jul + Acomp. 28/jul · Stripe: Filipa+Patricia+Caroline · +Mapa Natal 28/jul · 28/jul/2026</div>
 </div>
-
-<!-- ══ FÂNIA ══ -->
 <div class="panel" id="jul-panel-fania">
   <div class="note am"><strong>⚠ EUR 8,10 excluído — verificar</strong>m.fernandes@jfa-ae.pro · Subscription update · 20/jul · R$47,09. Difere R$0,10 do padrão EUR 8,00 trimestral. É Fânia Clube? Se sim, some +R$43,88 líq.</div>
   <div style="margin-bottom:18px">
@@ -683,8 +1141,6 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--tx);min-h
   </div>
   <div class="foot">Fânia jul/2026 · BRL 20,90/45,00+var. · EUR 4,00/7,20/8,00 · USD 5,00/10,00 · Filipa+Patricia+Caroline+fabianag48 excluídas (consultas) · EUR 30+USD 65 excluídos (Acomp.) · 31/jul/2026</div>
 </div>
-
-<!-- ══ PREVISIBILIDADE ══ -->
 <div class="panel" id="jul-panel-prev">
   <div style="margin-bottom:18px">
     <div class="eyebrow">previsibilidade de receita · julho 2026 · 599 assinaturas ativas</div>
@@ -763,21 +1219,23 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--tx);min-h
     40 cobranças agendadas 22–31/jul · est. líq R$1.448 · Meta R$21.567 batida ✅<br>
     Caixa atual R$31.708,27 (147,0%) · META BATIDA ✅ · Projetado ≈ R$32.105 (148,9%) com S5 · 28/jul/2026
   </div>
-</div><!-- /month-jul -->
+</div>
+  </div><!-- /wrap -->
 
-<!-- ══════ AGO 2026 ══════ -->
-<div class="month-section" id="month-ago">
-  <nav class="inner-nav">
-    <div class="inner-nav-inner">
+</div><!-- /msec-jul -->
+
+<!-- ════ AGO 2026 ════ -->
+<div class="msec" id="msec-ago">
+
+  <nav class="inav">
+    <div class="inav-inner">
       <button class="tab-btn active" onclick="switchTab('ago','consultas',this)">Consultas</button>
       <button class="tab-btn" onclick="switchTab('ago','fania',this)">Fânia Clube</button>
       <button class="tab-btn" onclick="switchTab('ago','prev',this)">Previsibilidade</button>
     </div>
   </nav>
+
   <div class="wrap">
-
-
-<!-- ══ CONSULTAS ══ -->
 <div class="panel active" id="ago-panel-consultas">
   <div class="note sk"><strong>✅ AGOSTO ENCERRADO DEFINITIVO · 37 entradas</strong>+2 Pix retroativos: Rafaela B. R$615 (12/ago) + Luciane Ribeiro R$629 (25/ago).</div>
   <div style="margin-bottom:18px">
@@ -919,8 +1377,6 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--tx);min-h
   </div>
   <div class="foot">FECHAMENTO DEFINITIVO AGO 2026 · 37 entradas · 32 MP + 1 Stripe + 4 Pix (Marina + Julia + Rafaela + Luciane) · 08/set/2026</div>
 </div>
-
-<!-- ══ FÂNIA CLUBE ══ -->
 <div class="panel" id="ago-panel-fania">
   <div style="margin-bottom:18px">
     <div class="eyebrow">receita de assinaturas · fânia clube · agosto 2026</div>
@@ -1022,8 +1478,6 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--tx);min-h
   </div>
   <div class="foot">Fânia ago/2026 · 295 trans · 93 novos · R$11.114,18 líq · EUR 136 naisat aguardando confirmação · FECHAMENTO ✅</div>
 </div>
-
-<!-- ══ PREVISIBILIDADE ══ -->
 <div class="panel" id="ago-panel-prev">
   <div style="margin-bottom:18px">
     <div class="eyebrow">fechamento de receita · agosto 2026</div>
@@ -1095,48 +1549,48 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--tx);min-h
   </div>
   <div class="note am"><strong>⚠️ Julia Ribeiro · Pix R$ 629 · data 19/06</strong>Pendente de confirmação da data — incluído no fechamento de agosto por ora.</div>
   <div class="note gn"><strong>📊 Agosto fechamento DEFINITIVO · 162,2% · +R$ 13.424</strong>110,7% só em consultas · 93 novos Fânia · 295 trans · R$11.114 líq. +2 Pix retroativos: Rafaela B. + Luciane Ribeiro.</div>
-  <div class="foot">FECHAMENTO DEFINITIVO AGO 2026 · R$ 34.991,41 (162,2%) · META BATIDA ✅ · +R$ 13.424,41 acima · 08/set/2026
-  </div>
-</div><!-- /month-ago -->
+  <div class="foot">FECHAMENTO DEFINITIVO AGO 2026 · R$ 34.991,41 (162,2%) · META BATIDA ✅ · +R$ 13.424,41 acima · 08/set/2026</div>
+</div>
+  </div><!-- /wrap -->
 
-<!-- ══════ SET 2026 ══════ -->
-<div class="month-section active" id="month-set">
-  <nav class="inner-nav">
-    <div class="inner-nav-inner">
+</div><!-- /msec-ago -->
+
+<!-- ════ SET 2026 ════ -->
+<div class="msec active" id="msec-set">
+
+  <nav class="inav">
+    <div class="inav-inner">
       <button class="tab-btn active" onclick="switchTab('set','consultas',this)">Consultas</button>
       <button class="tab-btn" onclick="switchTab('set','fania',this)">Fânia Clube</button>
       <button class="tab-btn" onclick="switchTab('set','prev',this)">Previsibilidade</button>
     </div>
   </nav>
+
   <div class="wrap">
-
-
-<!-- ══ CONSULTAS ══ -->
 <div class="panel active" id="set-panel-consultas">
-  <div class="note gn"><strong>✅ 25/set · S4 em andamento · 7 consultas · META 99,2% só consultas</strong>S4 inclui Pix: Marina R$629 + Isabela R$630 + Joanna R$315 (meia, outra metade CC). Combinado: 125,3% · R$ 27.034,73.</div>
   <div style="margin-bottom:18px">
     <div class="eyebrow">meta de faturamento · consultas · setembro 2026</div>
     <div class="hero-row">
-      <div class="big am">99,2<sup>%</sup></div>
+      <div class="big am">89,6<sup>%</sup></div>
       <div class="hero-sub">
-        <div class="hero-label">da meta · só consultas · R$ 21.386,99 de R$ 21.567,00</div>
-        <div class="badge badge-warn">⚡ 30 consultas · R$ 21.386,99 líq · faltam R$ 180,01 p/ meta</div>
+        <div class="hero-label">da meta · só consultas · R$ 21.567,00 líq</div>
+        <div class="badge badge-warn">⚡ 28 consultas · R$ 19.332,49 líq · faltam R$ 2.234,51 p/ meta</div>
       </div>
     </div>
-    <div class="prog"><div class="pf am-f" style="width:99%"></div></div>
+    <div class="prog"><div class="pf am-f" style="width:89%"></div></div>
   </div>
   <div class="g2">
-    <div class="card"><div class="cl">Bruto total</div><div class="cv c-gold">R$ 23.129,85</div><div class="cs">30 entradas · MP + Pix + Stripe</div></div>
-    <div class="card"><div class="cl">Líquido total</div><div class="cv c-gn">R$ 21.386,99</div><div class="cs">faltam R$ 180,01 p/ meta consultas</div></div>
-    <div class="card"><div class="cl">Total combinado</div><div class="cv c-teal">R$ 27.034,73</div><div class="cs">125,3% · +R$ 5.467,73 acima</div></div>
-    <div class="card"><div class="cl">Produto líder</div><div class="cv c-vl">Rev Solar</div><div class="cs">18 vendas · 50,5% bruto</div></div>
+    <div class="card"><div class="cl">Bruto total</div><div class="cv c-gold">R$ 20.993,00</div><div class="cs">28 entradas · MP + Pix</div></div>
+    <div class="card"><div class="cl">Líquido total</div><div class="cv c-am">R$ 19.332,49</div><div class="cs">meta: R$ 21.567,00 · 89,6%</div></div>
+    <div class="card"><div class="cl">Falta (consultas)</div><div class="cv c-am">R$ 2.234,51</div><div class="cs">falta p/ meta só em consultas</div></div>
+    <div class="card"><div class="cl">Produto líder</div><div class="cv c-vl">Rev Solar</div><div class="cs">17 vendas · 52,7% bruto</div></div>
   </div>
   <div class="st">Por semana — toque para detalhar</div>
   <div class="wg">
     <div class="wc done" onclick="tw('set','c',1)">
-      <div class="wh"><div class="wb b1">S1</div><div class="wn">4 entradas ✓</div></div>
-      <div class="wbr">R$ 3.148,65</div><div class="wl">Líq. R$ 2.920,51</div>
-      <div class="tags"><span class="tg gn">01–07/set</span><span class="tg">MP</span><span class="tg eur">Stripe</span></div>
+      <div class="wh"><div class="wb b1">S1</div><div class="wn">3 entradas ✓</div></div>
+      <div class="wbr">R$ 2.676,20</div><div class="wl">Líq. R$ 2.476,75</div>
+      <div class="tags"><span class="tg gn">01–07/set</span><span class="tg">MP</span></div>
     </div>
     <div class="wc done" onclick="tw('set','c',2)">
       <div class="wh"><div class="wb b2">S2</div><div class="wn">6 vendas ✓</div></div>
@@ -1144,303 +1598,331 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--tx);min-h
       <div class="tags"><span class="tg gn">08–14/set</span><span class="tg">MP</span></div>
     </div>
     <div class="wc done" onclick="tw('set','c',3)">
-      <div class="wh"><div class="wb b3">S3</div><div class="wn">13 entradas ✓</div></div>
-      <div class="wbr">R$ 11.158,00</div><div class="wl">Líq. R$ 10.232,64</div>
-      <div class="tags"><span class="tg gn">15–21/set ✓</span><span class="tg">MP</span><span class="tg">Pix</span><span class="tg eur">Stripe</span></div>
+      <div class="wh"><div class="wb b3">S3</div><div class="wn">12 entradas ✓</div></div>
+      <div class="wbr">R$ 9.808,60</div><div class="wl">Líq. R$ 8.936,90</div>
+      <div class="tags"><span class="tg gn">15–21/set</span><span class="tg">MP</span><span class="tg">Pix</span></div>
     </div>
     <div class="wc live" onclick="tw('set','c',4)">
-      <div class="wh"><div class="wb b4">S4</div><div class="wn">7 vendas · em andamento</div></div>
-      <div class="wbr">R$ 4.268,00</div><div class="wl">Líq. R$ 4.005,01</div>
-      <div class="tags"><span class="tg am">22–28/set · em andamento</span><span class="tg">MP</span><span class="tg">Pix</span></div>
+      <div class="wh"><div class="wb b4">S4</div><div class="wn">7 entradas<span class="upill">hoje</span></div></div>
+      <div class="wbr">R$ 3.953,00</div><div class="wl">Líq. R$ 3.690,01</div>
+      <div class="tags"><span class="tg am">22–25/set · em andamento</span><span class="tg">MP</span><span class="tg">Pix</span></div>
     </div>
   </div>
   <div class="wd" id="set-c1">
     <div class="wdt">Semana 1 — 01 a 07/set ✓</div>
-    <div class="dr hi"><span>Rev Solar desc. ×1 (3x CC) · 01/set</span><strong>R$ 629 → R$ 563,20</strong></div>
-    <div class="dr hi"><span>Rev Solar ×1 (3x CC) · 03/set</span><strong>R$ 699 → R$ 625,88</strong></div>
-    <div class="dr hi"><span>Combo ×1 (1x CC) · 03/set</span><strong>R$ 1.348 → R$ 1.287,67</strong></div>
-    <div class="dr hi-eur"><span>🌍 passarinho.sandra · Follow Up (Stripe EUR 80) · 02/set</span><strong>R$ 472,45 → R$ 443,76</strong></div>
-    <div class="dr"><span>Total S1 — 4 entradas ✓</span><strong>R$ 3.148,65 bruto · R$ 2.920,51 líq</strong></div>
+    <div class="dr hi"><span>Rev Solar desc. ×1 (3x CC) · 01/09 · Rafaela</span><strong>R$ 629,00 → R$ 563,20</strong></div>
+    <div class="dr hi"><span>Combo ×1 (1x CC) · 03/09 · Maiara Vicente</span><strong>R$ 1.348,20 → R$ 1.287,67</strong></div>
+    <div class="dr hi"><span>Rev Solar ×1 (3x CC) · 03/09 · Ana Luíza</span><strong>R$ 699,00 → R$ 625,88</strong></div>
+    <div class="dr"><span>Total — 3 entr.</span><strong>R$ 2.676,20 bruto · R$ 2.476,75 líq</strong></div>
+    <div class="dr"><span>Total S1 — 3 entradas ✓</span><strong>R$ 2.676,20 bruto · R$ 2.476,75 líq</strong></div>
+  </div>
+  <div class="wd" id="set-c2">
+    <div class="wdt">Semana 2 — 08 a 14/set ✓</div>
+    <div class="dr hi"><span>Rev Solar desc. ×1 (3x CC) · 08/09 · Mayara</span><strong>R$ 629,00 → R$ 563,20</strong></div>
+    <div class="dr hi"><span>Rev Solar ×1 (boleto) · 08/09 · Michelle</span><strong>R$ 699,00 → R$ 695,51</strong></div>
+    <div class="dr hi"><span>Rev Solar ×1 (3x CC) · 12/09 · Eduarda Vargas</span><strong>R$ 699,00 → R$ 625,88</strong></div>
+    <div class="dr hi"><span>Combo ×1 (1x CC) · 14/09 · Giudanda</span><strong>R$ 1.348,20 → R$ 1.287,67</strong></div>
+    <div class="dr hi"><span>Mapa Natal ×1 (3x CC) · 14/09 · Cristina</span><strong>R$ 730,00 → R$ 653,64</strong></div>
+    <div class="dr hi"><span>Follow Up ×1 (3x CC) · 14/09 · Maria Gallera</span><strong>R$ 450,00 → R$ 402,93</strong></div>
+    <div class="dr"><span>Total — 6 entr.</span><strong>R$ 4.555,20 bruto · R$ 4.228,83 líq</strong></div>
+    <div class="dr"><span>Total S2 — 6 entradas ✓</span><strong>R$ 4.555,20 bruto · R$ 4.228,83 líq</strong></div>
   </div>
   <div class="wd" id="set-c3">
     <div class="wdt">Semana 3 — 15 a 21/set ✓</div>
-    <div class="dr hi"><span>Rev Solar desc. ×1 (3x CC) · 15/set</span><strong>R$ 629 → R$ 563,20</strong></div>
-    <div class="dr hi"><span>Follow Up ×1 (ticket 1x) · 15/set</span><strong>R$ 450 → R$ 446,51</strong></div>
-    <div class="dr hi"><span>Combo ×1 (5x CC) · 15/set</span><strong>R$ 1.348 → R$ 1.170,91</strong></div>
-    <div class="dr hi"><span>Rev Solar desc. ×1 (4x CC) · 16/set</span><strong>R$ 629 → R$ 600,76</strong></div>
-    <div class="dr hi"><span>Rev Solar desc. ×1 (12x CC) · 17/set</span><strong>R$ 629 → R$ 600,76</strong></div>
-    <div class="dr hi"><span>Rev Solar desc. ×1 (3x CC) · 17/set</span><strong>R$ 615 → R$ 550,67</strong></div>
-    <div class="dr hi"><span>Mapa Natal ×1 (ticket 1x) · 17/set</span><strong>R$ 799 → R$ 795,51</strong></div>
-    <div class="dr hi-pix"><span>🟢 Desirée · Rev Solar desc. (Pix) · 17/set</span><strong>R$ 615 → R$ 615,00</strong></div>
-    <div class="dr hi"><span>Rev Solar ×1 (3x CC) · 18/set</span><strong>R$ 699 → R$ 625,88</strong></div>
-    <div class="dr hi"><span>Combo ×1 (5x CC) · 18/set</span><strong>R$ 1.348 → R$ 1.170,91</strong></div>
-    <div class="dr hi"><span>Combo ×1 (5x CC) · 20/set</span><strong>R$ 1.348 → R$ 1.170,91</strong></div>
-    <div class="dr hi-eur"><span>🌍 mcoelhofe@gmail.com · Combo (Stripe BRL) · 18/set</span><strong>R$ 1.350 → R$ 1.295,74</strong></div>
-    <div class="dr hi"><span>belamstalden@hotmail.com · Rev Solar (3x CC) · 21/set</span><strong>R$ 699 → R$ 625,88</strong></div>
-    <div class="dr"><span>Total S3 — 13 entradas ✓</span><strong>R$ 11.158,00 bruto · R$ 10.232,64 líq</strong></div>
+    <div class="dr hi"><span>Combo ×1 (5x CC) · 15/09 · Fernanda Duart</span><strong>R$ 1.348,20 → R$ 1.170,91</strong></div>
+    <div class="dr hi"><span>Follow Up ×1 (boleto) · 15/09 · Flávia BM</span><strong>R$ 450,00 → R$ 446,51</strong></div>
+    <div class="dr hi"><span>Rev Solar desc. ×1 (3x CC) · 15/09 · Silayne</span><strong>R$ 629,00 → R$ 563,20</strong></div>
+    <div class="dr hi"><span>Rev Solar desc. ×1 (4x CC) · 16/09 · Natália Prado</span><strong>R$ 629,00 → R$ 600,76</strong></div>
+    <div class="dr hi"><span>Rev Solar desc. ×1 (12x CC) · 17/09 · Bruna Barbosa</span><strong>R$ 629,00 → R$ 600,76</strong></div>
+    <div class="dr hi"><span>Rev Solar desc. ×1 (3x CC) · 17/09 · Amanda Mugayar</span><strong>R$ 615,00 → R$ 550,67</strong></div>
+    <div class="dr hi"><span>Mapa Natal ×1 (boleto) · 17/09 · Lu Vinagre</span><strong>R$ 799,00 → R$ 795,51</strong></div>
+    <div class="dr hi"><span>Rev Solar desc. (Pix) 🟢 · 17/09 · Desirée</span><strong>R$ 615,00 → R$ 615,00</strong></div>
+    <div class="dr hi"><span>Rev Solar ×1 (3x CC) · 18/09 · Talita</span><strong>R$ 699,00 → R$ 625,88</strong></div>
+    <div class="dr hi"><span>Combo ×1 (5x CC) · 18/09 · Isa Bertolino</span><strong>R$ 1.348,20 → R$ 1.170,91</strong></div>
+    <div class="dr hi"><span>Combo ×1 (5x CC) · 20/09 · Brisa Lins</span><strong>R$ 1.348,20 → R$ 1.170,91</strong></div>
+    <div class="dr hi"><span>Rev Solar ×1 (3x CC) · 21/09 · Bel Amstalden</span><strong>R$ 699,00 → R$ 625,88</strong></div>
+    <div class="dr"><span>Total — 12 entr.</span><strong>R$ 9.808,60 bruto · R$ 8.936,90 líq</strong></div>
+    <div class="dr"><span>Total S3 — 12 entradas ✓</span><strong>R$ 9.808,60 bruto · R$ 8.936,90 líq</strong></div>
   </div>
   <div class="wd" id="set-c4">
-    <div class="wdt">Semana 4 — 22 a 28/set · em andamento</div>
-    <div class="dr hi"><span>thamyres.rhein@gmail.com · Rev Solar desc. (3x CC) · 22/set</span><strong>R$ 615 → R$ 550,67</strong></div>
-    <div class="dr hi-pix"><span>🟢 Marina · Rev Solar desc. (Pix) · 22/set</span><strong>R$ 629 → R$ 629,00</strong></div>
-    <div class="dr hi-pix"><span>🟢 Isabela Resende · Rev Solar (Pix) · 22/set</span><strong>R$ 630 → R$ 630,00</strong></div>
-    <div class="dr hi"><span>manuellasantini@hotmail.com · Rev Solar desc. (3x CC) · 23/set</span><strong>R$ 615 → R$ 550,67</strong></div>
-    <div class="dr hi"><span>lucila.longo@gmail.com · Rev Solar (3x CC) · 24/set</span><strong>R$ 699 → R$ 625,88</strong></div>
-    <div class="dr hi"><span>henriqueaugusto086@gmail.com · Follow Up (3x CC) · 24/set</span><strong>R$ 450 → R$ 402,93</strong></div>
-    <div class="dr hi-pix"><span>🟢 joannamariadss7 · Rev Solar split (Pix R$315 + CC R$315) · 24/set</span><strong>R$ 630 → R$ 615,86</strong></div>
-    <div class="dr"><span>Total S4 — 7 entradas · em andamento</span><strong>R$ 4.268,00 bruto · R$ 4.005,01 líq</strong></div>
-  </div>
-  <div class="wd" id="set-c2">
-    <div class="wdt">Semana 2 — 08 a 14/set · em andamento</div>
-    <div class="dr hi"><span>Rev Solar desc. ×1 (3x CC) · 08/set</span><strong>R$ 629 → R$ 563,20</strong></div>
-    <div class="dr hi"><span>Rev Solar ×1 (ticket 1x) · 08/set</span><strong>R$ 699 → R$ 695,51</strong></div>
-    <div class="dr hi"><span>Rev Solar ×1 (3x CC) · 12/set</span><strong>R$ 699 → R$ 625,88</strong></div>
-    <div class="dr hi"><span>Combo ×1 (1x CC) · 14/set</span><strong>R$ 1.348 → R$ 1.287,67</strong></div>
-    <div class="dr hi"><span>Mapa Natal ×1 (3x CC) · 14/set</span><strong>R$ 730 → R$ 653,64</strong></div>
-    <div class="dr hi"><span>Follow Up ×1 (3x CC) · 14/set</span><strong>R$ 450 → R$ 402,93</strong></div>
-    <div class="dr"><span>Total S2 — 6 vendas ✓</span><strong>R$ 4.555,20 bruto · R$ 4.228,83 líq</strong></div>
+    <div class="wdt">Semana 4 — 22 a 25/set · em andamento</div>
+    <div class="dr hi"><span>Rev Solar desc. ×1 (3x CC) · 22/09 · Thamyres Rhein</span><strong>R$ 615,00 → R$ 550,67</strong></div>
+    <div class="dr hi"><span>Rev Solar desc. (Pix) 🟢 · 22/09 · Marina</span><strong>R$ 629,00 → R$ 629,00</strong></div>
+    <div class="dr hi"><span>Rev Solar desc. (Pix) 🟢 · 22/09 · Isabela Resende</span><strong>R$ 630,00 → R$ 630,00</strong></div>
+    <div class="dr hi"><span>Rev Solar desc. ×1 (3x CC) · 23/09 · Manuella</span><strong>R$ 615,00 → R$ 550,67</strong></div>
+    <div class="dr hi"><span>Rev Solar ×1 (3x CC) · 24/09 · Lucila</span><strong>R$ 699,00 → R$ 625,88</strong></div>
+    <div class="dr hi"><span>Follow Up ×1 (3x CC) · 24/09 · Henrique</span><strong>R$ 450,00 → R$ 402,93</strong></div>
+    <div class="dr hi"><span>Parcial ×1 (1x CC) · 24/09 · Joanna</span><strong>R$ 315,00 → R$ 300,86</strong></div>
+    <div class="dr"><span>Total — 7 entr.</span><strong>R$ 3.953,00 bruto · R$ 3.690,01 líq</strong></div>
+    <div class="dr"><span>Total S4 (parcial) — 7 entradas</span><strong>R$ 3.953,00 bruto · R$ 3.690,01 líq</strong></div>
   </div>
   <div class="st">Ranking de produtos</div>
   <div class="pl">
     <div class="pi-c">
-      <div class="pt"><div class="pname">Revolução Solar <span style="font-size:10px;color:var(--mu);font-family:'DM Mono',monospace">full ×8 + desc. ×10</span></div><div class="pq">18 vendas · 50,5% bruto</div></div>
+      <div class="pt"><div class="pname">Revolução Solar <span style="font-size:10px;color:var(--mu);font-family:'DM Mono',monospace">full ×6 + desc. ×11</span></div><div class="pq">17 vendas · 52,7% bruto</div></div>
       <div class="pbr"><div class="pb" style="width:100%;background:linear-gradient(90deg,#a78bfa,#c084fc)"></div></div>
-      <div class="pv"><div class="pvi">Bruto <strong>R$ 11.688,00</strong></div><div class="pvi">Líq. <strong>R$ 10.858,90</strong></div></div>
+      <div class="pv"><div class="pvi">Bruto <strong>R$ 11.058,00</strong></div><div class="pvi">Líq. <strong>R$ 10.242,04</strong></div></div>
     </div>
     <div class="pi-c">
-      <div class="pt"><div class="pname">Mapa Natal</div><div class="pq">2 vendas · 6,6% bruto</div></div>
-      <div class="pbr"><div class="pb" style="width:9%;background:linear-gradient(90deg,#2dd4bf,#0891b2)"></div></div>
+      <div class="pt"><div class="pname">Combo</div><div class="pq">5 vendas · 32,1% bruto</div></div>
+      <div class="pbr"><div class="pb" style="width:61%;background:linear-gradient(90deg,#38bdf8,#0ea5e9)"></div></div>
+      <div class="pv"><div class="pvi">Bruto <strong>R$ 6.741,00</strong></div><div class="pvi">Líq. <strong>R$ 6.088,07</strong></div></div>
+    </div>
+    <div class="pi-c">
+      <div class="pt"><div class="pname">Mapa Natal</div><div class="pq">2 vendas · 7,3% bruto</div></div>
+      <div class="pbr"><div class="pb" style="width:14%;background:linear-gradient(90deg,#2dd4bf,#0891b2)"></div></div>
       <div class="pv"><div class="pvi">Bruto <strong>R$ 1.529,00</strong></div><div class="pvi">Líq. <strong>R$ 1.449,15</strong></div></div>
     </div>
     <div class="pi-c">
-      <div class="pt"><div class="pname">Follow Up</div><div class="pq">4 vendas · 7,9% bruto</div></div>
-      <div class="pbr"><div class="pb" style="width:15%;background:linear-gradient(90deg,#4ade80,#22c55e)"></div></div>
-      <div class="pv"><div class="pvi">Bruto <strong>R$ 1.822,45</strong></div><div class="pvi">Líq. <strong>R$ 1.696,13</strong></div></div>
+      <div class="pt"><div class="pname">Follow Up</div><div class="pq">3 vendas · 6,4% bruto</div></div>
+      <div class="pbr"><div class="pb" style="width:12%;background:linear-gradient(90deg,#4ade80,#22c55e)"></div></div>
+      <div class="pv"><div class="pvi">Bruto <strong>R$ 1.350,00</strong></div><div class="pvi">Líq. <strong>R$ 1.252,37</strong></div></div>
     </div>
     <div class="pi-c">
-      <div class="pt"><div class="pname">Combo</div><div class="pq">6 vendas · 35,0% bruto</div></div>
-      <div class="pbr"><div class="pb" style="width:100%;background:linear-gradient(90deg,#38bdf8,#0ea5e9)"></div></div>
-      <div class="pv"><div class="pvi">Bruto <strong>R$ 8.091,00</strong></div><div class="pvi">Líq. <strong>R$ 7.383,81</strong></div></div>
+      <div class="pt"><div class="pname">Parcial</div><div class="pq">1 venda · 1,5% bruto</div></div>
+      <div class="pbr"><div class="pb" style="width:3%;background:linear-gradient(90deg,#fbbf24,#f59e0b)"></div></div>
+      <div class="pv"><div class="pvi">Bruto <strong>R$ 315,00</strong></div><div class="pvi">Líq. <strong>R$ 300,86</strong></div></div>
     </div>
   </div>
   <div class="st">Ritmo</div>
   <div class="bc">
-    <div class="bcr"><div class="bcl"><span class="bcn">S1 ✓</span><span class="bcv">R$ 3.148 · 4 entradas · MP + Stripe</span></div><div class="bct"><div class="bcf" style="width:39%;background:linear-gradient(90deg,#4ade80,#22c55e)"></div></div></div>
-    <div class="bcr"><div class="bcl"><span class="bcn">S2 ✓</span><span class="bcv">R$ 4.555 · 6 vendas · 08–14/set</span></div><div class="bct"><div class="bcf" style="width:100%;background:linear-gradient(90deg,#4ade80,#22c55e)"></div></div></div>
-    <div class="bcr"><div class="bcl"><span class="bcn">S3 ✓</span><span class="bcv">R$ 11.158 · 13 entradas · 15–21/set</span></div><div class="bct"><div class="bcf" style="width:100%;background:linear-gradient(90deg,#4ade80,#22c55e)"></div></div></div>
-    <div class="bcr"><div class="bcl"><span class="bcn">S4 <span style="color:var(--am)">em andamento</span></span><span class="bcv">R$ 4.268 · 7 entradas · 22–28/set</span></div><div class="bct"><div class="bcf" style="width:53%;background:linear-gradient(90deg,#fbbf24,#f59e0b)"></div></div></div>
+    <div class="bcr"><div class="bcl"><span class="bcn">S1 ✓</span><span class="bcv">R$ 2.676,20 · 3 entradas · 01–07/set</span></div><div class="bct"><div class="bcf" style="width:27%;background:linear-gradient(90deg,#4ade80,#22c55e)"></div></div></div>
+    <div class="bcr"><div class="bcl"><span class="bcn">S2 ✓</span><span class="bcv">R$ 4.555,20 · 6 vendas · 08–14/set</span></div><div class="bct"><div class="bcf" style="width:46%;background:linear-gradient(90deg,#4ade80,#22c55e)"></div></div></div>
+    <div class="bcr"><div class="bcl"><span class="bcn">S3 ✓ <span style="color:var(--gn)">melhor semana</span></span><span class="bcv">R$ 9.808,60 · 12 entradas · 15–21/set</span></div><div class="bct"><div class="bcf" style="width:100%;background:linear-gradient(90deg,#4ade80,#22c55e)"></div></div></div>
+    <div class="bcr"><div class="bcl"><span class="bcn">S4 ✦ em andamento</span><span class="bcv">R$ 3.953,00 · 7 entradas · 22–25/set</span></div><div class="bct"><div class="bcf" style="width:40%;background:linear-gradient(90deg,#fbbf24,#f59e0b)"></div></div></div>
   </div>
-  <div class="note gn"><strong>📊 Agosto referência</strong>Agosto fechou em 162,2% · R$34.991 · 37 consultas · 295 trans Fânia. Setembro já 125,3% com S4 em andamento.</div>
-  <div class="foot">Meta set: R$ 21.567,00 líq · 30 consultas · R$ 23.129,85 bruto · R$ 21.386,99 líq · combinado R$ 27.034,73 (125,3%) · 25/set/2026</div>
+  <div class="note am"><strong>⚡ S4 em andamento — faltam R$ 2.234,51 p/ meta</strong>28 consultas · R$ 19.332,49 líq · 89,6% da meta. S4 ainda em curso (25/set). Combo de Fânia (R$ 9.645,87) + consultas já garante 134,4% do caixa total.</div>
+  <div class="foot">Meta set: R$ 21.567,00 líq · 28 consultas · MP + 3 Pix manuais · 25/set/2026</div>
 </div>
-
-<!-- ══ FÂNIA CLUBE ══ -->
 <div class="panel" id="set-panel-fania">
   <div style="margin-bottom:18px">
     <div class="eyebrow">receita de assinaturas · fânia clube · setembro 2026</div>
     <div class="hero-row">
-      <div class="big vl">R$ 5.647</div>
+      <div class="big vl">R$ 9.645</div>
       <div class="hero-sub">
-        <div class="hero-label">líquido · 158 transações · 01–25/set</div>
+        <div class="hero-label">líquido · 174 transações · set/2026</div>
         <div class="badge badge-teal">✓ S1+S2+S3 encerradas · S4 em andamento</div>
       </div>
     </div>
     <div class="prog"><div class="pf vl-f" style="width:100%"></div></div>
   </div>
   <div class="g2">
-    <div class="card"><div class="cl">Bruto total</div><div class="cv c-vl">R$ 5.975,09</div><div class="cs">158 transações</div></div>
-    <div class="card"><div class="cl">Líquido total</div><div class="cv c-gn">R$ 5.647,74</div><div class="cs">Taxa Stripe: R$ 327,35</div></div>
-    <div class="card"><div class="cl">Novos assinantes</div><div class="cv c-vl">39</div><div class="cs">12 mensal · 27 trimestral</div></div>
-    <div class="card"><div class="cl">Renovações</div><div class="cv c-sk">119</div><div class="cs">S1 + S2 + S3 + S4</div></div>
+    <div class="card"><div class="cl">Bruto total</div><div class="cv c-vl">R$ 10.159,43</div><div class="cs">174 transações · set/2026</div></div>
+    <div class="card"><div class="cl">Líquido total</div><div class="cv c-gn">R$ 9.645,87</div><div class="cs">Taxa Stripe: R$ 513,56</div></div>
+    <div class="card"><div class="cl">Mensal</div><div class="cv c-vl">45</div><div class="cs">R$ 20,90/mês · R$ 940,50</div></div>
+    <div class="card"><div class="cl">Trimestral</div><div class="cv c-sk">101</div><div class="cs">R$ 45,00/3m · R$ 4.536,00</div></div>
   </div>
   <div class="nc">
-    <div class="nh"><div class="nl">Novos por plano</div><div class="nv">39<span>novos</span></div></div>
+    <div class="nh"><div class="nl">Por plano</div><div class="nv">174<span>trans</span></div></div>
     <div class="npg">
-      <div class="pb2 m"><div class="pn2 m">12</div><div class="plab">Mensal</div><div class="psub m">R$ 20,90 / mês</div></div>
-      <div class="pb2 t"><div class="pn2 t">27</div><div class="plab">Trimestral</div><div class="psub t">R$ 45,00 / 3 meses</div></div>
+      <div class="pb2 m"><div class="pn2 m">45</div><div class="plab">Mensal</div><div class="psub m">R$ 20,90 / mês</div></div>
+      <div class="pb2 t"><div class="pn2 t">101</div><div class="plab">Trimestral</div><div class="psub t">R$ 45,00 / 3 meses</div></div>
     </div>
   </div>
   <div class="st">Receita por plano</div>
   <div class="sg">
     <div class="sb">
-      <div class="sbt"><div class="sbd m"></div><div class="sbn">Mensal</div><div class="sbc">48 trans</div></div>
-      <div class="sbv c-vl">R$ 1.008,66</div><div class="sbl">Líq. R$ 936,65</div>
+      <div class="sbt"><div class="sbd m"></div><div class="sbn">Mensal</div><div class="sbc">45 trans</div></div>
+      <div class="sbv c-vl">R$ 940,50</div><div class="sbl">Líq. R$ 892,93</div>
     </div>
     <div class="sb">
-      <div class="sbt"><div class="sbd t"></div><div class="sbn">Trimestral</div><div class="sbc">110 trans</div></div>
-      <div class="sbv c-pink">R$ 4.966,43</div><div class="sbl">Líq. R$ 4.711,09</div>
+      <div class="sbt"><div class="sbd t"></div><div class="sbn">Trimestral</div><div class="sbc">101 trans</div></div>
+      <div class="sbv c-pink">R$ 4.536,00</div><div class="sbl">Líq. R$ 4.306,12</div>
     </div>
   </div>
-  <div class="st">Detalhamento plano × status</div>
+  <div class="st">Detalhamento por plano</div>
   <div class="dtb">
-    <div class="dtr head"><span>Plano</span><span>Status</span><span>Trans.</span><span>Bruto</span><span>Líquido</span></div>
-    <div class="dtr"><span class="dtn">Trimestral</span><span class="dtm">Renovação</span><span class="dtmo">83</span><span class="dtmo">R$ 3.746,68</span><span class="dtmo c-gn">R$ 3.554,41</span></div>
-    <div class="dtr"><span class="dtn">Trimestral</span><span class="dtm c-gn">Novo</span><span class="dtmo">27</span><span class="dtmo">R$ 1.219,75</span><span class="dtmo c-gn">R$ 1.156,72</span></div>
-    <div class="dtr"><span class="dtn">Mensal</span><span class="dtm">Renovação</span><span class="dtmo">36</span><span class="dtmo">R$ 757,86</span><span class="dtmo c-gn">R$ 703,71</span></div>
-    <div class="dtr"><span class="dtn">Mensal</span><span class="dtm c-gn">Novo</span><span class="dtmo">12</span><span class="dtmo">R$ 250,80</span><span class="dtmo c-gn">R$ 232,90</span></div>
+    <div class="dtr head"><span>Plano</span><span>Valor</span><span>Trans.</span><span>Bruto</span><span>Líquido</span></div>
+    <div class="dtr"><span class="dtn">Mensal</span><span class="dtm">R$ 20,90</span><span class="dtmo">45</span><span class="dtmo">R$ 940,50</span><span class="dtmo c-gn">R$ 892,93</span></div>
+    <div class="dtr"><span class="dtn">Trimestral</span><span class="dtm">R$ 45,00</span><span class="dtmo">101</span><span class="dtmo">R$ 4.536,00</span><span class="dtmo c-gn">R$ 4.306,12</span></div>
+    <div class="dtr"><span class="dtn">Premium</span><span class="dtm">R$ 69,90–1.350</span><span class="dtmo">14</span><span class="dtmo">R$ 3.534,60</span><span class="dtmo c-gn">R$ 3.355,64</span></div>
+    <div class="dtr"><span class="dtn">Internacional</span><span class="dtm">EUR/USD → BRL</span><span class="dtmo">14</span><span class="dtmo">R$ 1.148,33</span><span class="dtmo c-gn">R$ 1.090,23</span></div>
   </div>
   <div class="st">Por semana — toque para detalhar</div>
   <div class="wg">
     <div class="wc done op-vl" onclick="tw('set','f',1)">
-      <div class="wh"><div class="wb b1">S1</div><div class="wn">41 trans ✓</div></div>
-      <div class="wbr">R$ 1.431,33</div><div class="wl">Líq. R$ 1.355,01</div>
-      <div class="tags"><span class="tg gn">5 novos</span><span class="tg">36 ren</span><span class="tg">01–07/set</span></div>
+      <div class="wh"><div class="wb b1">S1</div><div class="wn">47 trans ✓</div></div>
+      <div class="wbr">R$ 3.003,58</div><div class="wl">Líq. R$ 2.852,74</div>
+      <div class="tags"><span class="tg gn">01–07/set</span></div>
     </div>
     <div class="wc done op-vl" onclick="tw('set','f',2)">
-      <div class="wh"><div class="wb b2">S2</div><div class="wn">46 trans ✓</div></div>
-      <div class="wbr">R$ 1.798,95</div><div class="wl">Líq. R$ 1.699,03</div>
-      <div class="tags"><span class="tg gn">15 novos</span><span class="tg">31 ren</span><span class="tg">08–14/set</span></div>
+      <div class="wh"><div class="wb b2">S2</div><div class="wn">51 trans ✓</div></div>
+      <div class="wbr">R$ 2.614,95</div><div class="wl">Líq. R$ 2.480,51</div>
+      <div class="tags"><span class="tg gn">08–14/set</span></div>
     </div>
     <div class="wc done op-vl" onclick="tw('set','f',3)">
-      <div class="wh"><div class="wb b3">S3</div><div class="wn">61 trans ✓</div></div>
-      <div class="wbr">R$ 2.367,11</div><div class="wl">Líq. R$ 2.236,25</div>
-      <div class="tags"><span class="tg gn">17 novos</span><span class="tg">44 ren</span><span class="tg">15–21/set</span></div>
+      <div class="wh"><div class="wb b3">S3</div><div class="wn">65 trans ✓</div></div>
+      <div class="wbr">R$ 3.985,91</div><div class="wl">Líq. R$ 3.788,89</div>
+      <div class="tags"><span class="tg gn">15–21/set</span></div>
     </div>
-    <div class="wc live op-vl" onclick="tw('set','f',4)">
-      <div class="wh"><div class="wb b4">S4</div><div class="wn">10 trans · em andamento</div></div>
-      <div class="wbr">R$ 377,70</div><div class="wl">Líq. R$ 357,45</div>
-      <div class="tags"><span class="tg am">2 novos</span><span class="tg">8 ren</span><span class="tg">22–28/set</span></div>
+    <div class="wc live" onclick="tw('set','f',4)">
+      <div class="wh"><div class="wb b4">S4</div><div class="wn">11 trans<span class="upill">hoje</span></div></div>
+      <div class="wbr">R$ 554,99</div><div class="wl">Líq. R$ 523,73</div>
+      <div class="tags"><span class="tg am">22–25/set · em andamento</span></div>
     </div>
   </div>
   <div class="wd vl" id="set-f1">
     <div class="wdt vl">Semana 1 — 01 a 07/set ✓</div>
-    <div class="dr"><span>Trans · Novos · Renov.</span><strong>41 · 5 (4M+1T) · 36</strong></div>
-    <div class="dr"><span>Mensal · Trimestral bruto</span><strong>R$ 333,81 · R$ 1.097,52</strong></div>
-    <div class="dr"><span>Bruto · Líquido</span><strong>R$ 1.431,33 · R$ 1.355,01</strong></div>
-  </div>
-  <div class="wd vl" id="set-f3">
-    <div class="wdt vl">Semana 3 — 15 a 21/set ✓</div>
-    <div class="dr"><span>Trans · Novos · Renov.</span><strong>61 · 17 (6M+11T) · 44</strong></div>
-    <div class="dr"><span>Mensal · Trimestral bruto</span><strong>R$ 337,25 · R$ 2.029,86</strong></div>
-    <div class="dr"><span>Bruto · Líquido</span><strong>R$ 2.367,11 · R$ 2.236,25</strong></div>
-  </div>
-  <div class="wd vl" id="set-f4">
-    <div class="wdt vl">Semana 4 — 22 a 28/set · em andamento</div>
-    <div class="dr"><span>Trans · Novos · Renov.</span><strong>10 · 2 (0M+2T) · 8</strong></div>
-    <div class="dr"><span>Mensal · Trimestral bruto</span><strong>R$ 62,70 · R$ 315,00</strong></div>
-    <div class="dr"><span>Bruto · Líquido</span><strong>R$ 377,70 · R$ 357,45</strong></div>
+    <div class="dr"><span>Transações · Bruto · Líquido</span><strong>47 · R$ 3.003,58 · R$ 2.852,74</strong></div>
+    <div class="dr"><span>Taxa Stripe média</span><strong>R$ 3,21 /trans</strong></div>
   </div>
   <div class="wd vl" id="set-f2">
     <div class="wdt vl">Semana 2 — 08 a 14/set ✓</div>
-    <div class="dr"><span>Trans · Novos · Renov.</span><strong>46 · 15 (2M+13T) · 31</strong></div>
-    <div class="dr"><span>Mensal · Trimestral bruto</span><strong>R$ 255,50 · R$ 1.543,45</strong></div>
-    <div class="dr"><span>Bruto · Líquido</span><strong>R$ 1.798,95 · R$ 1.699,03</strong></div>
+    <div class="dr"><span>Transações · Bruto · Líquido</span><strong>51 · R$ 2.614,95 · R$ 2.480,51</strong></div>
+    <div class="dr"><span>Taxa Stripe média</span><strong>R$ 2,64 /trans</strong></div>
   </div>
-  <div class="foot">Fânia set/2026 · BRL 20,90/45,00+var. · EUR 4,00/7,20/8,00/9,00 · USD 5,00/10,00 · 158 trans · 39 novos · R$ 5.975,09 bruto · R$ 5.647,74 líq · 25/set/2026</div>
+  <div class="wd vl" id="set-f3">
+    <div class="wdt vl">Semana 3 — 15 a 21/set ✓</div>
+    <div class="dr"><span>Transações · Bruto · Líquido</span><strong>65 · R$ 3.985,91 · R$ 3.788,89</strong></div>
+    <div class="dr"><span>Taxa Stripe média</span><strong>R$ 3,03 /trans</strong></div>
+  </div>
+  <div class="wd vl" id="set-f4">
+    <div class="wdt vl">Semana 4 — 22 a 25/set · em andamento</div>
+    <div class="dr"><span>Transações · Bruto · Líquido</span><strong>11 · R$ 554,99 · R$ 523,73</strong></div>
+    <div class="dr"><span>S4+S5 chegam até 30/set</span><strong>bônus sobre o já recebido</strong></div>
+  </div>
+  <div class="foot">Fânia set/2026 · 174 trans BRL · mensal R$20,90 · trimestral R$45,00 · premium R$69,90–R$1.350 · 14 trans intl (EUR/USD) · 25/set/2026</div>
 </div>
-
-<!-- ══ PREVISIBILIDADE ══ -->
 <div class="panel" id="set-panel-prev">
   <div style="margin-bottom:18px">
     <div class="eyebrow">previsibilidade de receita · setembro 2026</div>
     <div class="hero-row">
-      <div class="big gn">125,3<sup>%</sup></div>
+      <div class="big gn">134,4<sup>%</sup></div>
       <div class="hero-sub">
-        <div class="hero-label">meta batida · R$ 27.034 no caixa · S4 em andamento</div>
-        <div class="badge badge-ok">🏆 +R$ 5.468 acima da meta · S4+S5 ainda chegam</div>
+        <div class="hero-label">caixa total · consultas + fânia · meta batida ✅</div>
+        <div class="badge badge-ok">🏆 R$ 28.978,36 no caixa · 34,4% acima da meta</div>
       </div>
     </div>
     <div class="prog"><div class="pf gn-f" style="width:100%"></div></div>
   </div>
   <div class="g2">
-    <div class="card hl-gn"><div class="cl">Total no caixa</div><div class="cv c-gn">R$ 27.034,73</div><div class="cs">125,3% · META BATIDA ✅</div></div>
-    <div class="card hl-teal"><div class="cl">Acima da meta</div><div class="cv c-teal">+ R$ 5.467,73</div><div class="cs">S4+S5 são bônus</div></div>
-    <div class="card hl-sk"><div class="cl">Consultas líq.</div><div class="cv c-sk">R$ 21.386,99</div><div class="cs">30 entradas · 79,1%</div></div>
-    <div class="card hl-teal"><div class="cl">Fânia líq.</div><div class="cv c-teal">R$ 5.647,74</div><div class="cs">158 trans · 20,9%</div></div>
+    <div class="card hl-gn"><div class="cl">Total no caixa</div><div class="cv c-gn">R$ 28.978,36</div><div class="cs">134,4% · META BATIDA ✅</div></div>
+    <div class="card hl-teal"><div class="cl">Acima da meta</div><div class="cv c-teal">+R$ 7.411,36</div><div class="cs">consultas + Fânia</div></div>
+    <div class="card hl-sk"><div class="cl">Consultas líq.</div><div class="cv c-sk">R$ 19.332,49</div><div class="cs">28 entradas · 89,6%</div></div>
+    <div class="card hl-teal"><div class="cl">Fânia líq.</div><div class="cv c-teal">R$ 9.645,87</div><div class="cs">174 trans · 33,3%</div></div>
   </div>
   <div class="st">Composição do caixa</div>
   <div class="meta-stack">
     <div class="meta-row confirmed">
-      <div class="mr-top"><div class="mr-label" style="color:var(--gn)">✓ Consultas (01–25/set)</div><div class="mr-val" style="color:var(--gn)">R$ 21.386,99</div></div>
-      <div class="mr-bar"><div class="mr-fill" style="width:99.2%;background:var(--gold)"></div></div>
-      <div class="mr-sub">24 MP + 4 Pix + 2 Stripe · RS×18 + Combo×6 + FU×4 + Mapa×2 · S4 em andamento</div>
+      <div class="mr-top"><div class="mr-label" style="color:var(--gn)">✓ Consultas (01–25/set · 28 entradas)</div><div class="mr-val" style="color:var(--gn)">R$ 19.332,49</div></div>
+      <div class="mr-bar"><div class="mr-fill" style="width:66,7%;background:var(--gold)"></div></div>
+      <div class="mr-sub">MP (25 trans) + 3 Pix manuais · Rev Solar×17 + Combo×5 + Mapa×2 + FU×3 + Parcial×1</div>
     </div>
     <div class="meta-row confirmed">
-      <div class="mr-top"><div class="mr-label" style="color:var(--gn)">✓ Fânia recebido (01–25/set)</div><div class="mr-val" style="color:var(--gn)">R$ 5.647,74</div></div>
-      <div class="mr-bar"><div class="mr-fill" style="width:26.2%;background:var(--gn)"></div></div>
-      <div class="mr-sub">158 trans · 39 novos · S1+S2+S3 encerradas · S4 em andamento</div>
+      <div class="mr-top"><div class="mr-label" style="color:var(--gn)">✓ Fânia recebido (01–25/set)</div><div class="mr-val" style="color:var(--gn)">R$ 9.645,87</div></div>
+      <div class="mr-bar"><div class="mr-fill" style="width:33,3%;background:var(--gn)"></div></div>
+      <div class="mr-sub">174 trans · 45 mensal + 101 trimestral + 14 premium + 14 intl · S1+S2+S3 encerradas</div>
     </div>
     <div class="meta-row partial">
-      <div class="mr-top"><div class="mr-label" style="color:var(--am)">⏳ Restante (26–30/set)</div><div class="mr-val" style="color:var(--am)">bônus sobre a meta</div></div>
+      <div class="mr-top"><div class="mr-label" style="color:var(--am)">⏳ Fânia agendado (26–30/set)</div><div class="mr-val" style="color:var(--am)">≈ R$ 1.200 bruto</div></div>
       <div class="mr-bar"><div class="mr-fill" style="width:5%;background:var(--am);opacity:.7"></div></div>
-      <div class="mr-sub">S4 finalizando · S5 (29–30) · 125,3% já garantido</div>
+      <div class="mr-sub">S5 · cobranças restantes do mês · tudo bônus</div>
     </div>
   </div>
   <div class="st">Ritmo por semana</div>
   <div style="margin-bottom:14px">
-    <div class="pw done">
-      <div class="pw-left"><div class="pw-badge b1">S1</div><div><div class="pw-info" style="color:var(--gn)">01–07/set ✓</div><div class="pw-sub">4 entradas · 41 trans Fânia</div></div></div>
-      <div class="pw-right"><div class="pw-val" style="color:var(--gn)">R$ 4.276,77</div><div class="pw-liq">líquido real</div></div>
+    <div class="pw">
+      <div class="pw-left"><div class="pw-badge b1">S1</div><div><div class="pw-info" style="color:var(--gn)">01–07/set ✓</div><div class="pw-sub">3 consultas · 47 trans Fânia</div></div></div>
+      <div><div class="pw-val" style="color:var(--gn)">R$ 5.329,49</div><div class="pw-liq">líquido real</div></div>
     </div>
-    <div class="pw done" style="margin-top:6px">
-      <div class="pw-left"><div class="pw-badge b2">S2</div><div><div class="pw-info" style="color:var(--gn)">08–14/set ✓</div><div class="pw-sub">6 vendas · 46 trans Fânia</div></div></div>
-      <div class="pw-right"><div class="pw-val" style="color:var(--gn)">R$ 5.927,86</div><div class="pw-liq">líquido real</div></div>
+    <div class="pw" style="margin-top:6px">
+      <div class="pw-left"><div class="pw-badge b2">S2</div><div><div class="pw-info" style="color:var(--gn)">08–14/set ✓</div><div class="pw-sub">6 vendas · 51 trans Fânia</div></div></div>
+      <div><div class="pw-val" style="color:var(--gn)">R$ 6.709,34</div><div class="pw-liq">líquido real</div></div>
     </div>
-    <div class="pw done" style="margin-top:6px">
-      <div class="pw-left"><div class="pw-badge b3">S3</div><div><div class="pw-info" style="color:var(--gn)">15–21/set ✓</div><div class="pw-sub">13 entradas · 61 trans Fânia</div></div></div>
-      <div class="pw-right"><div class="pw-val" style="color:var(--gn)">R$ 12.468,89</div><div class="pw-liq">melhor semana do mês</div></div>
+    <div class="pw" style="margin-top:6px">
+      <div class="pw-left"><div class="pw-badge b3">S3</div><div><div class="pw-info" style="color:var(--gn)">15–21/set ✓</div><div class="pw-sub">12 entradas · 65 trans Fânia</div></div></div>
+      <div><div class="pw-val" style="color:var(--gn)">R$ 12.725,79</div><div class="pw-liq">melhor semana</div></div>
     </div>
-    <div class="pw done" style="margin-top:6px">
-      <div class="pw-left"><div class="pw-badge b4">S4</div><div><div class="pw-info" style="color:var(--am)">22–28/set · em andamento</div><div class="pw-sub">7 consultas · 10 trans Fânia</div></div></div>
-      <div class="pw-right"><div class="pw-val" style="color:var(--am)">R$ 4.362,46</div><div class="pw-liq">em andamento</div></div>
+    <div class="pw" style="margin-top:6px">
+      <div class="pw-left"><div class="pw-badge" style="background:rgba(251,191,36,.15);color:var(--am);font-family:'DM Mono',monospace;font-size:10px;width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center">S4</div><div><div class="pw-info" style="color:var(--am)">22–25/set · em andamento</div><div class="pw-sub">7 consultas · 11 trans Fânia</div></div></div>
+      <div><div class="pw-val" style="color:var(--am)">R$ 4.213,74</div><div class="pw-liq">parcial · S4 encerra 28/set</div></div>
     </div>
   </div>
   <div class="st">Próximos meses — base ativa</div>
   <div style="margin-bottom:14px">
     <div class="pw">
-      <div class="pw-left"><div class="pw-badge" style="background:rgba(167,139,250,.15);color:var(--vl);font-family:'DM Mono',monospace;font-size:10px;width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center">Out</div><div><div class="pw-info">Outubro 2026</div><div class="pw-sub">248 cobranças Fânia projetadas</div></div></div>
-      <div class="pw-right"><div class="pw-val" style="color:var(--vl)">R$ 8.913,50</div><div class="pw-liq">bruto projetado</div></div>
+      <div class="pw-left"><div class="pw-badge" style="background:rgba(167,139,250,.15);color:var(--vl);font-family:'DM Mono',monospace;font-size:10px;width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center">Out</div><div><div class="pw-info">Outubro 2026</div><div class="pw-sub">cobranças mensal + renovação trim.</div></div></div>
+      <div><div class="pw-val" style="color:var(--vl)">≈ R$ 8.900</div><div class="pw-liq">bruto projetado Fânia</div></div>
     </div>
     <div class="pw" style="margin-top:6px">
-      <div class="pw-left"><div class="pw-badge" style="background:rgba(244,114,182,.15);color:var(--pink);font-family:'DM Mono',monospace;font-size:10px;width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center">Nov</div><div><div class="pw-info">Novembro 2026</div><div class="pw-sub">296 cobranças · volta forte (= ago)</div></div></div>
-      <div class="pw-right"><div class="pw-val" style="color:var(--pink)">R$ 10.735,50</div><div class="pw-liq">bruto projetado</div></div>
+      <div class="pw-left"><div class="pw-badge" style="background:rgba(244,114,182,.15);color:var(--pink);font-family:'DM Mono',monospace;font-size:10px;width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center">Nov</div><div><div class="pw-info">Novembro 2026</div><div class="pw-sub">renovação tri + base ativa crescendo</div></div></div>
+      <div><div class="pw-val" style="color:var(--pink)">≈ R$ 10.700</div><div class="pw-liq">bruto projetado Fânia</div></div>
     </div>
   </div>
-  <div class="note gn"><strong>📊 125,3% — meta muito batida · S4 em andamento</strong>S3 fechou com 13 entradas + 61 trans Fânia (R$ 12.468,89). S4 já soma R$ 4.362,46. S5 (29–30/set) ainda chega como bônus. Joanna pagou meia via Pix + meia no crédito hoje.</div>
-  <div class="foot">META BATIDA · set/2026 · R$ 27.034,73 (125,3%) · +R$ 5.467,73 acima · 30 consultas + 158 trans Fânia · 25/set/2026
-  </div>
-</div><!-- /month-set -->
+  <div class="note gn"><strong>📊 Meta batida com caixa combinado</strong>Consultas: 89,6% da meta (R$ 19.332,49 líq). Fânia: R$ 9.645,87 recorrente. Juntos: R$ 28.978,36 = 134,4% — 34,4% acima da meta. S4 de consultas ainda em curso; qualquer venda adicional é bônus.</div>
+  <div class="foot">META BATIDA (caixa total) · set/2026 · R$ 28.978,36 (134,4%) · consultas 89,6% (R$ 19.332,49) + Fânia R$ 9.645,87 · 25/set/2026</div>
+</div>
+  </div><!-- /wrap -->
+
+</div><!-- /msec-set -->
 
 <script>
-function activateFirstPanel(sec) {
-  sec.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-  sec.querySelectorAll('.inner-nav .tab-btn').forEach(x => x.classList.remove('active'));
-  const fp = sec.querySelector('.panel');
-  const fb = sec.querySelector('.inner-nav .tab-btn');
-  if (fp) fp.classList.add('active');
-  if (fb) fb.classList.add('active');
-}
+/* switchMonth — ativa a seção do mês e reseta para a 1ª aba */
 function switchMonth(m, btn) {
-  document.querySelectorAll('.month-section').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('.month-btn').forEach(b => b.classList.remove('active'));
-  const sec = document.getElementById('month-' + m);
+  document.querySelectorAll('.msec').forEach(function(s){ s.classList.remove('active'); });
+  document.querySelectorAll('.mbtn').forEach(function(b){ b.classList.remove('active'); });
+  var sec = document.getElementById('msec-' + m);
   sec.classList.add('active');
   btn.classList.add('active');
-  document.querySelectorAll('.wd').forEach(d => { d.classList.remove('op'); d.style.display = 'none'; });
-  activateFirstPanel(sec);
+  // fecha todos os drawers
+  document.querySelectorAll('.wd').forEach(function(d){ d.classList.remove('op'); d.style.display='none'; });
+  document.querySelectorAll('.wc').forEach(function(c){ c.classList.remove('op'); });
+  // ativa 1º painel e 1ª aba do mês
+  activateFirst(sec);
 }
-function switchTab(m, t, b) {
-  const section = document.getElementById('month-' + m);
-  section.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-  section.querySelectorAll('.inner-nav .tab-btn').forEach(x => x.classList.remove('active'));
-  const panel = document.getElementById(m + '-panel-' + t);
+
+/* switchTab — troca aba dentro do mês */
+function switchTab(m, t, btn) {
+  var sec = document.getElementById('msec-' + m);
+  sec.querySelectorAll('.panel').forEach(function(p){ p.classList.remove('active'); });
+  sec.querySelectorAll('.inav-inner .tab-btn').forEach(function(b){ b.classList.remove('active'); });
+  var panel = document.getElementById(m + '-panel-' + t);
   if (panel) panel.classList.add('active');
-  b.classList.add('active');
-  section.querySelectorAll('.wd').forEach(d => { d.classList.remove('op'); d.style.display = 'none'; });
+  btn.classList.add('active');
+  // fecha drawers do mês
+  sec.querySelectorAll('.wd').forEach(function(d){ d.classList.remove('op'); d.style.display='none'; });
+  sec.querySelectorAll('.wc').forEach(function(c){ c.classList.remove('op'); });
 }
+
+/* tw — abre/fecha drawer de semana */
 function tw(m, p, n) {
-  const id = m + '-' + p + n;
-  const d = document.getElementById(id);
-  if (!d) return;
-  const section = document.getElementById('month-' + m);
-  const ds = section.querySelectorAll('.wd');
-  const o = d.classList.contains('op');
-  ds.forEach(x => { x.classList.remove('op'); x.style.display = 'none'; });
-  if (!o) { d.classList.add('op'); d.style.display = 'block'; }
+  var drawerId  = m + '-' + p + n;
+  var d = document.getElementById(drawerId);
+  if (!d) { console.warn('drawer not found:', drawerId); return; }
+  var sec = document.getElementById('msec-' + m);
+  // identifica o painel pai (consultas ou fania)
+  var panelName = (p === 'c') ? 'consultas' : 'fania';
+  var panel = document.getElementById(m + '-panel-' + panelName);
+  var wasOpen = d.classList.contains('op');
+  // fecha todos os drawers do mês
+  sec.querySelectorAll('.wd').forEach(function(x){ x.classList.remove('op'); x.style.display='none'; });
+  sec.querySelectorAll('.wc').forEach(function(c){ c.classList.remove('op'); });
+  // se estava fechado, abre
+  if (!wasOpen) {
+    d.classList.add('op');
+    d.style.display = 'block';
+    // destaca o card da semana correspondente (comportamento do junho)
+    if (panel) {
+      var cards = panel.querySelectorAll('.wc');
+      if (cards[n - 1]) cards[n - 1].classList.add('op');
+    }
+  }
 }
-window.addEventListener('DOMContentLoaded', () => {
-  const def = document.getElementById('month-set');
-  if (def) activateFirstPanel(def);
+
+/* ativa 1º painel e 1ª aba de uma seção */
+function activateFirst(sec) {
+  var panels = sec.querySelectorAll('.panel');
+  var tabs   = sec.querySelectorAll('.inav-inner .tab-btn');
+  panels.forEach(function(p){ p.classList.remove('active'); });
+  tabs.forEach(function(b){ b.classList.remove('active'); });
+  if (panels[0]) panels[0].classList.add('active');
+  if (tabs[0])   tabs[0].classList.add('active');
+}
+
+/* ao carregar, ativa setembro (padrão) */
+window.addEventListener('DOMContentLoaded', function() {
+  var sec = document.getElementById('msec-set');
+  if (sec) activateFirst(sec);
 });
 </script>
 </body>
