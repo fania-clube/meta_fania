@@ -597,98 +597,135 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--tx);min-h
 .foot{font-family:'DM Mono',monospace;font-size:9px;color:var(--mu);text-align:center;margin-top:18px;opacity:.5;line-height:1.8}
 @media(max-width:500px){.big{font-size:36px!important}.cv{font-size:16px}.nav-tabs .tab-btn{font-size:8px;padding:4px 6px}}
 /* ── CSS Out 2026 ⏳ ── */
-:root{
-  --gold:#c9a84c;--gl:#f0d080;
-  --violet:#9f7aea;--vl:#c4b5fd;
-  --pink:#f472b6;
-  --bg:#0c0b10;--sf:#141318;--sf2:#1e1c26;--bd:#282530;
-  --tx:#e8e3f4;--mu:#6b6580;
-  --gn:#4ade80;--sk:#38bdf8;--am:#fbbf24;--teal:#2dd4bf
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--tx);min-height:100vh}
-
-/* topbar */
-.topbar{background:var(--sf);border-bottom:1px solid var(--bd);padding:12px 20px;display:flex;align-items:center;gap:12px}
-.topbar h1{font-size:1.1rem;font-weight:700;color:var(--gold)}
-.topbar .sub{font-size:.8rem;color:var(--mu)}
-.wip-chip{margin-left:auto;background:var(--am);color:#000;font-size:.72rem;font-weight:700;padding:3px 10px;border-radius:99px}
-
-/* nav-tabs (hidden in unified — only used standalone) */
-.nav-tabs{display:flex;gap:4px;padding:16px 20px 0;border-bottom:1px solid var(--bd)}
-.ntab{padding:8px 18px;border-radius:6px 6px 0 0;font-size:.85rem;cursor:pointer;border:1px solid transparent;border-bottom:none;color:var(--mu);background:transparent}
-.ntab.active{background:var(--sf2);border-color:var(--bd);color:var(--tx);font-weight:600}
-.ntab:hover:not(.active){color:var(--tx)}
-.panel{display:none;padding:20px}.panel.active{display:block}
-
-/* hero */
-.hero-row{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:20px}
-.hero{background:var(--sf);border:1px solid var(--bd);border-radius:10px;padding:16px 20px;min-width:160px;flex:1}
-.hero .lbl{font-size:.75rem;color:var(--mu);margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em}
-.hero .val{font-size:1.5rem;font-weight:700}
-.hero .sub{font-size:.8rem;color:var(--mu);margin-top:4px}
-.hero.gn .val{color:var(--gn)}.hero.am .val{color:var(--am)}.hero.vl .val{color:var(--violet)}
-.hero.sk .val{color:var(--sk)}.hero.tl .val{color:var(--teal)}.hero.gl .val{color:var(--gold)}
-
-/* progress */
-.prog-wrap{background:var(--sf);border:1px solid var(--bd);border-radius:10px;padding:16px 20px;margin-bottom:20px}
-.prog-lbl{display:flex;justify-content:space-between;font-size:.8rem;color:var(--mu);margin-bottom:8px}
-.prog-track{background:var(--bd);border-radius:99px;height:14px;overflow:hidden}
-.prog-fill{height:100%;border-radius:99px}.prog-fill.am{background:var(--am)}.prog-fill.gn{background:var(--gn)}
-
-/* week cards */
-.week-card{background:var(--sf);border:1px solid var(--bd);border-radius:10px;margin-bottom:14px;overflow:hidden}
-.week-card.done{border-left:3px solid var(--gn)}
-.week-card.live{border-left:3px solid var(--am)}
-.week-card.pend{border-left:3px solid var(--bd)}
-.wk-hdr{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--bd);flex-wrap:wrap}
-.wk-label{font-weight:700;color:var(--tx)}.wk-days{font-size:.8rem;color:var(--mu)}
-.wk-badge{font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:99px}
-.wk-badge.done{background:rgba(74,222,128,.15);color:var(--gn)}
-.wk-badge.live{background:rgba(251,191,36,.15);color:var(--am)}
-.wk-badge.pend{background:var(--sf2);color:var(--mu)}
-.wk-n{margin-left:auto;font-size:.8rem;color:var(--mu)}
-.entries-tbl{width:100%;border-collapse:collapse;font-size:.82rem}
-.entries-tbl thead th{padding:8px 12px;text-align:left;color:var(--mu);font-weight:600;border-bottom:1px solid var(--bd);background:var(--sf2)}
-.entries-tbl tbody tr{border-bottom:1px solid var(--bd)}
-.entries-tbl tbody tr:last-child{border-bottom:none}
-.entries-tbl tbody tr:hover{background:var(--sf2)}
-.entries-tbl td{padding:8px 12px}
-.entries-tbl td.num{text-align:right;font-variant-numeric:tabular-nums}
-.empty-row{color:var(--mu);font-style:italic;text-align:center!important;padding:16px!important}
-.entries-tbl tr.pix td:nth-child(2){color:var(--teal)}
-.badge{font-size:.65rem;font-weight:700;padding:1px 5px;border-radius:4px;margin-left:6px;vertical-align:middle}
-.pix-badge{background:rgba(45,212,191,.15);color:var(--teal)}
-.wk-foot{display:grid;grid-template-columns:auto 1fr auto 1fr;gap:4px 12px;padding:10px 16px;background:var(--sf2);font-size:.82rem;border-top:1px solid var(--bd)}
-.wk-foot span.num{text-align:right;font-weight:600}
-
-/* fânia */
-.f-plans{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;margin-bottom:16px}
-.f-plan{background:var(--sf);border:1px solid var(--bd);border-radius:8px;padding:12px 14px}
-.f-plan .plbl{font-size:.75rem;color:var(--mu);margin-bottom:4px}
-.f-plan .pval{font-size:1.1rem;font-weight:700;color:var(--violet)}
-.f-plan .psub{font-size:.78rem;color:var(--mu);margin-top:2px}
-.f-week-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px}
-.f-wk{background:var(--sf);border:1px solid var(--bd);border-radius:8px;padding:12px 14px}
-.f-wk .wlbl{font-size:.78rem;color:var(--mu);margin-bottom:4px}
-.f-wk .wval{font-size:.95rem;font-weight:700;color:var(--sk)}
-.f-wk .wsub{font-size:.75rem;color:var(--mu);margin-top:2px}
-.wip-note{background:rgba(251,191,36,.07);border:1px solid rgba(251,191,36,.2);border-radius:8px;padding:12px 16px;font-size:.82rem;color:var(--am);margin-bottom:16px}
-.sec-title{font-size:.9rem;color:var(--mu);margin:16px 0 10px;text-transform:uppercase;letter-spacing:.05em}
-
-/* prev grid */
-.prev-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
-.prev-card{background:var(--sf);border:1px solid var(--bd);border-radius:10px;padding:16px}
-.prev-card .pm{font-weight:700;margin-bottom:8px;font-size:.9rem}
-.prev-card .row{display:flex;justify-content:space-between;font-size:.8rem;color:var(--mu);padding:3px 0;border-bottom:1px solid var(--bd)}
-.prev-card .row:last-child{border-bottom:none}
-.prev-card .row span:last-child{color:var(--tx);font-weight:600}
-
-@media(max-width:600px){
-  .hero-row{gap:8px}
-  .entries-tbl{font-size:.75rem}
-  .entries-tbl td,.entries-tbl th{padding:6px 8px}
-}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--gold:#c9a84c;--gl:#f0d080;--violet:#9f7aea;--vl:#c4b5fd;--pink:#f472b6;--pd:#e879a0;--bg:#0c0b10;--sf:#141318;--sf2:#1e1c26;--bd:#282530;--tx:#e8e3f4;--mu:#6b6580;--gn:#4ade80;--sk:#38bdf8;--am:#fbbf24;--rd:#f87171;--teal:#2dd4bf}
+html{scroll-behavior:smooth}
+body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--tx);min-height:100vh;padding-bottom:60px}
+.nav{position:sticky;top:0;z-index:100;background:rgba(12,11,16,.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--bd);padding:0 16px}
+.nav-inner{max-width:820px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:52px;gap:8px}
+.nav-brand{font-family:'DM Serif Display',serif;font-size:15px;color:var(--tx);flex-shrink:0}
+.nav-brand em{color:var(--gold);font-style:normal}
+.nm{font-family:'DM Mono',monospace;font-size:9px;color:var(--sk);letter-spacing:.12em;text-transform:uppercase;background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.2);padding:3px 7px;border-radius:5px;margin-left:6px}
+.nav-tabs{display:flex;gap:2px}
+.tab-btn{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:5px 9px;border-radius:7px;border:none;cursor:pointer;background:transparent;color:var(--mu);white-space:nowrap;flex-shrink:0;transition:all .18s}
+.tab-btn.active{background:var(--sf2);color:var(--tx)}
+.tab-btn:hover:not(.active){color:var(--tx)}
+.wrap{max-width:820px;margin:0 auto;padding:20px 16px}
+.panel{display:none}.panel.active{display:block}
+.eyebrow{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--mu);margin-bottom:10px}
+.hero-row{display:flex;align-items:flex-end;gap:14px;margin-bottom:8px;flex-wrap:wrap}
+.big{font-family:'DM Serif Display',serif;line-height:1}
+.big.am{font-size:56px;color:var(--am)}.big.am sup{font-size:22px}
+.big.vl{font-size:44px;color:var(--vl)}
+.big.gn{font-size:56px;color:var(--gn)}.big.gn sup{font-size:22px}
+.hero-sub{padding-bottom:6px}
+.hero-label{font-size:11px;color:var(--mu);letter-spacing:.07em;text-transform:uppercase;font-family:'DM Mono',monospace}
+.badge{display:inline-flex;align-items:center;gap:5px;border-radius:99px;padding:4px 12px;font-size:11px;font-weight:500;margin-top:6px}
+.badge-warn{background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.25);color:var(--am)}
+.badge-ok{background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.22);color:var(--gn)}
+.badge-teal{background:rgba(45,212,191,.1);border:1px solid rgba(45,212,191,.25);color:var(--teal)}
+.badge-sk{background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.25);color:var(--sk)}
+.prog{height:5px;background:var(--bd);border-radius:99px;overflow:hidden;margin:14px 0}
+.pf{height:100%;border-radius:99px}
+.am-f{background:linear-gradient(90deg,var(--am),#fde68a)}
+.vl-f{background:linear-gradient(90deg,var(--violet),var(--vl))}
+.teal-f{background:linear-gradient(90deg,var(--teal),#67e8f9)}
+.gn-f{background:linear-gradient(90deg,var(--gn),#86efac)}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:12px}
+.card{background:var(--sf);border:1px solid var(--bd);border-radius:13px;padding:14px}
+.card.hl-teal{border-color:rgba(45,212,191,.25);background:rgba(45,212,191,.03)}
+.card.hl-gn{border-color:rgba(74,222,128,.2);background:rgba(74,222,128,.02)}
+.card.hl-am{border-color:rgba(251,191,36,.2);background:rgba(251,191,36,.02)}
+.card.hl-sk{border-color:rgba(56,189,248,.2);background:rgba(56,189,248,.02)}
+.cl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--mu);margin-bottom:4px}
+.cv{font-size:18px;font-weight:600;line-height:1}
+.cs{font-size:11px;color:var(--mu);margin-top:3px}
+.c-gold{color:var(--gl)}.c-gn{color:var(--gn)}.c-sk{color:var(--sk)}.c-am{color:var(--am)}.c-vl{color:var(--vl)}.c-teal{color:var(--teal)}
+.st{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--mu);margin:18px 0 8px}
+.wg{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:4px}
+.wc{background:var(--sf);border:1px solid var(--bd);border-radius:12px;padding:13px;cursor:pointer;transition:border-color .18s}
+.wc:hover,.wc.op{border-color:var(--gold);background:var(--sf2)}
+.wc.op-vl:hover,.wc.op-vl.op{border-color:var(--violet);background:var(--sf2)}
+.wc.empty{opacity:.3;cursor:default;pointer-events:none}
+.wc.live{border-color:rgba(251,191,36,.35);background:rgba(251,191,36,.015)}
+.wc.done{border-color:rgba(74,222,128,.25);background:rgba(74,222,128,.01)}
+.wh{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px}
+.wb{width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:10px;font-weight:500}
+.b1{background:rgba(251,191,36,.15);color:var(--am)}
+.b2,.b3,.b4,.b5{background:rgba(167,139,250,.1);color:#a78bfa;opacity:.5}
+.be{background:rgba(167,139,250,.06);color:#a78bfa;opacity:.35}
+.wn{font-size:10px;color:var(--mu)}.wbr{font-size:14px;font-weight:600}.wl{font-size:11px;color:var(--mu);margin-top:2px}
+.tags{display:flex;gap:3px;margin-top:7px;flex-wrap:wrap}
+.tg{font-size:9px;font-family:'DM Mono',monospace;padding:2px 5px;border-radius:4px;background:var(--bd);color:var(--mu)}
+.tg.am{background:rgba(251,191,36,.12);color:var(--am)}.tg.gn{background:rgba(74,222,128,.1);color:var(--gn)}
+.wd{background:var(--sf2);border:1px solid var(--gold);border-radius:12px;padding:13px;margin:4px 0 10px;display:none}
+.wd.vl{border-color:var(--violet)}.wd.op{display:block}
+.wdt{font-family:'DM Serif Display',serif;font-size:13px;color:var(--gold);margin-bottom:9px}
+.wdt.vl{color:var(--vl)}
+.dr{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--bd);font-size:12px;color:var(--mu)}
+.dr:last-child{border-bottom:none}.dr strong{color:var(--tx)}
+.dr.hi{background:rgba(251,191,36,.04);margin:0 -3px;padding:6px 3px;border-radius:4px}
+.pl{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.pi-c{background:var(--sf);border:1px solid var(--bd);border-radius:10px;padding:11px}
+.pt{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:5px}
+.pname{font-size:13px;font-weight:500}.pq{font-family:'DM Mono',monospace;font-size:9px;color:var(--mu)}
+.pbr{height:4px;background:var(--bd);border-radius:99px;overflow:hidden;margin-bottom:4px}
+.pb{height:100%;border-radius:99px}
+.pv{display:flex;gap:12px}
+.pvi{font-size:11px;color:var(--mu)}.pvi strong{font-size:12px;color:var(--tx);font-weight:500}
+.nc{background:var(--sf);border:1px solid var(--bd);border-radius:13px;padding:15px;margin-bottom:12px}
+.nh{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px}
+.nl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--mu)}
+.nv{font-family:'DM Serif Display',serif;font-size:26px;color:var(--vl)}
+.nv span{font-size:12px;color:var(--mu);font-family:'DM Sans',sans-serif;margin-left:3px}
+.npg{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.pb2{border-radius:9px;padding:11px;text-align:center}
+.pb2.m{background:rgba(159,122,234,.1);border:1px solid rgba(159,122,234,.25)}
+.pb2.t{background:rgba(244,114,182,.1);border:1px solid rgba(244,114,182,.25)}
+.pn2{font-family:'DM Serif Display',serif;font-size:26px;line-height:1}
+.pn2.m{color:var(--vl)}.pn2.t{color:var(--pink)}
+.plab{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--mu);margin-top:2px}
+.psub{font-size:11px;margin-top:3px}.psub.m{color:var(--violet)}.psub.t{color:var(--pink)}
+.sg{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:13px}
+.sb{background:var(--sf);border:1px solid var(--bd);border-radius:11px;padding:13px}
+.sbt{display:flex;align-items:center;gap:7px;margin-bottom:7px}
+.sbd{width:9px;height:9px;border-radius:50%}.sbd.m{background:var(--violet)}.sbd.t{background:var(--pink)}
+.sbn{font-size:12px;font-weight:500}.sbc{font-size:9px;font-family:'DM Mono',monospace;color:var(--mu);margin-left:auto}
+.sbv{font-size:16px;font-weight:600}.sbl{font-size:11px;color:var(--mu);margin-top:2px}
+.dtb{background:var(--sf);border:1px solid var(--bd);border-radius:11px;overflow:hidden;margin-bottom:13px}
+.dtr{display:flex;align-items:center;justify-content:space-between;padding:8px 13px;border-bottom:1px solid var(--bd);font-size:12px}
+.dtr:last-child{border-bottom:none}
+.dtr.head{background:var(--sf2);font-family:'DM Mono',monospace;font-size:9px;color:var(--mu);text-transform:uppercase;letter-spacing:.1em}
+.dtn{font-weight:500}.dtm{color:var(--mu)}.dtmo{font-family:'DM Mono',monospace;font-size:11px}
+.meta-stack{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.meta-row{background:var(--sf);border:1px solid var(--bd);border-radius:11px;padding:12px 14px}
+.meta-row.confirmed{border-color:rgba(74,222,128,.25);background:rgba(74,222,128,.02)}
+.meta-row.partial{border-color:rgba(251,191,36,.2);background:rgba(251,191,36,.01)}
+.meta-row.gap{border-color:rgba(248,113,113,.15);background:rgba(248,113,113,.02)}
+.mr-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+.mr-label{font-size:12px;font-weight:500}.mr-val{font-size:14px;font-weight:600;font-family:'DM Mono',monospace}
+.mr-bar{height:3px;border-radius:99px;background:var(--bd);overflow:hidden;margin-top:6px}
+.mr-fill{height:100%;border-radius:99px}
+.mr-sub{font-size:10px;color:var(--mu);margin-top:4px}
+.bc{display:flex;flex-direction:column;gap:5px;margin-bottom:13px}
+.bcr{background:var(--sf);border:1px solid var(--bd);border-radius:9px;padding:9px 11px}
+.bcl{display:flex;justify-content:space-between;font-size:11px;margin-bottom:4px}
+.bcn{color:var(--tx);font-weight:500}.bcv{font-family:'DM Mono',monospace;color:var(--mu)}
+.bct{height:4px;background:var(--bd);border-radius:99px;overflow:hidden}
+.bcf{height:100%;border-radius:99px}
+.note{border-radius:9px;padding:10px 13px;font-size:11px;margin-bottom:13px;line-height:1.5}
+.note.sk{background:rgba(56,189,248,.04);border:1px solid rgba(56,189,248,.15);color:var(--sk)}
+.note.am{background:rgba(251,191,36,.04);border:1px solid rgba(251,191,36,.15);color:var(--am)}
+.note.gn{background:rgba(74,222,128,.04);border:1px solid rgba(74,222,128,.15);color:var(--gn)}
+.note strong{display:block;margin-bottom:2px;font-size:12px}
+.pw{background:var(--sf);border:1px solid var(--bd);border-radius:10px;padding:12px 14px;display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.pw-left{display:flex;align-items:center;gap:11px}
+.pw-badge{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:10px;font-weight:600}
+.pw-info{font-size:12px;font-weight:500}.pw-sub{font-size:11px;color:var(--mu);margin-top:2px}
+.pw-val{font-size:15px;font-weight:600;font-family:'DM Mono',monospace;text-align:right}
+.pw-liq{font-size:9px;color:var(--mu);font-family:'DM Mono',monospace;text-align:right;margin-top:2px}
+.foot{font-family:'DM Mono',monospace;font-size:9px;color:var(--mu);text-align:center;margin-top:18px;opacity:.5;line-height:1.8}
+@media(max-width:500px){.big{font-size:36px!important}.cv{font-size:16px}.nav-tabs .tab-btn{font-size:8px;padding:4px 6px}}
 /* ── month nav ── */
 .mnav{position:sticky;top:0;z-index:200;background:rgba(12,11,16,.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--bd);padding:0 16px}
 .mnav-inner{max-width:820px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:50px;gap:8px}
@@ -996,7 +1033,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(
     <div class="inav-inner">
       <button class="tab-btn active" onclick="switchTab('jul','consultas',this)">Consultas</button>
       <button class="tab-btn" onclick="switchTab('jul','fania',this)">Fânia Clube</button>
-      <button class="tab-btn" onclick="switchTab('jul','prev',this)">Meses Anteriores</button>
+      <button class="tab-btn" onclick="switchTab('jul','prev',this)">Previsibilidade</button>
     </div>
   </nav>
 
@@ -1325,7 +1362,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(
     <div class="inav-inner">
       <button class="tab-btn active" onclick="switchTab('ago','consultas',this)">Consultas</button>
       <button class="tab-btn" onclick="switchTab('ago','fania',this)">Fânia Clube</button>
-      <button class="tab-btn" onclick="switchTab('ago','prev',this)">Meses Anteriores</button>
+      <button class="tab-btn" onclick="switchTab('ago','prev',this)">Previsibilidade</button>
     </div>
   </nav>
 
@@ -1656,7 +1693,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(
     <div class="inav-inner">
       <button class="tab-btn active" onclick="switchTab('set','consultas',this)">Consultas</button>
       <button class="tab-btn" onclick="switchTab('set','fania',this)">Fânia Clube</button>
-      <button class="tab-btn" onclick="switchTab('set','prev',this)">Meses Anteriores</button>
+      <button class="tab-btn" onclick="switchTab('set','prev',this)">Previsibilidade</button>
     </div>
   </nav>
 
@@ -1958,213 +1995,237 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(
     <div class="inav-inner">
       <button class="tab-btn active" onclick="switchTab('out','consultas',this)">Consultas</button>
       <button class="tab-btn" onclick="switchTab('out','fania',this)">Fânia Clube</button>
-      <button class="tab-btn" onclick="switchTab('out','prev',this)">Meses Anteriores</button>
+      <button class="tab-btn" onclick="switchTab('out','prev',this)">Previsibilidade</button>
     </div>
   </nav>
 
   <div class="wrap">
 <div class="panel active" id="out-panel-consultas">
-  <div class="wip-note">📅 Mês em andamento — dados até 02/10/2026</div>
-
-  <div class="hero-row">
-    <div class="hero am">
-      <div class="lbl">Meta consultas</div>
-      <div class="val">R$ 26.200,00</div>
-      <div class="sub">referência mensal</div>
+  <div style="margin-bottom:18px">
+    <div class="eyebrow">meta de faturamento &middot; consultas &middot; outubro 2026</div>
+    <div class="hero-row">
+      <div class="big am">11,0<sup>%</sup></div>
+      <div class="hero-sub">
+        <div class="hero-label">da meta &middot; s&oacute; consultas &middot; R$ 26.200,00 l&iacute;q &amp;#x23F3;</div>
+        <div class="badge badge-warn">&#x23F3; 5 consultas &middot; R$ 2.893,89 l&iacute;q &middot; m&ecirc;s em andamento</div>
+      </div>
     </div>
-    <div class="hero sk">
-      <div class="lbl">Consultas até agora</div>
-      <div class="val">5</div>
-      <div class="sub">semana 1 parcial</div>
+    <div class="prog"><div class="pf am-f" style="width:11%"></div></div>
+  </div>
+  <div class="g2">
+    <div class="card hl-am"><div class="cl">Bruto total</div><div class="cv c-gold">R$ 3.181,10</div><div class="cs">5 entradas &middot; MP + Pix &middot; S1 parcial</div></div>
+    <div class="card hl-am"><div class="cl">L&iacute;quido total</div><div class="cv c-am">R$ 2.893,89</div><div class="cs">meta: R$ 26.200,00 &middot; 11,0% &#x23F3;</div></div>
+    <div class="card"><div class="cl">Faltam</div><div class="cv c-sk">R$ 23.306,11</div><div class="cs">para bater a meta de consultas</div></div>
+    <div class="card"><div class="cl">Produto l&iacute;der</div><div class="cv c-vl">Rev Solar</div><div class="cs">2 vendas &middot; 39,5% bruto &middot; S1 parcial</div></div>
+  </div>
+  <div class="st">Por semana &mdash; toque para detalhar</div>
+  <div class="wg">
+    <div class="wc live" onclick="tw('out','c',1)">
+      <div class="wh"><div class="wb b1">S1</div><div class="wn">5 entradas &#x23F3;</div></div>
+      <div class="wbr">R$ 3.181,10</div><div class="wl">L&iacute;q. R$ 2.893,89</div>
+      <div class="tags"><span class="tg am">01&ndash;07/out</span><span class="tg">MP</span><span class="tg">Pix</span></div>
     </div>
-    <div class="hero am">
-      <div class="lbl">Líquido acumulado</div>
-      <div class="val">R$ 2.893,89</div>
-      <div class="sub">11.0% da meta</div>
+    <div class="wc empty">
+      <div class="wh"><div class="wb b2">S2</div><div class="wn">aguardando</div></div>
+      <div class="wbr">&mdash;</div><div class="wl">08&ndash;14/out</div>
+      <div class="tags"><span class="tg">08&ndash;14/out</span></div>
     </div>
-    <div class="hero am">
-      <div class="lbl">Total geral (c/ Fânia)</div>
-      <div class="val">R$ 3.885,66</div>
-      <div class="sub">14.8% da meta</div>
+    <div class="wc empty">
+      <div class="wh"><div class="wb b3">S3</div><div class="wn">aguardando</div></div>
+      <div class="wbr">&mdash;</div><div class="wl">15&ndash;21/out</div>
+      <div class="tags"><span class="tg">15&ndash;21/out</span></div>
+    </div>
+    <div class="wc empty">
+      <div class="wh"><div class="wb b3">S4</div><div class="wn">aguardando</div></div>
+      <div class="wbr">&mdash;</div><div class="wl">22&ndash;31/out</div>
+      <div class="tags"><span class="tg">22&ndash;31/out</span></div>
     </div>
   </div>
-
-  <div class="prog-wrap">
-    <div class="prog-lbl">
-      <span>Progresso consultas — 11.0%</span>
-      <span>Meta: R$ 26.200,00</span>
+  <div class="wd" id="out-c1">
+    <div class="wdt">Semana 1 &mdash; 01 a 07/out &#x23F3; em andamento</div>
+    <div class="dr hi"><span>Rev Solar desc. x1 (3x CC) &middot; 01/10 &middot; Nicole Gimenez</span><strong>R$ 629,00 &rarr; R$ 563,20</strong></div>
+    <div class="dr hi"><span>Metade Combo (Pix) &#x1F7E2; &middot; 02/10 &middot; Raissa</span><strong>R$ 674,10 &rarr; R$ 640,46</strong></div>
+    <div class="dr hi"><span>Rev Solar desc. x1 (2x CC) &middot; 02/10 &middot; Ta&iacute;s Martins</span><strong>R$ 629,00 &rarr; R$ 571,88</strong></div>
+    <div class="dr hi"><span>Follow Up x1 (3x CC) &middot; 02/10 &middot; Bertolo</span><strong>R$ 450,00 &rarr; R$ 402,93</strong></div>
+    <div class="dr hi"><span>Mapa Natal x1 (3x CC) &middot; 02/10 &middot; Helem Nogueira</span><strong>R$ 799,00 &rarr; R$ 715,42</strong></div>
+    <div class="dr"><span>Total S1 &mdash; 5 entradas &#x23F3;</span><strong>R$ 3.181,10 bruto &middot; R$ 2.893,89 l&iacute;q</strong></div>
+  </div>
+  <div class="st">Ranking de produtos (parcial)</div>
+  <div class="pl">
+    <div class="pi-c">
+      <div class="pt"><div class="pname">Revolu&ccedil;&atilde;o Solar <span style="font-size:10px;color:var(--mu);font-family:'DM Mono',monospace">desc. x2</span></div><div class="pq">2 vendas &middot; 39,5% bruto</div></div>
+      <div class="pbr"><div class="pb" style="width:100%;background:linear-gradient(90deg,#a78bfa,#c084fc)"></div></div>
+      <div class="pv"><div class="pvi">Bruto <strong>R$ 1.258,00</strong></div><div class="pvi">L&iacute;q. <strong>R$ 1.135,08</strong></div></div>
     </div>
-    <div class="prog-track">
-      <div class="prog-fill am" style="width:11.0%"></div>
+    <div class="pi-c">
+      <div class="pt"><div class="pname">Mapa Natal</div><div class="pq">1 venda &middot; 25,1% bruto</div></div>
+      <div class="pbr"><div class="pb" style="width:64%;background:linear-gradient(90deg,#2dd4bf,#0891b2)"></div></div>
+      <div class="pv"><div class="pvi">Bruto <strong>R$ 799,00</strong></div><div class="pvi">L&iacute;q. <strong>R$ 715,42</strong></div></div>
+    </div>
+    <div class="pi-c">
+      <div class="pt"><div class="pname">Metade Combo <span style="font-size:10px;color:var(--mu);font-family:'DM Mono',monospace">Pix</span></div><div class="pq">1 venda &middot; 21,2% bruto</div></div>
+      <div class="pbr"><div class="pb" style="width:54%;background:linear-gradient(90deg,#38bdf8,#0ea5e9)"></div></div>
+      <div class="pv"><div class="pvi">Bruto <strong>R$ 674,10</strong></div><div class="pvi">L&iacute;q. <strong>R$ 640,46</strong></div></div>
+    </div>
+    <div class="pi-c">
+      <div class="pt"><div class="pname">Follow Up</div><div class="pq">1 venda &middot; 14,1% bruto</div></div>
+      <div class="pbr"><div class="pb" style="width:36%;background:linear-gradient(90deg,#4ade80,#22c55e)"></div></div>
+      <div class="pv"><div class="pvi">Bruto <strong>R$ 450,00</strong></div><div class="pvi">L&iacute;q. <strong>R$ 402,93</strong></div></div>
     </div>
   </div>
-
-  
-<div class="week-card live">
-  <div class="wk-hdr">
-    <span class="wk-label">S1</span>
-    <span class="wk-days">01–07 out</span>
-    <span class="wk-badge live">⏳ em andamento</span>
-    <span class="wk-n">5 entradas</span>
+  <div class="st">Ritmo</div>
+  <div class="bc">
+    <div class="bcr"><div class="bcl"><span class="bcn">S1 &#x23F3;</span><span class="bcv">R$ 3.181,10 &middot; 5 entradas &middot; 01&ndash;07/out</span></div><div class="bct"><div class="bcf" style="width:11%;background:linear-gradient(90deg,#fbbf24,#fde68a)"></div></div></div>
+    <div class="bcr"><div class="bcl"><span class="bcn" style="opacity:.4">S2</span><span class="bcv" style="opacity:.4">&mdash; &middot; aguardando &middot; 08&ndash;14/out</span></div><div class="bct"></div></div>
+    <div class="bcr"><div class="bcl"><span class="bcn" style="opacity:.4">S3</span><span class="bcv" style="opacity:.4">&mdash; &middot; aguardando &middot; 15&ndash;21/out</span></div><div class="bct"></div></div>
+    <div class="bcr"><div class="bcl"><span class="bcn" style="opacity:.4">S4</span><span class="bcv" style="opacity:.4">&mdash; &middot; aguardando &middot; 22&ndash;31/out</span></div><div class="bct"></div></div>
   </div>
-  <table class="entries-tbl">
-    <thead><tr><th>Data</th><th>Cliente</th><th>Produto</th><th>Bruto</th><th>Líquido</th></tr></thead>
-    <tbody><tr class=""><td>01/10</td><td>Nicole Gimenez</td><td>Rev Solar desc. ×1 (3x CC)</td><td class="num">R$ 629,00</td><td class="num">R$ 563,20</td></tr>
-<tr class="pix"><td>02/10</td><td>Raissa</td><td>Metade Combo (Pix)<span class="badge pix-badge">PIX</span></td><td class="num">R$ 674,10</td><td class="num">R$ 640,46</td></tr>
-<tr class=""><td>02/10</td><td>Taís Martins</td><td>Rev Solar desc. ×1 (2x CC)</td><td class="num">R$ 629,00</td><td class="num">R$ 571,88</td></tr>
-<tr class=""><td>02/10</td><td>Bertolo</td><td>Follow Up ×1 (3x CC)</td><td class="num">R$ 450,00</td><td class="num">R$ 402,93</td></tr>
-<tr class=""><td>02/10</td><td>Helem Nogueira</td><td>Mapa Natal ×1 (3x CC)</td><td class="num">R$ 799,00</td><td class="num">R$ 715,42</td></tr></tbody>
-  </table>
-  <div class="wk-foot"><span>Total bruto</span><span class="num">R$ 3.181,10</span><span>Líquido</span><span class="num">R$ 2.893,89</span></div>
-</div>
-  
-<div class="week-card pend">
-  <div class="wk-hdr">
-    <span class="wk-label">S2</span>
-    <span class="wk-days">08–14 out</span>
-    <span class="wk-badge pend">—</span>
-    <span class="wk-n">—</span>
-  </div>
-  <table class="entries-tbl">
-    <thead><tr><th>Data</th><th>Cliente</th><th>Produto</th><th>Bruto</th><th>Líquido</th></tr></thead>
-    <tbody><tr><td colspan="5" class="empty-row">sem entradas ainda</td></tr></tbody>
-  </table>
-  
-</div>
-  
-<div class="week-card pend">
-  <div class="wk-hdr">
-    <span class="wk-label">S3</span>
-    <span class="wk-days">15–21 out</span>
-    <span class="wk-badge pend">—</span>
-    <span class="wk-n">—</span>
-  </div>
-  <table class="entries-tbl">
-    <thead><tr><th>Data</th><th>Cliente</th><th>Produto</th><th>Bruto</th><th>Líquido</th></tr></thead>
-    <tbody><tr><td colspan="5" class="empty-row">sem entradas ainda</td></tr></tbody>
-  </table>
-  
-</div>
-  
-<div class="week-card pend">
-  <div class="wk-hdr">
-    <span class="wk-label">S4</span>
-    <span class="wk-days">22–31 out</span>
-    <span class="wk-badge pend">—</span>
-    <span class="wk-n">—</span>
-  </div>
-  <table class="entries-tbl">
-    <thead><tr><th>Data</th><th>Cliente</th><th>Produto</th><th>Bruto</th><th>Líquido</th></tr></thead>
-    <tbody><tr><td colspan="5" class="empty-row">sem entradas ainda</td></tr></tbody>
-  </table>
-  
-</div>
+  <div class="note am"><strong>&#x23F3; Outubro em andamento &mdash; 01&ndash;02/out</strong>5 consultas &middot; R$ 2.893,89 l&iacute;q &middot; 11,0% da meta de R$ 26.200,00. Faltam R$ 23.306,11 para bater a meta s&oacute; em consultas. S2, S3 e S4 ainda por registrar.</div>
+  <div class="foot">Meta out: R$ 26.200,00 l&iacute;q &middot; 5 consultas registradas (01&ndash;02/out) &middot; m&ecirc;s em andamento &middot; 02/out/2026</div>
 </div>
 <div class="panel" id="out-panel-fania">
-  <div class="wip-note">📅 Stripe 01–02/10 — 20 transações · R$ 1.043,21 bruto · R$ 991,77 líquido</div>
-
-  <div class="hero-row">
-    <div class="hero vl">
-      <div class="lbl">Transações</div>
-      <div class="val">20</div>
-      <div class="sub">18 BRL · 2 intl</div>
+  <div style="margin-bottom:18px">
+    <div class="eyebrow">receita de assinaturas &middot; f&acirc;nia clube &middot; outubro 2026</div>
+    <div class="hero-row">
+      <div class="big vl">R$ 991,77</div>
+      <div class="hero-sub">
+        <div class="hero-label">l&iacute;quido &middot; 20 transa&ccedil;&otilde;es &middot; out/2026 &#x23F3;</div>
+        <div class="badge badge-warn">&#x23F3; m&ecirc;s em andamento &middot; 01&ndash;02/out registrados</div>
+      </div>
     </div>
-    <div class="hero vl">
-      <div class="lbl">Bruto</div>
-      <div class="val">R$ 1.043,21</div>
-      <div class="sub">BRL + intl convertido</div>
-    </div>
-    <div class="hero vl">
-      <div class="lbl">Taxas Stripe</div>
-      <div class="val">R$ 51,44</div>
-      <div class="sub">4.9% do bruto</div>
-    </div>
-    <div class="hero vl">
-      <div class="lbl">Líquido Fânia</div>
-      <div class="val">R$ 991,77</div>
-      <div class="sub">3.8% da meta</div>
+    <div class="prog"><div class="pf vl-f" style="width:8%"></div></div>
+  </div>
+  <div class="g2">
+    <div class="card"><div class="cl">Bruto total</div><div class="cv c-vl">R$ 1.043,21</div><div class="cs">20 trans (BRL + intl) &middot; 01&ndash;02/out</div></div>
+    <div class="card"><div class="cl">L&iacute;quido total</div><div class="cv c-gn">R$ 991,77</div><div class="cs">Taxa Stripe: R$ 51,44</div></div>
+    <div class="card"><div class="cl">Mensal</div><div class="cv c-vl">4</div><div class="cs">R$ 81,51 bruto &middot; R$ 76,71 l&iacute;q</div></div>
+    <div class="card"><div class="cl">Trimestral</div><div class="cv c-sk">13</div><div class="cs">R$ 562,50 bruto &middot; R$ 534,93 l&iacute;q</div></div>
+  </div>
+  <div class="nc">
+    <div class="nh"><div class="nl">Por plano (BRL)</div><div class="nv">18<span>trans</span></div></div>
+    <div class="npg">
+      <div class="pb2 m"><div class="pn2 m">4</div><div class="plab">Mensal</div><div class="psub m">R$ 20,38/m&ecirc;s m&eacute;dia</div></div>
+      <div class="pb2 t"><div class="pn2 t">13</div><div class="plab">Trimestral</div><div class="psub t">R$ 43,27/3 meses m&eacute;dia</div></div>
     </div>
   </div>
-
-  <h3 class="sec-title">Planos (BRL)</h3>
-  <div class="f-plans">
-    <div class="f-plan">
-      <div class="plbl">Mensal</div>
-      <div class="pval">4 assinaturas</div>
-      <div class="psub">R$ 81,51 bruto · R$ 76,71 líq</div>
+  <div class="st">Receita por plano</div>
+  <div class="sg">
+    <div class="sb">
+      <div class="sbt"><div class="sbd m"></div><div class="sbn">Mensal</div><div class="sbc">4 trans</div></div>
+      <div class="sbv c-vl">R$ 81,51</div><div class="sbl">L&iacute;q. R$ 76,71</div>
     </div>
-    <div class="f-plan">
-      <div class="plbl">Trimestral</div>
-      <div class="pval">13 assinaturas</div>
-      <div class="psub">R$ 562,50 bruto · R$ 534,93 líq</div>
-    </div>
-    <div class="f-plan">
-      <div class="plbl">Premium</div>
-      <div class="pval">1 assinatura</div>
-      <div class="psub">R$ 300,00 bruto · R$ 287,64 líq</div>
-    </div>
-    <div class="f-plan">
-      <div class="plbl">Internacional</div>
-      <div class="pval">2 trans</div>
-      <div class="psub">R$ 99,20 bruto · R$ 92,49 líq</div>
+    <div class="sb">
+      <div class="sbt"><div class="sbd t"></div><div class="sbn">Trimestral</div><div class="sbc">13 trans</div></div>
+      <div class="sbv c-pink">R$ 562,50</div><div class="sbl">L&iacute;q. R$ 534,93</div>
     </div>
   </div>
-
-  <h3 class="sec-title">Por semana</h3>
-  <div class="f-week-g">
-    <div class="f-wk">
-      <div class="wlbl">S1 · 01–07 out <span class="wk-badge live" style="font-size:.65rem">⏳</span></div>
-      <div class="wval">R$ 991,77</div>
-      <div class="wsub">20 trans · R$ 1.043,21 bruto</div>
+  <div class="st">Detalhamento por plano</div>
+  <div class="dtb">
+    <div class="dtr head"><span>Plano</span><span>Trans.</span><span>Bruto</span><span>L&iacute;quido</span></div>
+    <div class="dtr"><span class="dtn">Mensal</span><span class="dtmo">4</span><span class="dtmo">R$ 81,51</span><span class="dtmo c-gn">R$ 76,71</span></div>
+    <div class="dtr"><span class="dtn">Trimestral</span><span class="dtmo">13</span><span class="dtmo">R$ 562,50</span><span class="dtmo c-gn">R$ 534,93</span></div>
+    <div class="dtr"><span class="dtn">Premium</span><span class="dtmo">1</span><span class="dtmo">R$ 300,00</span><span class="dtmo c-gn">R$ 287,64</span></div>
+    <div class="dtr"><span class="dtn">Internacional</span><span class="dtmo">2</span><span class="dtmo">R$ 99,20</span><span class="dtmo c-gn">R$ 92,49</span></div>
+  </div>
+  <div class="st">Por semana &mdash; toque para detalhar</div>
+  <div class="wg">
+    <div class="wc live op-vl" onclick="tw('out','f',1)">
+      <div class="wh"><div class="wb b1">S1</div><div class="wn">20 trans &#x23F3;</div></div>
+      <div class="wbr">R$ 1.043,21</div><div class="wl">L&iacute;q. R$ 991,77</div>
+      <div class="tags"><span class="tg am">01&ndash;07/out</span></div>
     </div>
-    <div class="f-wk">
-      <div class="wlbl">S2 · 08–14 out</div>
-      <div class="wval" style="color:var(--mu)">—</div>
-      <div class="wsub">aguardando</div>
+    <div class="wc empty op-vl">
+      <div class="wh"><div class="wb b2">S2</div><div class="wn">aguardando</div></div>
+      <div class="wbr">&mdash;</div><div class="wl">08&ndash;14/out</div>
+      <div class="tags"><span class="tg">08&ndash;14/out</span></div>
     </div>
-    <div class="f-wk">
-      <div class="wlbl">S3 · 15–21 out</div>
-      <div class="wval" style="color:var(--mu)">—</div>
-      <div class="wsub">aguardando</div>
+    <div class="wc empty op-vl">
+      <div class="wh"><div class="wb b3">S3</div><div class="wn">aguardando</div></div>
+      <div class="wbr">&mdash;</div><div class="wl">15&ndash;21/out</div>
+      <div class="tags"><span class="tg">15&ndash;21/out</span></div>
     </div>
-    <div class="f-wk">
-      <div class="wlbl">S4 · 22–31 out</div>
-      <div class="wval" style="color:var(--mu)">—</div>
-      <div class="wsub">aguardando</div>
+    <div class="wc empty op-vl">
+      <div class="wh"><div class="wb b3">S4</div><div class="wn">aguardando</div></div>
+      <div class="wbr">&mdash;</div><div class="wl">22&ndash;31/out</div>
+      <div class="tags"><span class="tg">22&ndash;31/out</span></div>
     </div>
   </div>
+  <div class="wd vl" id="out-f1">
+    <div class="wdt vl">Semana 1 &mdash; 01 a 07/out &#x23F3; em andamento</div>
+    <div class="dr"><span>Transa&ccedil;&otilde;es &middot; Bruto &middot; L&iacute;quido</span><strong>20 &middot; R$ 1.043,21 &middot; R$ 991,77</strong></div>
+    <div class="dr"><span>Taxa Stripe</span><strong>R$ 51,44 (R$ 2,57/trans)</strong></div>
+    <div class="dr"><span>Mensal x4 &middot; Trimestral x13 &middot; Premium x1 &middot; Intl x2</span><strong>01&ndash;02/out</strong></div>
+  </div>
+  <div class="foot">F&acirc;nia out/2026 &middot; 20 trans (01&ndash;02/out) &middot; mensal x4 &middot; trimestral x13 &middot; premium x1 &middot; intl x2 &middot; m&ecirc;s em andamento &middot; 02/out/2026</div>
 </div>
 <div class="panel" id="out-panel-prev">
-  <div class="prev-grid">
-    <div class="prev-card">
-      <div class="pm">🌙 Junho 2026</div>
-      <div class="row"><span>Consultas liq</span><span>R$ 16.568,80</span></div>
-      <div class="row"><span>Fânia liq</span><span>R$ 6.900,00</span></div>
-      <div class="row"><span>Meta</span><span>R$ 21.567,00</span></div>
-      <div class="row"><span>% meta geral</span><span>109,3%</span></div>
+  <div style="margin-bottom:18px">
+    <div class="eyebrow">previsibilidade de receita &middot; outubro 2026</div>
+    <div class="hero-row">
+      <div class="big am">14,8<sup>%</sup></div>
+      <div class="hero-sub">
+        <div class="hero-label">caixa total &middot; consultas + f&acirc;nia &middot; em andamento &#x23F3;</div>
+        <div class="badge badge-warn">&#x23F3; R$ 3.885,66 no caixa &middot; 01&ndash;02/out</div>
+      </div>
     </div>
-    <div class="prev-card">
-      <div class="pm">🌙 Julho 2026</div>
-      <div class="row"><span>Consultas liq</span><span>R$ 14.726,17</span></div>
-      <div class="row"><span>Fânia liq</span><span>R$ 8.455,41</span></div>
-      <div class="row"><span>Meta</span><span>R$ 21.567,00</span></div>
-      <div class="row"><span>% meta geral</span><span>107,5%</span></div>
+    <div class="prog"><div class="pf am-f" style="width:15%"></div></div>
+  </div>
+  <div class="g2">
+    <div class="card hl-am"><div class="cl">Total no caixa</div><div class="cv c-am">R$ 3.885,66</div><div class="cs">14,8% da meta de R$ 26.200,00 &#x23F3;</div></div>
+    <div class="card hl-sk"><div class="cl">Faltam para meta</div><div class="cv c-sk">R$ 22.314,34</div><div class="cs">consultas + F&acirc;nia juntos</div></div>
+    <div class="card"><div class="cl">Consultas l&iacute;q.</div><div class="cv c-gold">R$ 2.893,89</div><div class="cs">5 entradas &middot; 11,0% da meta</div></div>
+    <div class="card"><div class="cl">F&acirc;nia l&iacute;q.</div><div class="cv c-vl">R$ 991,77</div><div class="cs">20 trans &middot; 01&ndash;02/out</div></div>
+  </div>
+  <div class="st">Composi&ccedil;&atilde;o do caixa</div>
+  <div class="meta-stack">
+    <div class="meta-row partial">
+      <div class="mr-top"><div class="mr-label" style="color:var(--am)">&#x23F3; Consultas (01&ndash;02/out &middot; 5 entradas)</div><div class="mr-val" style="color:var(--am)">R$ 2.893,89</div></div>
+      <div class="mr-bar"><div class="mr-fill" style="width:74%;background:var(--gold)"></div></div>
+      <div class="mr-sub">MP (4 trans) + 1 Pix manual &middot; Rev Solar x2 + Mapa Natal x1 + Metade Combo x1 + Follow Up x1</div>
     </div>
-    <div class="prev-card">
-      <div class="pm">🌙 Agosto 2026</div>
-      <div class="row"><span>Consultas liq</span><span>R$ 16.280,23</span></div>
-      <div class="row"><span>Fânia liq</span><span>R$ 9.645,87</span></div>
-      <div class="row"><span>Meta</span><span>R$ 21.567,00</span></div>
-      <div class="row"><span>% meta geral</span><span>120,8%</span></div>
+    <div class="meta-row partial">
+      <div class="mr-top"><div class="mr-label" style="color:var(--vl)">&#x23F3; F&acirc;nia recebido (01&ndash;02/out &middot; parcial)</div><div class="mr-val" style="color:var(--vl)">R$ 991,77</div></div>
+      <div class="mr-bar"><div class="mr-fill" style="width:26%;background:var(--violet)"></div></div>
+      <div class="mr-sub">20 trans &middot; 4 mensal + 13 trimestral + 1 premium + 2 intl &middot; S1 parcial</div>
     </div>
-    <div class="prev-card">
-      <div class="pm">🏆 Setembro 2026</div>
-      <div class="row"><span>Consultas liq</span><span>R$ 23.706,09</span></div>
-      <div class="row"><span>Fânia liq</span><span>R$ 12.869,38</span></div>
-      <div class="row"><span>Meta</span><span>R$ 21.567,00</span></div>
-      <div class="row"><span>% meta geral</span><span style="color:var(--gn)">169,6% 🔥</span></div>
+    <div class="meta-row gap">
+      <div class="mr-top"><div class="mr-label" style="color:var(--rd)">Gap at&eacute; meta</div><div class="mr-val" style="color:var(--rd)">&minus;R$ 22.314,34</div></div>
+      <div class="mr-bar"><div class="mr-fill" style="width:85%;background:var(--rd);opacity:.4"></div></div>
+      <div class="mr-sub">Restam S1 (incompleta) + S2 + S3 + S4 inteiras &mdash; 29 dias de outubro pela frente</div>
     </div>
   </div>
+  <div class="st">Ritmo por semana</div>
+  <div style="margin-bottom:14px">
+    <div class="pw">
+      <div class="pw-left"><div class="pw-badge b1">S1</div><div><div class="pw-info" style="color:var(--am)">01&ndash;07/out &#x23F3; parcial</div><div class="pw-sub">5 consultas &middot; 20 trans F&acirc;nia &middot; s&oacute; 01&ndash;02</div></div></div>
+      <div><div class="pw-val" style="color:var(--am)">R$ 3.885,66</div><div class="pw-liq">l&iacute;quido parcial</div></div>
+    </div>
+    <div class="pw" style="margin-top:6px;opacity:.35">
+      <div class="pw-left"><div class="pw-badge b2">S2</div><div><div class="pw-info">08&ndash;14/out</div><div class="pw-sub">aguardando</div></div></div>
+      <div><div class="pw-val">&mdash;</div><div class="pw-liq">&mdash;</div></div>
+    </div>
+    <div class="pw" style="margin-top:6px;opacity:.35">
+      <div class="pw-left"><div class="pw-badge b3">S3</div><div><div class="pw-info">15&ndash;21/out</div><div class="pw-sub">aguardando</div></div></div>
+      <div><div class="pw-val">&mdash;</div><div class="pw-liq">&mdash;</div></div>
+    </div>
+    <div class="pw" style="margin-top:6px;opacity:.35">
+      <div class="pw-left"><div class="pw-badge b3">S4</div><div><div class="pw-info">22&ndash;31/out</div><div class="pw-sub">aguardando</div></div></div>
+      <div><div class="pw-val">&mdash;</div><div class="pw-liq">&mdash;</div></div>
+    </div>
+  </div>
+  <div class="st">Proje&ccedil;&atilde;o F&acirc;nia (base set/2026)</div>
+  <div style="margin-bottom:14px">
+    <div class="pw">
+      <div class="pw-left"><div class="pw-badge" style="background:rgba(251,191,36,.15);color:var(--am);font-family:'DM Mono',monospace;font-size:10px;width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center">Out</div><div><div class="pw-info">Outubro 2026 (m&ecirc;s cheio)</div><div class="pw-sub">cobran&ccedil;as mensal + renova&ccedil;&atilde;o trim.</div></div></div>
+      <div><div class="pw-val" style="color:var(--vl)">&asymp; R$ 11.000</div><div class="pw-liq">bruto projetado F&acirc;nia</div></div>
+    </div>
+    <div class="pw" style="margin-top:6px">
+      <div class="pw-left"><div class="pw-badge" style="background:rgba(244,114,182,.15);color:var(--pink);font-family:'DM Mono',monospace;font-size:10px;width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center">Nov</div><div><div class="pw-info">Novembro 2026</div><div class="pw-sub">renova&ccedil;&atilde;o tri + base ativa crescendo</div></div></div>
+      <div><div class="pw-val" style="color:var(--pink)">&asymp; R$ 13.000</div><div class="pw-liq">bruto projetado F&acirc;nia</div></div>
+    </div>
+  </div>
+  <div class="note am"><strong>&#x23F3; Outubro em andamento &mdash; in&iacute;cio promissor</strong>R$ 3.885,66 no caixa (14,8%) em apenas 2 dias de m&ecirc;s. Consultas: 5 entradas &middot; R$ 2.893,89 &middot; 11,0%. F&acirc;nia: 20 trans recorrentes &middot; R$ 991,77. Proje&ccedil;&atilde;o F&acirc;nia m&ecirc;s completo: &asymp;R$ 11.000 bruto. Faltam R$ 22.314,34 para bater a meta de R$ 26.200,00.</div>
+  <div class="foot">META out: R$ 26.200,00 &middot; caixa atual R$ 3.885,66 (14,8%) &middot; consultas R$ 2.893,89 + F&acirc;nia R$ 991,77 &middot; 02/out/2026</div>
 </div>
   </div><!-- /wrap -->
 
