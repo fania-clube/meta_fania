@@ -651,8 +651,9 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--tx);min-h
 .wc.done{border-color:rgba(74,222,128,.25);background:rgba(74,222,128,.01)}
 .wh{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px}
 .wb{width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:10px;font-weight:500}
-.b1{background:rgba(251,191,36,.15);color:var(--am)}
-.b2,.b3,.b4,.b5{background:rgba(167,139,250,.1);color:#a78bfa;opacity:.5}
+.b1{background:rgba(74,222,128,.18);color:var(--gn)}
+.b2{background:rgba(251,191,36,.15);color:var(--am)}
+.b3,.b4,.b5{background:rgba(167,139,250,.1);color:#a78bfa;opacity:.5}
 .be{background:rgba(167,139,250,.06);color:#a78bfa;opacity:.35}
 .wn{font-size:10px;color:var(--mu)}.wbr{font-size:14px;font-weight:600}.wl{font-size:11px;color:var(--mu);margin-top:2px}
 .tags{display:flex;gap:3px;margin-top:7px;flex-wrap:wrap}
@@ -2004,31 +2005,31 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--tx);min-h
   <div style="margin-bottom:18px">
     <div class="eyebrow">meta de faturamento &middot; consultas &middot; outubro 2026</div>
     <div class="hero-row">
-      <div class="big am">11,0<sup>%</sup></div>
+      <div class="big am">15,3<sup>%</sup></div>
       <div class="hero-sub">
-        <div class="hero-label">da meta &middot; s&oacute; consultas &middot; R$ 26.200,00 l&iacute;q &amp;#x23F3;</div>
-        <div class="badge badge-warn">&#x23F3; 5 consultas &middot; R$ 2.893,89 l&iacute;q &middot; m&ecirc;s em andamento</div>
+        <div class="hero-label">da meta &middot; s&oacute; consultas &middot; R$ 26.200,00 l&iacute;q &#x23F3;</div>
+        <div class="badge badge-warn">&#x23F3; 7 consultas &middot; R$ 4.007,76 l&iacute;q &middot; S1 conclu&iacute;da</div>
       </div>
     </div>
-    <div class="prog"><div class="pf am-f" style="width:11%"></div></div>
+    <div class="prog"><div class="pf am-f" style="width:15.3%"></div></div>
   </div>
   <div class="g2">
-    <div class="card hl-am"><div class="cl">Bruto total</div><div class="cv c-gold">R$ 3.181,10</div><div class="cs">5 entradas &middot; MP + Pix &middot; S1 parcial</div></div>
-    <div class="card hl-am"><div class="cl">L&iacute;quido total</div><div class="cv c-am">R$ 2.893,89</div><div class="cs">meta: R$ 26.200,00 &middot; 11,0% &#x23F3;</div></div>
-    <div class="card"><div class="cl">Faltam</div><div class="cv c-sk">R$ 23.306,11</div><div class="cs">para bater a meta de consultas</div></div>
-    <div class="card"><div class="cl">Produto l&iacute;der</div><div class="cv c-vl">Rev Solar</div><div class="cs">2 vendas &middot; 39,5% bruto &middot; S1 parcial</div></div>
+    <div class="card hl-am"><div class="cl">Bruto total</div><div class="cv c-gold">R$ 4.425,10</div><div class="cs">7 entradas &middot; MP + Pix &middot; S1 conclu&iacute;da</div></div>
+    <div class="card hl-am"><div class="cl">L&iacute;quido total</div><div class="cv c-am">R$ 4.007,76</div><div class="cs">meta: R$ 26.200,00 &middot; 15,3% &#x23F3;</div></div>
+    <div class="card"><div class="cl">Faltam</div><div class="cv c-sk">R$ 22.192,24</div><div class="cs">para bater a meta de consultas</div></div>
+    <div class="card"><div class="cl">Produto l&iacute;der</div><div class="cv c-vl">Rev Solar</div><div class="cs">3 vendas &middot; 42,6% bruto &middot; S1</div></div>
   </div>
   <div class="st">Por semana &mdash; toque para detalhar</div>
   <div class="wg">
-    <div class="wc live" onclick="tw('out','c',1)">
-      <div class="wh"><div class="wb b1">S1</div><div class="wn">5 entradas &#x23F3;</div></div>
-      <div class="wbr">R$ 3.181,10</div><div class="wl">L&iacute;q. R$ 2.893,89</div>
-      <div class="tags"><span class="tg am">01&ndash;07/out</span><span class="tg">MP</span><span class="tg">Pix</span></div>
+    <div class="wc done" onclick="tw('out','c',1)">
+      <div class="wh"><div class="wb b1">S1</div><div class="wn">7 entradas &#x2713;</div></div>
+      <div class="wbr">R$ 4.425,10</div><div class="wl">L&iacute;q. R$ 4.007,76</div>
+      <div class="tags"><span class="tg gn">01&ndash;07/out</span><span class="tg">MP</span><span class="tg">Pix</span></div>
     </div>
-    <div class="wc empty">
-      <div class="wh"><div class="wb b2">S2</div><div class="wn">aguardando</div></div>
+    <div class="wc live" onclick="tw('out','c',2)">
+      <div class="wh"><div class="wb b2">S2</div><div class="wn">em andamento &#x23F3;</div></div>
       <div class="wbr">&mdash;</div><div class="wl">08&ndash;14/out</div>
-      <div class="tags"><span class="tg">08&ndash;14/out</span></div>
+      <div class="tags"><span class="tg am">08&ndash;14/out</span></div>
     </div>
     <div class="wc empty">
       <div class="wh"><div class="wb b3">S3</div><div class="wn">aguardando</div></div>
@@ -2042,102 +2043,113 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--tx);min-h
     </div>
   </div>
   <div class="wd" id="out-c1">
-    <div class="wdt">Semana 1 &mdash; 01 a 07/out &#x23F3; em andamento</div>
+    <div class="wdt">Semana 1 &mdash; 01 a 07/out &#x2713; conclu&iacute;da</div>
     <div class="dr hi"><span>Rev Solar desc. x1 (3x CC) &middot; 01/10 &middot; Nicole Gimenez</span><strong>R$ 629,00 &rarr; R$ 563,20</strong></div>
     <div class="dr hi"><span>Metade Combo (Pix) &#x1F7E2; &middot; 02/10 &middot; Raissa</span><strong>R$ 674,10 &rarr; R$ 640,46</strong></div>
-    <div class="dr hi"><span>Rev Solar desc. x1 (2x CC) &middot; 02/10 &middot; Ta&iacute;s Martins</span><strong>R$ 629,00 &rarr; R$ 571,88</strong></div>
+    <div class="dr hi"><span>Rev Solar desc. x1 (3x CC) &middot; 02/10 &middot; Ta&iacute;s Martins</span><strong>R$ 629,00 &rarr; R$ 571,88</strong></div>
     <div class="dr hi"><span>Follow Up x1 (3x CC) &middot; 02/10 &middot; Bertolo</span><strong>R$ 450,00 &rarr; R$ 402,93</strong></div>
     <div class="dr hi"><span>Mapa Natal x1 (3x CC) &middot; 02/10 &middot; Helem Nogueira</span><strong>R$ 799,00 &rarr; R$ 715,42</strong></div>
-    <div class="dr"><span>Total S1 &mdash; 5 entradas &#x23F3;</span><strong>R$ 3.181,10 bruto &middot; R$ 2.893,89 l&iacute;q</strong></div>
+    <div class="dr hi"><span>Rev Solar desc. x1 (3x CC) &middot; 03/10 &middot; Gisi Silva</span><strong>R$ 629,00 &rarr; R$ 563,20</strong></div>
+    <div class="dr hi"><span>Consulta x1 (3x CC) &middot; 05/10 &middot; Dayany</span><strong>R$ 615,00 &rarr; R$ 550,67</strong></div>
+    <div class="dr"><span>Total S1 &mdash; 7 entradas &#x2713;</span><strong>R$ 4.425,10 bruto &middot; R$ 4.007,76 l&iacute;q</strong></div>
   </div>
-  <div class="st">Ranking de produtos (parcial)</div>
+  <div class="wd" id="out-c2">
+    <div class="wdt">Semana 2 &mdash; 08 a 14/out &#x23F3; em andamento</div>
+    <div class="dr"><span>08/out em diante &mdash; aguardando MP</span><strong>&mdash;</strong></div>
+  </div>
+  <div class="st">Ranking de produtos (S1 &mdash; 7 consultas)</div>
   <div class="pl">
     <div class="pi-c">
-      <div class="pt"><div class="pname">Revolu&ccedil;&atilde;o Solar <span style="font-size:10px;color:var(--mu);font-family:'DM Mono',monospace">desc. x2</span></div><div class="pq">2 vendas &middot; 39,5% bruto</div></div>
+      <div class="pt"><div class="pname">Revolu&ccedil;&atilde;o Solar <span style="font-size:10px;color:var(--mu);font-family:'DM Mono',monospace">desc. x3</span></div><div class="pq">3 vendas &middot; 42,6% bruto</div></div>
       <div class="pbr"><div class="pb" style="width:100%;background:linear-gradient(90deg,#a78bfa,#c084fc)"></div></div>
-      <div class="pv"><div class="pvi">Bruto <strong>R$ 1.258,00</strong></div><div class="pvi">L&iacute;q. <strong>R$ 1.135,08</strong></div></div>
+      <div class="pv"><div class="pvi">Bruto <strong>R$ 1.887,00</strong></div><div class="pvi">L&iacute;q. <strong>R$ 1.698,28</strong></div></div>
     </div>
     <div class="pi-c">
-      <div class="pt"><div class="pname">Mapa Natal</div><div class="pq">1 venda &middot; 25,1% bruto</div></div>
-      <div class="pbr"><div class="pb" style="width:64%;background:linear-gradient(90deg,#2dd4bf,#0891b2)"></div></div>
+      <div class="pt"><div class="pname">Mapa Natal</div><div class="pq">1 venda &middot; 18,1% bruto</div></div>
+      <div class="pbr"><div class="pb" style="width:42%;background:linear-gradient(90deg,#2dd4bf,#0891b2)"></div></div>
       <div class="pv"><div class="pvi">Bruto <strong>R$ 799,00</strong></div><div class="pvi">L&iacute;q. <strong>R$ 715,42</strong></div></div>
     </div>
     <div class="pi-c">
-      <div class="pt"><div class="pname">Metade Combo <span style="font-size:10px;color:var(--mu);font-family:'DM Mono',monospace">Pix</span></div><div class="pq">1 venda &middot; 21,2% bruto</div></div>
-      <div class="pbr"><div class="pb" style="width:54%;background:linear-gradient(90deg,#38bdf8,#0ea5e9)"></div></div>
+      <div class="pt"><div class="pname">Metade Combo <span style="font-size:10px;color:var(--mu);font-family:'DM Mono',monospace">Pix</span></div><div class="pq">1 venda &middot; 15,2% bruto</div></div>
+      <div class="pbr"><div class="pb" style="width:36%;background:linear-gradient(90deg,#38bdf8,#0ea5e9)"></div></div>
       <div class="pv"><div class="pvi">Bruto <strong>R$ 674,10</strong></div><div class="pvi">L&iacute;q. <strong>R$ 640,46</strong></div></div>
     </div>
     <div class="pi-c">
-      <div class="pt"><div class="pname">Follow Up</div><div class="pq">1 venda &middot; 14,1% bruto</div></div>
-      <div class="pbr"><div class="pb" style="width:36%;background:linear-gradient(90deg,#4ade80,#22c55e)"></div></div>
+      <div class="pt"><div class="pname">Consulta MP</div><div class="pq">1 venda &middot; 13,9% bruto</div></div>
+      <div class="pbr"><div class="pb" style="width:33%;background:linear-gradient(90deg,#f0d080,#c9a84c)"></div></div>
+      <div class="pv"><div class="pvi">Bruto <strong>R$ 615,00</strong></div><div class="pvi">L&iacute;q. <strong>R$ 550,67</strong></div></div>
+    </div>
+    <div class="pi-c">
+      <div class="pt"><div class="pname">Follow Up</div><div class="pq">1 venda &middot; 10,2% bruto</div></div>
+      <div class="pbr"><div class="pb" style="width:24%;background:linear-gradient(90deg,#4ade80,#22c55e)"></div></div>
       <div class="pv"><div class="pvi">Bruto <strong>R$ 450,00</strong></div><div class="pvi">L&iacute;q. <strong>R$ 402,93</strong></div></div>
     </div>
   </div>
   <div class="st">Ritmo</div>
   <div class="bc">
-    <div class="bcr"><div class="bcl"><span class="bcn">S1 &#x23F3;</span><span class="bcv">R$ 3.181,10 &middot; 5 entradas &middot; 01&ndash;07/out</span></div><div class="bct"><div class="bcf" style="width:11%;background:linear-gradient(90deg,#fbbf24,#fde68a)"></div></div></div>
-    <div class="bcr"><div class="bcl"><span class="bcn" style="opacity:.4">S2</span><span class="bcv" style="opacity:.4">&mdash; &middot; aguardando &middot; 08&ndash;14/out</span></div><div class="bct"></div></div>
+    <div class="bcr"><div class="bcl"><span class="bcn">S1 &#x2713;</span><span class="bcv">R$ 4.425,10 &middot; 7 entradas &middot; 01&ndash;07/out</span></div><div class="bct"><div class="bcf" style="width:15.3%;background:linear-gradient(90deg,#fbbf24,#fde68a)"></div></div></div>
+    <div class="bcr"><div class="bcl"><span class="bcn" style="color:var(--am)">S2 &#x23F3;</span><span class="bcv" style="color:var(--am)">em andamento &middot; 08&ndash;14/out</span></div><div class="bct"></div></div>
     <div class="bcr"><div class="bcl"><span class="bcn" style="opacity:.4">S3</span><span class="bcv" style="opacity:.4">&mdash; &middot; aguardando &middot; 15&ndash;21/out</span></div><div class="bct"></div></div>
     <div class="bcr"><div class="bcl"><span class="bcn" style="opacity:.4">S4</span><span class="bcv" style="opacity:.4">&mdash; &middot; aguardando &middot; 22&ndash;31/out</span></div><div class="bct"></div></div>
   </div>
-  <div class="note am"><strong>&#x23F3; Outubro em andamento &mdash; 01&ndash;02/out</strong>5 consultas &middot; R$ 2.893,89 l&iacute;q &middot; 11,0% da meta de R$ 26.200,00. Faltam R$ 23.306,11 para bater a meta s&oacute; em consultas. S2, S3 e S4 ainda por registrar.</div>
-  <div class="foot">Meta out: R$ 26.200,00 l&iacute;q &middot; 5 consultas registradas (01&ndash;02/out) &middot; m&ecirc;s em andamento &middot; 02/out/2026</div>
+  <div class="note am"><strong>S1 conclu&iacute;da &mdash; 01&ndash;07/out &middot; 7 consultas</strong>R$ 4.007,76 l&iacute;q &middot; 15,3% da meta de R$ 26.200,00. Rev Solar desc. x3 lidera com R$ 1.887,00 bruto. S2 em andamento &mdash; faltam R$ 22.192,24 para bater a meta s&oacute; em consultas.</div>
+  <div class="foot">Meta out: R$ 26.200,00 l&iacute;q &middot; 7 consultas (S1 &middot; 01&ndash;07/out) &middot; S2 em andamento &middot; 08/out/2026</div>
 </div>
 <div class="panel" id="out-panel-fania">
   <div style="margin-bottom:18px">
     <div class="eyebrow">receita de assinaturas &middot; f&acirc;nia clube &middot; outubro 2026</div>
     <div class="hero-row">
-      <div class="big vl">R$ 991,77</div>
+      <div class="big vl">R$ 3.307,58</div>
       <div class="hero-sub">
-        <div class="hero-label">l&iacute;quido &middot; 20 transa&ccedil;&otilde;es &middot; out/2026 &#x23F3;</div>
-        <div class="badge badge-warn">&#x23F3; m&ecirc;s em andamento &middot; 01&ndash;02/out registrados</div>
+        <div class="hero-label">l&iacute;quido &middot; 61 transa&ccedil;&otilde;es &middot; out/2026 &#x23F3;</div>
+        <div class="badge badge-warn">&#x23F3; S1 conclu&iacute;da + S2 parcial &middot; 01&ndash;08/out</div>
       </div>
     </div>
-    <div class="prog"><div class="pf vl-f" style="width:8%"></div></div>
+    <div class="prog"><div class="pf vl-f" style="width:12.6%"></div></div>
   </div>
   <div class="g2">
-    <div class="card"><div class="cl">Bruto total</div><div class="cv c-vl">R$ 1.043,21</div><div class="cs">20 trans (BRL + intl) &middot; 01&ndash;02/out</div></div>
-    <div class="card"><div class="cl">L&iacute;quido total</div><div class="cv c-gn">R$ 991,77</div><div class="cs">Taxa Stripe: R$ 51,44</div></div>
-    <div class="card"><div class="cl">Mensal</div><div class="cv c-vl">4</div><div class="cs">R$ 81,51 bruto &middot; R$ 76,71 l&iacute;q</div></div>
-    <div class="card"><div class="cl">Trimestral</div><div class="cv c-sk">13</div><div class="cs">R$ 562,50 bruto &middot; R$ 534,93 l&iacute;q</div></div>
+    <div class="card"><div class="cl">Bruto total</div><div class="cv c-vl">R$ 3.481,64</div><div class="cs">61 trans (BRL + intl) &middot; 01&ndash;08/out</div></div>
+    <div class="card"><div class="cl">L&iacute;quido total</div><div class="cv c-gn">R$ 3.307,58</div><div class="cs">Taxa Stripe: R$ 174,06 &middot; 12,6% meta</div></div>
+    <div class="card"><div class="cl">Mensal</div><div class="cv c-vl">16</div><div class="cs">R$ 332,31 bruto &middot; R$ 308,41 l&iacute;q</div></div>
+    <div class="card"><div class="cl">Trimestral</div><div class="cv c-sk">34</div><div class="cs">R$ 1.476,00 bruto &middot; R$ 1.401,18 l&iacute;q</div></div>
   </div>
   <div class="nc">
-    <div class="nh"><div class="nl">Por plano (BRL)</div><div class="nv">18<span>trans</span></div></div>
+    <div class="nh"><div class="nl">Por plano (BRL + Intl)</div><div class="nv">61<span>trans</span></div></div>
     <div class="npg">
-      <div class="pb2 m"><div class="pn2 m">4</div><div class="plab">Mensal</div><div class="psub m">R$ 20,38/m&ecirc;s m&eacute;dia</div></div>
-      <div class="pb2 t"><div class="pn2 t">13</div><div class="plab">Trimestral</div><div class="psub t">R$ 43,27/3 meses m&eacute;dia</div></div>
+      <div class="pb2 m"><div class="pn2 m">16</div><div class="plab">Mensal</div><div class="psub m">R$ 20,77/m&eacute;s m&eacute;dia</div></div>
+      <div class="pb2 t"><div class="pn2 t">34</div><div class="plab">Trimestral</div><div class="psub t">R$ 43,41/3m m&eacute;dia</div></div>
     </div>
   </div>
   <div class="st">Receita por plano</div>
   <div class="sg">
     <div class="sb">
-      <div class="sbt"><div class="sbd m"></div><div class="sbn">Mensal</div><div class="sbc">4 trans</div></div>
-      <div class="sbv c-vl">R$ 81,51</div><div class="sbl">L&iacute;q. R$ 76,71</div>
+      <div class="sbt"><div class="sbd m"></div><div class="sbn">Mensal</div><div class="sbc">16 trans</div></div>
+      <div class="sbv c-vl">R$ 332,31</div><div class="sbl">L&iacute;q. R$ 308,41</div>
     </div>
     <div class="sb">
-      <div class="sbt"><div class="sbd t"></div><div class="sbn">Trimestral</div><div class="sbc">13 trans</div></div>
-      <div class="sbv c-pink">R$ 562,50</div><div class="sbl">L&iacute;q. R$ 534,93</div>
+      <div class="sbt"><div class="sbd t"></div><div class="sbn">Trimestral</div><div class="sbc">34 trans</div></div>
+      <div class="sbv c-pink">R$ 1.476,00</div><div class="sbl">L&iacute;q. R$ 1.401,18</div>
     </div>
   </div>
   <div class="st">Detalhamento por plano</div>
   <div class="dtb">
     <div class="dtr head"><span>Plano</span><span>Trans.</span><span>Bruto</span><span>L&iacute;quido</span></div>
-    <div class="dtr"><span class="dtn">Mensal</span><span class="dtmo">4</span><span class="dtmo">R$ 81,51</span><span class="dtmo c-gn">R$ 76,71</span></div>
-    <div class="dtr"><span class="dtn">Trimestral</span><span class="dtmo">13</span><span class="dtmo">R$ 562,50</span><span class="dtmo c-gn">R$ 534,93</span></div>
-    <div class="dtr"><span class="dtn">Premium</span><span class="dtmo">1</span><span class="dtmo">R$ 300,00</span><span class="dtmo c-gn">R$ 287,64</span></div>
-    <div class="dtr"><span class="dtn">Internacional</span><span class="dtmo">2</span><span class="dtmo">R$ 99,20</span><span class="dtmo c-gn">R$ 92,49</span></div>
+    <div class="dtr"><span class="dtn">Mensal</span><span class="dtmo">16</span><span class="dtmo">R$ 332,31</span><span class="dtmo c-gn">R$ 308,41</span></div>
+    <div class="dtr"><span class="dtn">Trimestral</span><span class="dtmo">34</span><span class="dtmo">R$ 1.476,00</span><span class="dtmo c-gn">R$ 1.401,18</span></div>
+    <div class="dtr"><span class="dtn">Premium</span><span class="dtmo">6</span><span class="dtmo">R$ 1.458,90</span><span class="dtmo c-gn">R$ 1.398,35</span></div>
+    <div class="dtr"><span class="dtn">Internacional</span><span class="dtmo">5</span><span class="dtmo">R$ 214,43</span><span class="dtmo c-gn">R$ 199,64</span></div>
   </div>
   <div class="st">Por semana &mdash; toque para detalhar</div>
   <div class="wg">
-    <div class="wc live op-vl" onclick="tw('out','f',1)">
-      <div class="wh"><div class="wb b1">S1</div><div class="wn">20 trans &#x23F3;</div></div>
-      <div class="wbr">R$ 1.043,21</div><div class="wl">L&iacute;q. R$ 991,77</div>
-      <div class="tags"><span class="tg am">01&ndash;07/out</span></div>
+    <div class="wc done op-vl" onclick="tw('out','f',1)">
+      <div class="wh"><div class="wb b1">S1</div><div class="wn">55 trans &#x2713;</div></div>
+      <div class="wbr">R$ 2.920,84</div><div class="wl">L&iacute;q. R$ 2.773,73</div>
+      <div class="tags"><span class="tg gn">01&ndash;07/out</span></div>
     </div>
-    <div class="wc empty op-vl">
-      <div class="wh"><div class="wb b2">S2</div><div class="wn">aguardando</div></div>
-      <div class="wbr">&mdash;</div><div class="wl">08&ndash;14/out</div>
-      <div class="tags"><span class="tg">08&ndash;14/out</span></div>
+    <div class="wc live op-vl" onclick="tw('out','f',2)">
+      <div class="wh"><div class="wb b2">S2</div><div class="wn">6 trans &#x23F3;</div></div>
+      <div class="wbr">R$ 560,80</div><div class="wl">L&iacute;q. R$ 533,85</div>
+      <div class="tags"><span class="tg am">08&ndash;14/out</span></div>
     </div>
     <div class="wc empty op-vl">
       <div class="wh"><div class="wb b3">S3</div><div class="wn">aguardando</div></div>
@@ -2151,58 +2163,67 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--tx);min-h
     </div>
   </div>
   <div class="wd vl" id="out-f1">
-    <div class="wdt vl">Semana 1 &mdash; 01 a 07/out &#x23F3; em andamento</div>
-    <div class="dr"><span>Transa&ccedil;&otilde;es &middot; Bruto &middot; L&iacute;quido</span><strong>20 &middot; R$ 1.043,21 &middot; R$ 991,77</strong></div>
-    <div class="dr"><span>Taxa Stripe</span><strong>R$ 51,44 (R$ 2,57/trans)</strong></div>
-    <div class="dr"><span>Mensal x4 &middot; Trimestral x13 &middot; Premium x1 &middot; Intl x2</span><strong>01&ndash;02/out</strong></div>
+    <div class="wdt vl">Semana 1 &mdash; 01 a 07/out &#x2713; conclu&iacute;da</div>
+    <div class="dr"><span>Transa&ccedil;&otilde;es &middot; Bruto &middot; L&iacute;quido</span><strong>55 &middot; R$ 2.920,84 &middot; R$ 2.773,73</strong></div>
+    <div class="dr"><span>Taxa Stripe</span><strong>R$ 147,11 (R$ 2,67/trans)</strong></div>
+    <div class="dr"><span>Mensal x14 &middot; Trimestral x32 &middot; Premium x4 &middot; Intl x5</span><strong>01&ndash;07/out</strong></div>
+    <div class="dr"><span>Premium: 3&times; R$300 + 1&times; R$129,90</span><strong>R$ 1.029,90 bruto</strong></div>
+    <div class="dr"><span>Intl: 4x EUR &middot; 1x USD</span><strong>R$ 214,43 bruto</strong></div>
   </div>
-  <div class="foot">F&acirc;nia out/2026 &middot; 20 trans (01&ndash;02/out) &middot; mensal x4 &middot; trimestral x13 &middot; premium x1 &middot; intl x2 &middot; m&ecirc;s em andamento &middot; 02/out/2026</div>
+  <div class="wd vl" id="out-f2">
+    <div class="wdt vl">Semana 2 &mdash; 08/out &#x23F3; parcial</div>
+    <div class="dr"><span>Transa&ccedil;&otilde;es &middot; Bruto &middot; L&iacute;quido</span><strong>6 &middot; R$ 560,80 &middot; R$ 533,85</strong></div>
+    <div class="dr"><span>Taxa Stripe</span><strong>R$ 26,95</strong></div>
+    <div class="dr"><span>Mensal x2 &middot; Trimestral x2 &middot; Premium x2</span><strong>08/out</strong></div>
+    <div class="dr"><span>Premium: R$300 + R$129</span><strong>R$ 429,00 bruto</strong></div>
+  </div>
+  <div class="foot">F&acirc;nia out/2026 &middot; 61 trans &middot; mensal x16 &middot; trimestral x34 &middot; premium x6 &middot; intl x5 &middot; S1 ok + S2 parcial &middot; 08/out/2026</div>
 </div>
 <div class="panel" id="out-panel-prev">
   <div style="margin-bottom:18px">
     <div class="eyebrow">previsibilidade de receita &middot; outubro 2026</div>
     <div class="hero-row">
-      <div class="big am">14,8<sup>%</sup></div>
+      <div class="big am">27,9<sup>%</sup></div>
       <div class="hero-sub">
         <div class="hero-label">caixa total &middot; consultas + f&acirc;nia &middot; em andamento &#x23F3;</div>
-        <div class="badge badge-warn">&#x23F3; R$ 3.885,66 no caixa &middot; 01&ndash;02/out</div>
+        <div class="badge badge-warn">&#x23F3; R$ 7.315,34 no caixa &middot; S1 ok + S2 parcial</div>
       </div>
     </div>
-    <div class="prog"><div class="pf am-f" style="width:15%"></div></div>
+    <div class="prog"><div class="pf am-f" style="width:27.9%"></div></div>
   </div>
   <div class="g2">
-    <div class="card hl-am"><div class="cl">Total no caixa</div><div class="cv c-am">R$ 3.885,66</div><div class="cs">14,8% da meta de R$ 26.200,00 &#x23F3;</div></div>
-    <div class="card hl-sk"><div class="cl">Faltam para meta</div><div class="cv c-sk">R$ 22.314,34</div><div class="cs">consultas + F&acirc;nia juntos</div></div>
-    <div class="card"><div class="cl">Consultas l&iacute;q.</div><div class="cv c-gold">R$ 2.893,89</div><div class="cs">5 entradas &middot; 11,0% da meta</div></div>
-    <div class="card"><div class="cl">F&acirc;nia l&iacute;q.</div><div class="cv c-vl">R$ 991,77</div><div class="cs">20 trans &middot; 01&ndash;02/out</div></div>
+    <div class="card hl-am"><div class="cl">Total no caixa</div><div class="cv c-am">R$ 7.315,34</div><div class="cs">27,9% da meta de R$ 26.200,00 &#x23F3;</div></div>
+    <div class="card hl-sk"><div class="cl">Faltam para meta</div><div class="cv c-sk">R$ 18.884,66</div><div class="cs">consultas + F&acirc;nia juntos</div></div>
+    <div class="card"><div class="cl">Consultas l&iacute;q.</div><div class="cv c-gold">R$ 4.007,76</div><div class="cs">7 entradas &middot; 15,3% da meta</div></div>
+    <div class="card"><div class="cl">F&acirc;nia l&iacute;q.</div><div class="cv c-vl">R$ 3.307,58</div><div class="cs">61 trans &middot; 12,6% da meta</div></div>
   </div>
   <div class="st">Composi&ccedil;&atilde;o do caixa</div>
   <div class="meta-stack">
     <div class="meta-row partial">
-      <div class="mr-top"><div class="mr-label" style="color:var(--am)">&#x23F3; Consultas (01&ndash;02/out &middot; 5 entradas)</div><div class="mr-val" style="color:var(--am)">R$ 2.893,89</div></div>
-      <div class="mr-bar"><div class="mr-fill" style="width:74%;background:var(--gold)"></div></div>
-      <div class="mr-sub">MP (4 trans) + 1 Pix manual &middot; Rev Solar x2 + Mapa Natal x1 + Metade Combo x1 + Follow Up x1</div>
+      <div class="mr-top"><div class="mr-label" style="color:var(--am)">&#x2713; Consultas (S1 &middot; 7 entradas &middot; 01&ndash;07/out)</div><div class="mr-val" style="color:var(--am)">R$ 4.007,76</div></div>
+      <div class="mr-bar"><div class="mr-fill" style="width:55%;background:var(--gold)"></div></div>
+      <div class="mr-sub">MP (6 trans) + 1 Pix manual &middot; Rev Solar x3 + Mapa Natal x1 + Metade Combo x1 + Follow Up x1 + Consulta x1</div>
     </div>
     <div class="meta-row partial">
-      <div class="mr-top"><div class="mr-label" style="color:var(--vl)">&#x23F3; F&acirc;nia recebido (01&ndash;02/out &middot; parcial)</div><div class="mr-val" style="color:var(--vl)">R$ 991,77</div></div>
-      <div class="mr-bar"><div class="mr-fill" style="width:26%;background:var(--violet)"></div></div>
-      <div class="mr-sub">20 trans &middot; 4 mensal + 13 trimestral + 1 premium + 2 intl &middot; S1 parcial</div>
+      <div class="mr-top"><div class="mr-label" style="color:var(--vl)">&#x23F3; F&acirc;nia (S1 ok + S2 parcial &middot; 01&ndash;08/out)</div><div class="mr-val" style="color:var(--vl)">R$ 3.307,58</div></div>
+      <div class="mr-bar"><div class="mr-fill" style="width:45%;background:var(--violet)"></div></div>
+      <div class="mr-sub">61 trans &middot; 16 mensal + 34 trimestral + 6 premium + 5 intl &middot; S1 + S2 parcial</div>
     </div>
     <div class="meta-row gap">
-      <div class="mr-top"><div class="mr-label" style="color:var(--rd)">Gap at&eacute; meta</div><div class="mr-val" style="color:var(--rd)">&minus;R$ 22.314,34</div></div>
-      <div class="mr-bar"><div class="mr-fill" style="width:85%;background:var(--rd);opacity:.4"></div></div>
-      <div class="mr-sub">Restam S1 (incompleta) + S2 + S3 + S4 inteiras &mdash; 29 dias de outubro pela frente</div>
+      <div class="mr-top"><div class="mr-label" style="color:var(--rd)">Gap at&eacute; meta</div><div class="mr-val" style="color:var(--rd)">&minus;R$ 18.884,66</div></div>
+      <div class="mr-bar"><div class="mr-fill" style="width:72%;background:var(--rd);opacity:.4"></div></div>
+      <div class="mr-sub">S2 em andamento + S3 + S4 inteiras &mdash; 23 dias de outubro pela frente</div>
     </div>
   </div>
   <div class="st">Ritmo por semana</div>
   <div style="margin-bottom:14px">
     <div class="pw">
-      <div class="pw-left"><div class="pw-badge b1">S1</div><div><div class="pw-info" style="color:var(--am)">01&ndash;07/out &#x23F3; parcial</div><div class="pw-sub">5 consultas &middot; 20 trans F&acirc;nia &middot; s&oacute; 01&ndash;02</div></div></div>
-      <div><div class="pw-val" style="color:var(--am)">R$ 3.885,66</div><div class="pw-liq">l&iacute;quido parcial</div></div>
+      <div class="pw-left"><div class="pw-badge" style="background:rgba(74,222,128,.18);color:var(--gn)">S1</div><div><div class="pw-info" style="color:var(--gn)">01&ndash;07/out &#x2713; conclu&iacute;da</div><div class="pw-sub">7 consultas + 55 trans F&acirc;nia &middot; S1 fechada</div></div></div>
+      <div><div class="pw-val" style="color:var(--gn)">R$ 6.781,49</div><div class="pw-liq">l&iacute;quido S1</div></div>
     </div>
-    <div class="pw" style="margin-top:6px;opacity:.35">
-      <div class="pw-left"><div class="pw-badge b2">S2</div><div><div class="pw-info">08&ndash;14/out</div><div class="pw-sub">aguardando</div></div></div>
-      <div><div class="pw-val">&mdash;</div><div class="pw-liq">&mdash;</div></div>
+    <div class="pw" style="margin-top:6px">
+      <div class="pw-left"><div class="pw-badge" style="background:rgba(251,191,36,.15);color:var(--am)">S2</div><div><div class="pw-info" style="color:var(--am)">08&ndash;14/out &#x23F3; parcial</div><div class="pw-sub">F&acirc;nia: 6 trans &middot; consultas aguardando MP</div></div></div>
+      <div><div class="pw-val" style="color:var(--am)">R$ 533,85</div><div class="pw-liq">l&iacute;quido parcial</div></div>
     </div>
     <div class="pw" style="margin-top:6px;opacity:.35">
       <div class="pw-left"><div class="pw-badge b3">S3</div><div><div class="pw-info">15&ndash;21/out</div><div class="pw-sub">aguardando</div></div></div>
@@ -2224,8 +2245,8 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--tx);min-h
       <div><div class="pw-val" style="color:var(--pink)">&asymp; R$ 13.000</div><div class="pw-liq">bruto projetado F&acirc;nia</div></div>
     </div>
   </div>
-  <div class="note am"><strong>&#x23F3; Outubro em andamento &mdash; in&iacute;cio promissor</strong>R$ 3.885,66 no caixa (14,8%) em apenas 2 dias de m&ecirc;s. Consultas: 5 entradas &middot; R$ 2.893,89 &middot; 11,0%. F&acirc;nia: 20 trans recorrentes &middot; R$ 991,77. Proje&ccedil;&atilde;o F&acirc;nia m&ecirc;s completo: &asymp;R$ 11.000 bruto. Faltam R$ 22.314,34 para bater a meta de R$ 26.200,00.</div>
-  <div class="foot">META out: R$ 26.200,00 &middot; caixa atual R$ 3.885,66 (14,8%) &middot; consultas R$ 2.893,89 + F&acirc;nia R$ 991,77 &middot; 02/out/2026</div>
+  <div class="note am"><strong>&#x23F3; Outubro em andamento &mdash; 27,9% da meta</strong>R$ 7.315,34 no caixa: consultas R$ 4.007,76 (15,3%) + F&acirc;nia R$ 3.307,58 (12,6%). S1 conclu&iacute;da: 7 consultas + 55 trans F&acirc;nia = R$ 6.781,49 l&iacute;q. S2 parcial: F&acirc;nia R$ 533,85 (6 trans). Faltam R$ 18.884,66 para bater a meta de R$ 26.200,00.</div>
+  <div class="foot">META out: R$ 26.200,00 &middot; caixa R$ 7.315,34 (27,9%) &middot; consultas R$ 4.007,76 + F&acirc;nia R$ 3.307,58 &middot; 08/out/2026</div>
 </div>
   </div><!-- /wrap -->
 
