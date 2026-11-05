@@ -2324,20 +2324,28 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--tx);min-h
 
 <!-- ════ NOV 2026 ⏳ ════ -->
 <div class="msec active" id="msec-nov">
-  <div class="inav">
+
+  <nav class="inav">
     <div class="inav-inner">
       <button class="tab-btn active" onclick="switchTab('nov','consultas',this)">Consultas</button>
       <button class="tab-btn" onclick="switchTab('nov','fania',this)">F&acirc;nia Clube</button>
       <button class="tab-btn" onclick="switchTab('nov','prev',this)">Previsibilidade</button>
     </div>
-  </div>
+  </nav>
 
-  <!-- ── CONSULTAS NOV ── -->
-  <div class="panel active" id="nov-panel-consultas">
-  <div class="hero">
-    <div class="big am">18,9<sup>%</sup></div>
-    <div class="hero-label">da meta &middot; s&oacute; consultas &middot; R$ 26.200,00 l&iacute;q &#x23F3;</div>
-    <div class="badge badge-warn">&#x23F3; 4 consultas &middot; R$ 4.964,34 l&iacute;q &middot; S1 em andamento</div>
+  <div class="wrap">
+
+<!-- ── CONSULTAS NOV ── -->
+<div class="panel active" id="nov-panel-consultas">
+  <div style="margin-bottom:18px">
+    <div class="eyebrow">meta de faturamento &middot; consultas &middot; novembro 2026</div>
+    <div class="hero-row">
+      <div class="big am">18,9<sup>%</sup></div>
+      <div class="hero-sub">
+        <div class="hero-label">da meta &middot; s&oacute; consultas &middot; R$ 26.200,00 l&iacute;q</div>
+        <div class="badge badge-warn">&#x23F3; 4 consultas &middot; R$ 4.964,34 l&iacute;q &middot; S1 em andamento</div>
+      </div>
+    </div>
     <div class="prog"><div class="pf am-f" style="width:18.9%"></div></div>
   </div>
   <div class="g2">
@@ -2346,8 +2354,8 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--tx);min-h
     <div class="card"><div class="cl">Faltam</div><div class="cv c-sk">R$ 21.235,66</div><div class="cs">para bater a meta s&oacute; em consultas</div></div>
     <div class="card"><div class="cl">Produto l&iacute;der</div><div class="cv c-vl">Pacote R$1.348</div><div class="cs">4 vendas &middot; 100% bruto &middot; S1</div></div>
   </div>
-  <div class="st">Semanas &mdash; novembro 2026</div>
-  <div class="weeks">
+  <div class="st">Por semana &mdash; toque para detalhar</div>
+  <div class="wg">
     <div class="wc live" onclick="tw('nov','c',1)">
       <div class="wh"><div class="wb b1">S1</div><div class="wn">4 entradas &#x23F3;</div></div>
       <div class="wbr">R$ 5.392,80</div><div class="wl">L&iacute;q. R$ 4.964,34</div>
@@ -2380,36 +2388,41 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--tx);min-h
   <div class="st">Ranking de produtos (S1 &middot; 4 consultas)</div>
   <div class="pl">
     <div class="pi-c">
-      <div class="pt"><div class="pname">Pacote R$1.348 <span style="font-size:10px;color:var(--mu);font-family:'DM Mono',monospace">CC + Pix</span></div><div class="pq">4 vendas &middot; 100% &middot; lider!</div></div>
+      <div class="pt"><div class="pname">Pacote R$1.348 <span style="font-size:10px;color:var(--mu);font-family:'DM Mono',monospace">CC + Pix</span></div><div class="pq">4 vendas &middot; 100% bruto &middot; l&iacute;der!</div></div>
       <div class="pbr"><div class="pb" style="width:100%;background:linear-gradient(90deg,#fb923c,#f97316)"></div></div>
       <div class="pv"><div class="pvi">Bruto <strong>R$ 5.392,80</strong></div><div class="pvi">L&iacute;q. <strong>R$ 4.964,34</strong></div></div>
     </div>
   </div>
-  <div class="st">Ritmo semanal &mdash; consultas</div>
+  <div class="st">Ritmo</div>
   <div class="bc">
     <div class="bcr"><div class="bcl"><span class="bcn" style="color:var(--am)">S1 &#x23F3;</span><span class="bcv" style="color:var(--am)">R$ 5.392,80 &middot; 4 entradas &middot; 01&ndash;05/nov at&eacute; agora</span></div><div class="bct"><div class="bcf" style="width:100%;background:linear-gradient(90deg,#fbbf24,#f59e0b)"></div></div></div>
     <div class="bcr"><div class="bcl"><span class="bcn" style="color:var(--mu)">S2</span><span class="bcv" style="color:var(--mu)">08&ndash;14/nov &middot; aguardando</span></div><div class="bct"><div class="bcf" style="width:0%"></div></div></div>
     <div class="bcr"><div class="bcl"><span class="bcn" style="color:var(--mu)">S3</span><span class="bcv" style="color:var(--mu)">15&ndash;21/nov &middot; aguardando</span></div><div class="bct"><div class="bcf" style="width:0%"></div></div></div>
     <div class="bcr"><div class="bcl"><span class="bcn" style="color:var(--mu)">S4</span><span class="bcv" style="color:var(--mu)">22&ndash;30/nov &middot; aguardando</span></div><div class="bct"><div class="bcf" style="width:0%"></div></div></div>
   </div>
-  <div class="note am"><strong>&#x23F3; Novembro come&ccedil;ou forte &mdash; 4 consultas S1 (D02&ndash;05)</strong>R$ 4.964,34 l&iacute;q &middot; 18,9% da meta. 100% Pacote R$1.348 &mdash; ticket mais alto! Faltam R$ 21.235,66. Vendas de Aul&atilde;o da Virada excludas desta contagem.</div>
+  <div class="note am"><strong>&#x23F3; Novembro come&ccedil;ou forte &mdash; 4 consultas S1 (D02&ndash;05)</strong>R$ 4.964,34 l&iacute;q &middot; 18,9% da meta. 100% Pacote R$1.348 &mdash; ticket mais alto! Faltam R$ 21.235,66. Vendas de Aul&atilde;o da Virada exclu&iacute;das desta contagem.</div>
   <div class="foot">Meta nov: R$ 26.200,00 l&iacute;q &middot; 4 consultas (S1 &#x23F3; &middot; at&eacute; 05/nov) &middot; 18,9% &middot; 05/nov/2026</div>
-  </div><!-- /nov-panel-consultas -->
+</div><!-- /nov-panel-consultas -->
 
-  <!-- ── FÂNIA NOV ── -->
-  <div class="panel" id="nov-panel-fania">
-  <div class="hero">
-    <div class="big vl">R$ 1.138,18</div>
-    <div class="hero-label">l&iacute;quido &middot; 23 transa&ccedil;&otilde;es &middot; S1 &#x23F3;</div>
-    <div class="badge badge-warn">&#x23F3; S1 em andamento &middot; 23 trans D01&ndash;05 &middot; inc. 2 novas assinaturas</div>
+<!-- ── FÂNIA NOV ── -->
+<div class="panel" id="nov-panel-fania">
+  <div style="margin-bottom:18px">
+    <div class="eyebrow">receita de assinaturas &middot; f&acirc;nia clube &middot; novembro 2026</div>
+    <div class="hero-row">
+      <div class="big vl">R$ 1.138,18</div>
+      <div class="hero-sub">
+        <div class="hero-label">l&iacute;quido &middot; 23 transa&ccedil;&otilde;es &middot; S1 &#x23F3;</div>
+        <div class="badge badge-warn">&#x23F3; S1 em andamento &middot; 23 trans D01&ndash;05 &middot; inc. 2 novas assinaturas</div>
+      </div>
+    </div>
     <div class="prog"><div class="pf vl-f" style="width:4.3%"></div></div>
   </div>
   <div class="g2">
     <div class="card"><div class="cl">Bruto total</div><div class="cv c-vl">R$ 1.197,20</div><div class="cs">23 trans &middot; S1 &#x23F3;</div></div>
     <div class="card"><div class="cl">L&iacute;quido total</div><div class="cv c-gn">R$ 1.138,18</div><div class="cs">Taxa Stripe: R$ 59,02 &middot; 4,3% meta</div></div>
   </div>
-  <div class="st">Semanas &mdash; novembro 2026</div>
-  <div class="weeks">
+  <div class="st">Por semana &mdash; toque para detalhar</div>
+  <div class="wg">
     <div class="wc live op-vl" onclick="tw('nov','f',1)">
       <div class="wh"><div class="wb b1">S1</div><div class="wn">&#x23F3; 23 trans D01&ndash;05</div></div>
       <div class="wbr">R$ 1.197,20</div><div class="wl">L&iacute;q. R$ 1.138,18</div>
@@ -2433,30 +2446,35 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--tx);min-h
   </div>
   <div class="wd vl" id="nov-f1">
     <div class="wdt vl" style="color:var(--am)">Semana 1 &mdash; 01 a 07/nov &#x23F3; em andamento (D01&ndash;05)</div>
-    <div class="dr"><span>Dia 01/nov &mdash; 8 trans &middot; Premium R$300 x1 + Trimestral x3 + Especial x3 + Outros x1</span><strong>R$ 533,86 bruto &middot; R$ 509,43 l&iacute;q</strong></div>
+    <div class="dr"><span>Dia 01/nov &mdash; 8 trans &middot; Premium R$300 (letican) + Novas x2 + Outros x5</span><strong>R$ 533,86 bruto &middot; R$ 509,43 l&iacute;q</strong></div>
     <div class="dr"><span>Dia 02/nov &mdash; 3 trans &middot; Trimestral x1 + Mensal x2</span><strong>R$ 86,80 bruto &middot; R$ 82,17 l&iacute;q</strong></div>
     <div class="dr"><span>Dia 03/nov &mdash; 4 trans &middot; Semestral x1 + Trimestral x2 + Especial x1</span><strong>R$ 212,20 bruto &middot; R$ 202,18 l&iacute;q</strong></div>
-    <div class="dr"><span>Dia 04/nov &mdash; 7 trans &middot; Trimestral x4 + Especial x1 + Novas x2 + Intl x1</span><strong>R$ 319,34 bruto &middot; R$ 301,59 l&iacute;q</strong></div>
+    <div class="dr"><span>Dia 04/nov &mdash; 7 trans &middot; Trimestral x4 + Especial x1 + Novas x1 + Intl EUR x1</span><strong>R$ 319,34 bruto &middot; R$ 301,59 l&iacute;q</strong></div>
     <div class="dr"><span>Dia 05/nov &mdash; 1 trans &middot; Trimestral x1</span><strong>R$ 45,00 bruto &middot; R$ 42,81 l&iacute;q</strong></div>
     <div class="dr"><span>S1 acumulado at&eacute; 05/11 &#x23F3;</span><strong>23 trans &middot; R$ 1.197,20 bruto &middot; R$ 1.138,18 l&iacute;q</strong></div>
   </div>
   <div class="st">Previsibilidade &mdash; F&acirc;nia novembro</div>
-  <div class="pw-wrap">
-    <div class="pw" style="border-color:rgba(74,222,128,.2);background:rgba(74,222,128,.02)">
-      <div class="pw-left"><div class="pw-badge" style="background:rgba(74,222,128,.15);color:var(--gn)">S1</div><div><div class="pw-info" style="color:var(--am)">01&ndash;07/nov &#x23F3; &middot; 23 trans reais (D01&ndash;05)</div><div class="pw-sub">R$ 1.138,18 l&iacute;q real at&eacute; 05/11 &middot; +2 novas assinaturas</div></div></div>
+  <div style="margin-bottom:14px">
+    <div class="pw" style="border-color:rgba(251,191,36,.3);background:rgba(251,191,36,.02)">
+      <div class="pw-left"><div class="pw-badge" style="background:rgba(251,191,36,.15);color:var(--am)">S1</div><div><div class="pw-info" style="color:var(--am)">01&ndash;07/nov &#x23F3; &middot; 23 trans reais (D01&ndash;05)</div><div class="pw-sub">R$ 1.138,18 l&iacute;q real at&eacute; 05/11 &middot; +2 novas assinaturas</div></div></div>
       <div><div class="pw-val" style="color:var(--am)">R$ 1.138,18</div><div class="pw-liq">l&iacute;q. S1 at&eacute; agora</div></div>
     </div>
   </div>
-  <div class="note am"><strong>&#x23F3; F&acirc;nia novembro come&ccedil;ou &mdash; S1 D01&ndash;05</strong>23 trans &middot; R$ 1.138,18 l&iacute;q &middot; 4,3% da meta. Destaque: letican@gmail.com Premium R$ 300 renovada D01; +2 novas assinaturas (juulisboajuu + inerte.fatal0w).</div>
+  <div class="note am"><strong>&#x23F3; F&acirc;nia novembro come&ccedil;ou &mdash; S1 D01&ndash;05</strong>23 trans &middot; R$ 1.138,18 l&iacute;q &middot; 4,3% da meta. Destaque: letican@gmail Premium R$300 D01; +2 novas assinaturas (juulisboajuu + inerte.fatal0w). Intl: anacamiloyoga EUR D04.</div>
   <div class="foot">F&acirc;nia nov/2026 &middot; 23 trans &middot; S1 &#x23F3; em andamento &middot; 05/nov/2026</div>
-  </div><!-- /nov-panel-fania -->
+</div><!-- /nov-panel-fania -->
 
-  <!-- ── PREVISIBILIDADE NOV ── -->
-  <div class="panel" id="nov-panel-prev">
-  <div class="hero">
-    <div class="big am">23,3<sup>%</sup></div>
-    <div class="hero-label">caixa total &middot; consultas + f&acirc;nia &middot; S1 &#x23F3;</div>
-    <div class="badge badge-warn">&#x23F3; R$ 6.102,52 no caixa &middot; 5 dias &middot; S1 em andamento</div>
+<!-- ── PREVISIBILIDADE NOV ── -->
+<div class="panel" id="nov-panel-prev">
+  <div style="margin-bottom:18px">
+    <div class="eyebrow">previsibilidade de receita &middot; consultas + f&acirc;nia &middot; novembro 2026</div>
+    <div class="hero-row">
+      <div class="big am">23,3<sup>%</sup></div>
+      <div class="hero-sub">
+        <div class="hero-label">caixa total &middot; consultas + f&acirc;nia &middot; S1 &#x23F3;</div>
+        <div class="badge badge-warn">&#x23F3; R$ 6.102,52 no caixa &middot; 5 dias &middot; S1 em andamento</div>
+      </div>
+    </div>
     <div class="prog"><div class="pf am-f" style="width:23.3%"></div></div>
   </div>
   <div class="g2">
@@ -2465,7 +2483,7 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--tx);min-h
     <div class="card"><div class="cl">Consultas l&iacute;q.</div><div class="cv c-gold">R$ 4.964,34</div><div class="cs">4 entradas &middot; 18,9% da meta</div></div>
     <div class="card"><div class="cl">F&acirc;nia l&iacute;q.</div><div class="cv c-vl">R$ 1.138,18</div><div class="cs">23 trans &middot; 4,3% da meta</div></div>
   </div>
-  <div class="st">Meta &mdash; stack acumulado</div>
+  <div class="st">Composi&ccedil;&atilde;o do caixa</div>
   <div class="meta-stack">
     <div class="meta-row">
       <div class="mr-top"><div class="mr-label" style="color:var(--am)">&#x23F3; Consultas (S1 &middot; 4 entradas &middot; 02&ndash;05/nov)</div><div class="mr-val" style="color:var(--am)">R$ 4.964,34</div></div>
@@ -2484,7 +2502,7 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--tx);min-h
     </div>
   </div>
   <div class="st">Ritmo semanal &mdash; combinado</div>
-  <div class="pw-wrap">
+  <div style="margin-bottom:14px">
     <div class="pw" style="border-color:rgba(251,191,36,.3);background:rgba(251,191,36,.02)">
       <div class="pw-left"><div class="pw-badge" style="background:rgba(251,191,36,.15);color:var(--am)">S1</div><div><div class="pw-info" style="color:var(--am)">01&ndash;07/nov &#x23F3; &middot; 5 dias &mdash; ritmo forte!</div><div class="pw-sub">4 consultas (R$4.964,34) + 23 trans F&acirc;nia (R$1.138,18)</div></div></div>
       <div><div class="pw-val" style="color:var(--am)">R$ 6.102,52</div><div class="pw-liq">real S1 at&eacute; 05/nov</div></div>
@@ -2502,9 +2520,11 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--tx);min-h
       <div><div class="pw-val" style="color:var(--mu)">&mdash;</div><div class="pw-liq">aguardando</div></div>
     </div>
   </div>
-  <div class="note am"><strong>&#x23F3; Novembro 23,3% &mdash; in&iacute;cio promissor!</strong>R$ 6.102,52 no caixa: consultas R$ 4.964,34 (18,9%) + F&acirc;nia R$ 1.138,18 (4,3%). 100% Pacote R$1.348 nas consultas &mdash; ticket m&eacute;dio excelente! Aul&atilde;o da Virada excludo desta contagem. S2&ndash;S4 ainda por vir.</div>
+  <div class="note am"><strong>&#x23F3; Novembro 23,3% &mdash; in&iacute;cio promissor!</strong>R$ 6.102,52 no caixa: consultas R$ 4.964,34 (18,9%) + F&acirc;nia R$ 1.138,18 (4,3%). 100% Pacote R$1.348 nas consultas &mdash; ticket m&eacute;dio excelente! Aul&atilde;o da Virada exclu&iacute;do desta contagem. S2&ndash;S4 ainda por vir.</div>
   <div class="foot">META nov: R$ 26.200,00 &middot; caixa R$ 6.102,52 (23,3%) &middot; consultas R$ 4.964,34 + F&acirc;nia R$ 1.138,18 &middot; 05/nov/2026</div>
 </div><!-- /nov-panel-prev -->
+
+  </div><!-- /wrap -->
 
 </div><!-- /msec-nov -->
 
