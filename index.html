@@ -766,6 +766,7 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--tx);min-h
       <button class="mbtn" onclick="switchMonth('set',this)">Set 2026</button>
       <button class="mbtn" onclick="switchMonth('out',this)">Out 2026 ✅</button>
       <button class="mbtn active" onclick="switchMonth('nov',this)">Nov 2026 ⏳</button>
+      <button class="mbtn" onclick="switchMonth('aulao',this)">Aulão 2027 ⏳</button>
     </div>
   </div>
 </nav>
@@ -2567,6 +2568,121 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--tx);min-h
 </div><!-- /msec-nov -->
 
 
+<!-- ════ AULÃO DA VIRADA 2027 ════ -->
+<div class="msec" id="msec-aulao">
+
+  <nav class="inav">
+    <div class="inav-inner">
+      <button class="tab-btn active" onclick="switchTab('aulao','vendas',this)">Vendas</button>
+      <button class="tab-btn" onclick="switchTab('aulao','ritmo',this)">Ritmo Diário</button>
+    </div>
+  </nav>
+
+  <div class="wrap">
+
+  <!-- ── AULÃO — VENDAS ── -->
+  <div class="panel active" id="aulao-panel-vendas">
+    <div style="margin-bottom:18px">
+      <div class="eyebrow">evento &middot; aulão da virada 2027 &middot; novembro 2026</div>
+      <div class="hero-row">
+        <div class="big teal">14,9%</div>
+        <div class="hero-sub">
+          <div class="hero-label">R$&nbsp;2.974,85 l&iacute;q &middot; meta R$&nbsp;20.000 &middot; 28 vendas</div>
+          <div class="badge badge-warn">&#x23F3; S2 em andamento &middot; D08&ndash;09 &middot; 4 pagamentos</div>
+        </div>
+      </div>
+      <div class="prog"><div class="pf teal-f" style="width:14.9%"></div></div>
+    </div>
+    <div class="g4">
+      <div class="card hl-teal"><div class="cl">Bruto total</div><div class="cv c-teal">R$&nbsp;3.080,00</div><div class="cs">28&times;R$110 &middot; S1&#x2705;+S2&#x23F3;</div></div>
+      <div class="card hl-teal"><div class="cl">Líquido total</div><div class="cv c-gn">R$&nbsp;2.974,85</div><div class="cs">Taxa MP: R$&nbsp;105,15 &middot; 14,9% meta</div></div>
+      <div class="card"><div class="cl">Faltam</div><div class="cv" style="color:var(--rd)">R$&nbsp;17.025,15</div><div class="cs">~160 vendas &middot; meta R$&nbsp;20.000 l&iacute;q</div></div>
+      <div class="card"><div class="cl">Ticket m&eacute;dio l&iacute;q</div><div class="cv c-teal">R$&nbsp;106,24</div><div class="cs">Pix R$108,91 &middot; CC R$104,52</div></div>
+    </div>
+    <div class="st">Por semana &mdash; toque para detalhar</div>
+    <div class="wg">
+      <div class="wc done" onclick="tw('aulao','v',1)">
+        <div class="wh"><div class="wb b1">S1</div><div class="wn">&#x2705; 24 vendas &middot; fechada</div></div>
+        <div class="wbr">R$&nbsp;2.640,00</div><div class="wl">L&iacute;q. R$&nbsp;2.547,99</div>
+        <div class="tags"><span class="tg gn">02&ndash;07/nov &#x2705;</span><span class="tg">MP</span></div>
+      </div>
+      <div class="wc live" onclick="tw('aulao','v',2)">
+        <div class="wh"><div class="wb b2">S2</div><div class="wn">&#x23F3; 4 vendas D08&ndash;09</div></div>
+        <div class="wbr">R$&nbsp;440,00</div><div class="wl">L&iacute;q. R$&nbsp;426,86</div>
+        <div class="tags"><span class="tg am">08&ndash;14/nov &#x23F3;</span><span class="tg">MP</span></div>
+      </div>
+      <div class="wc">
+        <div class="wh"><div class="wb b3">S3</div><div class="wn">em aberto</div></div>
+        <div class="wbr">&mdash;</div><div class="wl">15&ndash;21/nov</div>
+        <div class="tags"><span class="tg">aguardando</span></div>
+      </div>
+      <div class="wc">
+        <div class="wh"><div class="wb b4">S4</div><div class="wn">em aberto</div></div>
+        <div class="wbr">&mdash;</div><div class="wl">22&ndash;30/nov</div>
+        <div class="tags"><span class="tg">aguardando</span></div>
+      </div>
+    </div>
+    <div class="wd" id="aulao-v1" style="border-color:rgba(45,212,191,.35)">
+      <div class="wdt" style="color:var(--teal)">Semana 1 &mdash; 02 a 07/nov &#x2705; FECHADA &middot; 24 pagamentos</div>
+      <div class="dr"><span>D02 &mdash; 4 pagamentos &middot; R$110&times;4 &middot; Pix+CC</span><strong>R$&nbsp;440,00 &rarr; R$&nbsp;424,42 l&iacute;q</strong></div>
+      <div class="dr hi"><span>D03 &mdash; 10 pagamentos &#x1F525; PICO &middot; R$110&times;10</span><strong>R$&nbsp;1.100,00 &rarr; R$&nbsp;1.062,36 l&iacute;q</strong></div>
+      <div class="dr"><span>D04 &mdash; 3 pagamentos &middot; R$110&times;3</span><strong>R$&nbsp;330,00 &rarr; R$&nbsp;318,71 l&iacute;q</strong></div>
+      <div class="dr"><span>D05 &mdash; 3 pagamentos &middot; R$110&times;3</span><strong>R$&nbsp;330,00 &rarr; R$&nbsp;318,71 l&iacute;q</strong></div>
+      <div class="dr"><span>D06 &mdash; 2 pagamentos &middot; R$110&times;2</span><strong>R$&nbsp;220,00 &rarr; R$&nbsp;212,47 l&iacute;q</strong></div>
+      <div class="dr"><span>D07 &mdash; 2 pagamentos &middot; R$110&times;2</span><strong>R$&nbsp;220,00 &rarr; R$&nbsp;212,47 l&iacute;q (est.)</strong></div>
+      <div class="dr"><span>Total S1 &#x2705; &mdash; 24 pagamentos &middot; 02&ndash;07/nov</span><strong>R$&nbsp;2.640,00 bruto &middot; R$&nbsp;2.547,99 l&iacute;q</strong></div>
+    </div>
+    <div class="wd" id="aulao-v2" style="border-color:rgba(251,191,36,.35)">
+      <div class="wdt" style="color:var(--am)">Semana 2 &mdash; 08 a 14/nov &#x23F3; em andamento (D08&ndash;09)</div>
+      <div class="dr"><span>D08 &mdash; 3 pagamentos &middot; R$110&times;3</span><strong>R$&nbsp;330,00 &rarr; R$&nbsp;319,07 l&iacute;q (est.)</strong></div>
+      <div class="dr"><span>D09 &mdash; 1 pagamento &middot; R$110&times;1</span><strong>R$&nbsp;110,00 &rarr; R$&nbsp;107,79 l&iacute;q (est.)</strong></div>
+      <div class="dr"><span>Total S2 &#x23F3; &mdash; 4 pagamentos at&eacute; 09/11</span><strong>R$&nbsp;440,00 bruto &middot; R$&nbsp;426,86 l&iacute;q</strong></div>
+    </div>
+    <div class="note am"><strong>&#x2705; S1 fechada &mdash; 24 vendas &middot; R$&nbsp;2.547,99 l&iacute;q &middot; &#x23F3; S2 D08&ndash;09 +4 (R$&nbsp;426,86)</strong>Total: 28 vendas &middot; R$&nbsp;2.974,85 l&iacute;q &middot; 14,9% da meta R$&nbsp;20.000. Pico D03 (10 vendas). Ritmo m&eacute;dio: 3,1/dia. Para bater meta em novembro: precisar&iacute;a de ~8 vendas/dia. Faltam ~160 pagamentos.</div>
+    <div class="foot">META aulão: R$ 20.000,00 líq &middot; 28 vendas (S1&#x2705;+S2&#x23F3; até D09) &middot; 14,9% &middot; 09/nov/2026</div>
+  </div><!-- /aulao-panel-vendas -->
+
+  <!-- ── AULÃO — RITMO DIÁRIO ── -->
+  <div class="panel" id="aulao-panel-ritmo">
+    <div style="margin-bottom:18px">
+      <div class="eyebrow">ritmo diário &middot; aulão da virada 2027 &middot; R$110/venda</div>
+      <div class="hero-row">
+        <div class="big teal">28</div>
+        <div class="hero-sub">
+          <div class="hero-label">vendas totais &middot; D02&ndash;D09 &middot; pico D03 (10)</div>
+          <div class="badge" style="background:rgba(45,212,191,.12);border:1px solid rgba(45,212,191,.3);color:var(--teal)">R$&nbsp;3.080,00 bruto &middot; R$&nbsp;2.974,85 l&iacute;q</div>
+        </div>
+      </div>
+    </div>
+    <div class="st">Vendas por dia</div>
+    <div class="bc">
+      <div class="bcr"><div class="bcl"><span class="bcn" style="color:var(--mu)">D02 02/nov</span><span class="bcv" style="color:var(--mu)">4 vendas &middot; R$&nbsp;440,00 bruto</span></div><div class="bct"><div class="bcf" style="width:40%;background:linear-gradient(90deg,var(--teal),#67e8f9)"></div></div></div>
+      <div class="bcr"><div class="bcl"><span class="bcn" style="color:var(--teal)">D03 03/nov &#x1F525;</span><span class="bcv" style="color:var(--teal)">10 vendas &middot; R$&nbsp;1.100,00 bruto &mdash; PICO</span></div><div class="bct"><div class="bcf" style="width:100%;background:linear-gradient(90deg,var(--teal),#67e8f9)"></div></div></div>
+      <div class="bcr"><div class="bcl"><span class="bcn" style="color:var(--mu)">D04 04/nov</span><span class="bcv" style="color:var(--mu)">3 vendas &middot; R$&nbsp;330,00 bruto</span></div><div class="bct"><div class="bcf" style="width:30%;background:linear-gradient(90deg,var(--teal),#67e8f9)"></div></div></div>
+      <div class="bcr"><div class="bcl"><span class="bcn" style="color:var(--mu)">D05 05/nov</span><span class="bcv" style="color:var(--mu)">3 vendas &middot; R$&nbsp;330,00 bruto</span></div><div class="bct"><div class="bcf" style="width:30%;background:linear-gradient(90deg,var(--teal),#67e8f9)"></div></div></div>
+      <div class="bcr"><div class="bcl"><span class="bcn" style="color:var(--mu)">D06 06/nov</span><span class="bcv" style="color:var(--mu)">2 vendas &middot; R$&nbsp;220,00 bruto</span></div><div class="bct"><div class="bcf" style="width:20%;background:linear-gradient(90deg,var(--teal),#67e8f9)"></div></div></div>
+      <div class="bcr"><div class="bcl"><span class="bcn" style="color:var(--mu)">D07 07/nov</span><span class="bcv" style="color:var(--mu)">2 vendas &middot; R$&nbsp;220,00 bruto</span></div><div class="bct"><div class="bcf" style="width:20%;background:linear-gradient(90deg,var(--teal),#67e8f9)"></div></div></div>
+      <div class="bcr"><div class="bcl"><span class="bcn" style="color:var(--am)">D08 08/nov &#x23F3;</span><span class="bcv" style="color:var(--am)">3 vendas &middot; R$&nbsp;330,00 bruto</span></div><div class="bct"><div class="bcf" style="width:30%;background:linear-gradient(90deg,#fbbf24,#f59e0b)"></div></div></div>
+      <div class="bcr"><div class="bcl"><span class="bcn" style="color:var(--am)">D09 09/nov &#x23F3;</span><span class="bcv" style="color:var(--am)">1 venda &middot; R$&nbsp;110,00 bruto</span></div><div class="bct"><div class="bcf" style="width:10%;background:linear-gradient(90deg,#fbbf24,#f59e0b)"></div></div></div>
+    </div>
+    <div class="g2" style="margin-top:18px">
+      <div class="card hl-teal"><div class="cl">Ritmo atual</div><div class="cv c-teal">3,1 / dia</div><div class="cs">28 vendas em 9 dias &middot; D02&ndash;D09</div></div>
+      <div class="card"><div class="cl">Ritmo necessário</div><div class="cv" style="color:var(--am)">~8 / dia</div><div class="cs">para fechar R$20k em novembro</div></div>
+    </div>
+    <div class="st">Projeção</div>
+    <div class="bc">
+      <div class="bcr"><div class="bcl"><span class="bcn" style="color:var(--teal)">Atingido &#x2705;</span><span class="bcv" style="color:var(--teal)">R$&nbsp;2.974,85 l&iacute;q &middot; 28 vendas &middot; 14,9% meta</span></div><div class="bct"><div class="bcf" style="width:14.9%;background:linear-gradient(90deg,var(--teal),#67e8f9)"></div></div></div>
+      <div class="bcr"><div class="bcl"><span class="bcn" style="color:var(--mu)">Faltam</span><span class="bcv" style="color:var(--mu)">R$&nbsp;17.025,15 l&iacute;q &middot; ~160 vendas &middot; 85,1%</span></div><div class="bct"><div class="bcf" style="width:85.1%;background:rgba(45,212,191,.12)"></div></div></div>
+    </div>
+    <div class="note am"><strong>Precisa de ~188 vendas totais para bater R$20k l&iacute;q (@ R$106,24 m&eacute;d).</strong> Pico de lan&ccedil;amento D03 normal &mdash; a curva vai cair. Manter promo&ccedil;&atilde;o ativa &eacute; chave. Meta &eacute; ambiciosa mas vi&aacute;vel com retomada nos pr&oacute;ximos ciclos.</div>
+    <div class="foot">Aulão da Virada 2027 &middot; R$110/venda &middot; meta R$20.000 líq &middot; 28 vendas até D09 &middot; 09/nov/2026</div>
+  </div><!-- /aulao-panel-ritmo -->
+
+  </div><!-- /wrap -->
+
+</div><!-- /msec-aulao -->
+
+
 <script>
 /* switchMonth — ativa a seção do mês e reseta para a 1ª aba */
 function switchMonth(m, btn) {
@@ -2602,7 +2718,7 @@ function tw(m, p, n) {
   if (!d) { console.warn('drawer not found:', drawerId); return; }
   var sec = document.getElementById('msec-' + m);
   // identifica o painel pai (consultas ou fania)
-  var panelName = (p === 'c') ? 'consultas' : 'fania';
+  var panelName = (p === 'c') ? 'consultas' : (p === 'f') ? 'fania' : (p === 'v') ? 'vendas' : p;
   var panel = document.getElementById(m + '-panel-' + panelName);
   var wasOpen = d.classList.contains('op');
   // fecha todos os drawers do mês
